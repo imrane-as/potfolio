@@ -18,7 +18,7 @@ const copy = {
     experience:{index:"02 / EXPERIENCE",eyebrow:"CAREER LOG",title:<>Enterprise environments.<br/><em>Real delivery responsibility.</em></>},
     work:{index:"03 / SELECTED WORK",eyebrow:"CASE FILES",title:<>I don't list technologies.<br/><em>I show what they enable.</em></>,note:"Architecture, security, automation and coordination — connected around delivery."},
     system:{index:"04 / THE SYSTEM",eyebrow:"FROM CODE TO PRODUCTION",title:<>A delivery chain built<br/><em>to survive reality.</em></>},
-    education:{index:"05 / EDUCATION",eyebrow:"FOUNDATION",title:<>Software foundations.<br/><em>Infrastructure mindset.</em>},
+    education:{index:"05 / EDUCATION",eyebrow:"FOUNDATION",title:<>Software foundations.<br/><em>Infrastructure mindset.</em></>},
     contact:{index:"06 / LET'S BUILD",title:<>The next system<br/><em>starts with a conversation.</em></>,text:"DevOps, API Management, cloud-native platforms or a difficult integration problem — let's talk.",mail:"imr.asrir@gmail.com"},
     cv:"Download CV",language:"FR",online:"● online",terminal:"imrane@platform:~"
   },
@@ -31,7 +31,7 @@ const copy = {
     experience:{index:"02 / EXPÉRIENCE",eyebrow:"PARCOURS",title:<>Environnements d'entreprise.<br/><em>Responsabilité technique réelle.</em></>},
     work:{index:"03 / PROJETS",eyebrow:"CASE FILES",title:<>Je ne liste pas les technologies.<br/><em>Je montre ce qu'elles permettent.</em></>,note:"Architecture, sécurité, automatisation et coordination — réunies autour de la livraison."},
     system:{index:"04 / LE SYSTÈME",eyebrow:"DU CODE À LA PRODUCTION",title:<>Une chaîne de livraison conçue<br/><em>pour le réel.</em></>},
-    education:{index:"05 / FORMATION",eyebrow:"FONDATIONS",title:<>Fondamentaux logiciels.<br/><em>Culture infrastructure.</em>},
+    education:{index:"05 / FORMATION",eyebrow:"FONDATIONS",title:<>Fondamentaux logiciels.<br/><em>Culture infrastructure.</em></>},
     contact:{index:"06 / CONSTRUISONS",title:<>Le prochain système<br/><em>commence par une discussion.</em></>,text:"DevOps, API Management, plateformes cloud-native ou problème d'intégration complexe — parlons-en.",mail:"imr.asrir@gmail.com"},
     cv:"Télécharger le CV",language:"EN",online:"● en ligne",terminal:"imrane@platform:~"
   }
