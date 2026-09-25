@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { jsPDF } from "jspdf";
 import {
   ArrowDownRight, ArrowUpRight, Braces, Check, Cloud, Container,
@@ -91,7 +91,7 @@ function App(){
 
   const downloadCV=()=>{
     const doc=new jsPDF({unit:"mm",format:"a4"});
-    const green=[199,255,77],dark=[8,10,10],muted=[90,98,95];
+    const green:[number,number,number]=[199,255,77],dark:[number,number,number]=[8,10,10],muted:[number,number,number]=[90,98,95];
     doc.setFillColor(...dark);doc.rect(0,0,210,297,"F");
     doc.setTextColor(...green);doc.setFont("helvetica","bold");doc.setFontSize(27);doc.text("IMRANE ASRIR",18,25);
     doc.setTextColor(245,245,240);doc.setFontSize(11);doc.text(lang==="en"?"API MANAGEMENT & DEVOPS ENGINEER":"INGÉNIEUR API MANAGEMENT & DEVOPS",18,34);
