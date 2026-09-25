@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { jsPDF } from "jspdf";
 import {
   ArrowDownRight, ArrowUpRight, Braces, Check, Cloud, Container,
@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 
 type Lang = "en" | "fr";
+type Capability = readonly [string, string, typeof Container];
 
 const copy = {
   en: {
@@ -78,13 +79,23 @@ function CompanyLogo({url,mark}:{url:string;mark:string}){return <span className
 function App(){
   const [lang,setLang]=useState<Lang>("en"),[menuOpen,setMenuOpen]=useState(false),[scroll,setScroll]=useState(0);
   const t=copy[lang], exp=experiences[lang], projs=projects[lang];
-  const capabilities=useMemo(()=>lang==="en"?[
-    ["PLATFORM","Kubernetes · OpenShift · AKS",Container],["INTEGRATION","APIs · Middleware · Flows",Network],["SECURITY","TLS · mTLS · OAuth2",ShieldCheck],
-    ["AUTOMATION","CI/CD · GitOps · IaC",Terminal],["CLOUD","Azure · AWS",Cloud],["API MANAGEMENT","API Connect · DataPower",Layers3]
-  ]:[
-    ["PLATEFORME","Kubernetes · OpenShift · AKS",Container],["INTÉGRATION","APIs · Middleware · Flux",Network],["SÉCURITÉ","TLS · mTLS · OAuth2",ShieldCheck],
-    ["AUTOMATISATION","CI/CD · GitOps · IaC",Terminal],["CLOUD","Azure · AWS",Cloud],["API MANAGEMENT","API Connect · DataPower",Layers3]
-  ],[lang]);
+  const capabilities: Capability[] = lang === "en"
+    ? [
+        ["PLATFORM", "Kubernetes · OpenShift · AKS", Container],
+        ["INTEGRATION", "APIs · Middleware · Flows", Network],
+        ["SECURITY", "TLS · mTLS · OAuth2", ShieldCheck],
+        ["AUTOMATION", "CI/CD · GitOps · IaC", Terminal],
+        ["CLOUD", "Azure · AWS", Cloud],
+        ["API MANAGEMENT", "API Connect · DataPower", Layers3]
+      ]
+    : [
+        ["PLATEFORME", "Kubernetes · OpenShift · AKS", Container],
+        ["INTÉGRATION", "APIs · Middleware · Flux", Network],
+        ["SÉCURITÉ", "TLS · mTLS · OAuth2", ShieldCheck],
+        ["AUTOMATISATION", "CI/CD · GitOps · IaC", Terminal],
+        ["CLOUD", "Azure · AWS", Cloud],
+        ["API MANAGEMENT", "API Connect · DataPower", Layers3]
+      ];
 
   useEffect(()=>{const f=()=>{const m=document.documentElement.scrollHeight-window.innerHeight;setScroll(m>0?window.scrollY/m*100:0)};addEventListener("scroll",f,{passive:true});f();return()=>removeEventListener("scroll",f)},[]);
   useEffect(()=>{const o=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("is-visible")),{threshold:.12});document.querySelectorAll("[data-reveal]").forEach(x=>o.observe(x));return()=>o.disconnect()},[lang]);
