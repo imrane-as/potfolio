@@ -1,23 +1,19 @@
 import { useEffect, useState } from "react";
 import {
+  ArrowDown,
   ArrowDownRight,
   ArrowUpRight,
   Braces,
   Cloud,
   Container,
-  Database,
-  Download,
   Github,
   Globe2,
-  KeyRound,
   Layers3,
   Linkedin,
   Mail,
   Menu,
   Network,
-  Server,
   ShieldCheck,
-  Sparkles,
   Terminal,
   X,
 } from "lucide-react";
@@ -362,14 +358,13 @@ function App() {
             <h2>Une chaîne qui relie<br /><em>les idées au réel.</em></h2>
           </div>
           <div className="architecture-flow">
-            {[
+            {([
               [Braces, "CODE", "Git · APIs · Apps"],
               [Terminal, "PIPELINE", "CI/CD · Automation"],
               [Container, "PLATFORM", "K8s · OpenShift · AKS"],
               [ShieldCheck, "SECURITY", "mTLS · OAuth2 · Secrets"],
               [Globe2, "PRODUCTION", "Observe · Operate · Improve"],
-            ].map(([Icon, title, detail], index) => {
-              const Component = Icon as typeof Braces;
+            ] as const).map(([Component, title, detail], index) => {
               return (
                 <div className="flow-node reveal" data-reveal key={title} style={{ transitionDelay: `${index * 90}ms` }}>
                   <div className="flow-icon"><Component size={20} /></div>
