@@ -196,7 +196,7 @@ function App() {
           <div className="portrait-wrap reveal delay-2" data-reveal>
             <div className="portrait-frame">
               <div className="portrait-label top">DEVOPS / 2026</div>
-              <img src="/imrane-portrait.webp" alt="Portrait professionnel d'Imrane Asri" className="portrait" />
+              <img src="https://avatars.githubusercontent.com/u/294130861?v=4" alt="Portrait professionnel d'Imrane Asri" className="portrait" />
               <div className="portrait-glow" />
               <div className="portrait-label bottom">ENGINEERING WITH PURPOSE</div>
             </div>
