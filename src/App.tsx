@@ -1,236 +1,446 @@
+import { useEffect, useState } from "react";
 import {
-  ArrowDown,
+  ArrowDownRight,
   ArrowUpRight,
+  Braces,
   Cloud,
-  Code2,
   Container,
-  GitBranch,
+  Database,
+  Download,
   Github,
+  Globe2,
+  KeyRound,
+  Layers3,
   Linkedin,
   Mail,
+  Menu,
+  Network,
   Server,
   ShieldCheck,
+  Sparkles,
   Terminal,
-  Workflow,
+  X,
 } from "lucide-react";
 
-const skills = [
-  { label: "OpenShift / Kubernetes", icon: Container },
-  { label: "GitOps / Argo CD", icon: GitBranch },
-  { label: "Terraform / Ansible", icon: Workflow },
-  { label: "CI/CD & Automation", icon: Terminal },
-  { label: "Vault / Secrets", icon: ShieldCheck },
-  { label: "Cloud & Linux", icon: Cloud },
-  { label: "API Management", icon: Code2 },
-  { label: "Architecture & Integration", icon: Server },
+const experiences = [
+  {
+    period: "03.2026 — now",
+    company: "BIL Luxembourg",
+    role: "DevOps Engineer / API Management",
+    context: "Banking · Core Banking migration to Finacle",
+    points: [
+      "Coordination of inter-application flows and technical specifications.",
+      "Security, network and API Management coordination across SIT, UAT, PREPROD and PROD.",
+      "Incident resolution, technical troubleshooting and cross-functional delivery.",
+    ],
+    stack: ["API Manager", "Swagger/OpenAPI", "TLS/mTLS", "OAuth2", "Jira"],
+  },
+  {
+    period: "04.2025 — 02.2026",
+    company: "POST Luxembourg",
+    role: "Project Manager / Application Integration",
+    context: "Banking · Cloud-native delivery",
+    points: [
+      "Deployment, monitoring and automation on Azure, AKS and OpenShift 4.",
+      "CI/CD design with GitLab and Argo CD, plus Helm and Kubernetes templates.",
+      "Production OpenShift support, project governance and technical risk follow-up.",
+    ],
+    stack: ["Azure", "AKS", "OpenShift 4", "Kubernetes", "Helm", "Argo CD"],
+  },
+  {
+    period: "03.2025 — now",
+    company: "ITS4U Group",
+    role: "DevOps Engineer / API Management",
+    context: "Cloud computing · Digital transformation",
+    points: [
+      "Technical leadership around CI/CD and Kubernetes environments.",
+      "Infrastructure as Code and deployment automation.",
+      "Coordination between development and cloud teams with a strong reliability focus.",
+    ],
+    stack: ["Azure", "Kubernetes", "Docker", "Azure DevOps"],
+  },
+  {
+    period: "01.2024 — 06.2024",
+    company: "Capgemini",
+    role: "DevOps Engineer",
+    context: "Digital services",
+    points: [
+      "Development of a centralized web application for coal contract management.",
+      "SQL Server management and coordination with business users.",
+    ],
+    stack: [".NET", "Entity Framework", "SQL Server"],
+  },
+];
+
+const capabilities = [
+  { icon: Container, label: "Kubernetes", detail: "OpenShift · AKS · Helm" },
+  { icon: Network, label: "Integration", detail: "API · Middleware · Flows" },
+  { icon: ShieldCheck, label: "Security", detail: "TLS · mTLS · OAuth2" },
+  { icon: Terminal, label: "Automation", detail: "Bash · CI/CD · IaC" },
+  { icon: Cloud, label: "Cloud", detail: "Azure · AWS" },
+  { icon: Layers3, label: "API Management", detail: "API Connect · DataPower" },
 ];
 
 const projects = [
   {
-    title: "OpenShift GitOps Platform",
-    tag: "Platform Engineering",
-    description:
-      "Industrialisation d’une plateforme OpenShift avec Argo CD, GitOps, secrets, ingress et configuration d’environnements.",
-    stack: ["OpenShift", "Argo CD", "GitLab", "Vault"],
+    number: "01",
+    title: "API Management",
+    eyebrow: "PLATFORM MODERNIZATION",
+    text: "Migration and modernization of API Management on IBM API Connect v12 running on OpenShift.",
+    tags: ["API Connect v12", "OpenShift", "DataPower", "mTLS"],
   },
   {
-    title: "RHEL VM Automation",
-    tag: "Infrastructure as Code",
-    description:
-      "Création d’images RHEL automatisées avec Packer et provisioning Terraform pour des environnements reproductibles.",
-    stack: ["RHEL", "Packer", "Terraform", "Ansible"],
+    number: "02",
+    title: "Cloud-native delivery",
+    eyebrow: "DELIVERY ENGINEERING",
+    text: "Deployment pipelines and cloud-native operations across Azure, AKS and OpenShift, with GitLab, Argo CD and Helm.",
+    tags: ["Azure", "AKS", "Argo CD", "Helm"],
   },
   {
-    title: "Enterprise Integration Flows",
-    tag: "Integration / DevOps",
-    description:
-      "Conception et troubleshooting de flux sécurisés entre applications bancaires, API gateways, MFT et systèmes partenaires.",
-    stack: ["mTLS", "API Manager", "GoAnywhere", "Datapower"],
+    number: "03",
+    title: "Secure integration",
+    eyebrow: "BANKING INTEGRATION",
+    text: "Technical coordination of application flows, security constraints and production readiness for banking transformation programs.",
+    tags: ["OAuth2", "TLS/mTLS", "Swagger", "Jira"],
   },
 ];
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scroll, setScroll] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setScroll(max > 0 ? (window.scrollY / max) * 100 : 0);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const items = document.querySelectorAll("[data-reveal]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("is-visible");
+        });
+      },
+      { threshold: 0.12 }
+    );
+    items.forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-cyan-400/30">
-      <header className="sticky top-0 z-50 border-b border-white/5 bg-slate-950/80 backdrop-blur-xl">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#home" className="font-semibold tracking-tight">
-            IMRANE<span className="text-cyan-400">.</span>
-          </a>
-          <div className="hidden items-center gap-7 text-sm text-slate-300 md:flex">
-            <a href="#about" className="transition hover:text-white">À propos</a>
-            <a href="#skills" className="transition hover:text-white">Compétences</a>
-            <a href="#projects" className="transition hover:text-white">Projets</a>
-            <a href="#contact" className="transition hover:text-white">Contact</a>
-          </div>
-          <a
-            href="#contact"
-            className="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm font-medium text-cyan-200 transition hover:bg-cyan-400/20"
-          >
-            Disponible
-          </a>
-        </nav>
+    <div className="site-shell">
+      <div className="scroll-progress" style={{ width: `${scroll}%` }} />
+
+      <div className="noise" aria-hidden="true" />
+
+      <header className="nav">
+        <a href="#top" className="brand" aria-label="Imrane Asri home">
+          IA<span>/</span>
+        </a>
+
+        <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+          <a href="#story" onClick={() => setMenuOpen(false)}>Story</a>
+          <a href="#experience" onClick={() => setMenuOpen(false)}>Experience</a>
+          <a href="#work" onClick={() => setMenuOpen(false)}>Work</a>
+          <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+        </div>
+
+        <a className="nav-cta" href="#contact">Let's talk <ArrowUpRight size={15} /></a>
+
+        <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+          {menuOpen ? <X size={21} /> : <Menu size={21} />}
+        </button>
       </header>
 
-      <main>
-        <section id="home" className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,.12),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,.10),transparent_35%)]" />
-          <div className="relative mx-auto grid min-h-[86vh] max-w-6xl items-center gap-14 px-6 py-24 md:grid-cols-[1.3fr_.7fr]">
-            <div>
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-slate-300">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,.9)]" />
-                DevOps Engineer · Luxembourg
+      <main id="top">
+        <section className="hero">
+          <div className="hero-grid" />
+          <div className="hero-orbit orbit-a" />
+          <div className="hero-orbit orbit-b" />
+
+          <div className="hero-copy">
+            <div className="eyebrow reveal" data-reveal>
+              <span className="status-dot" /> DEVOPS ENGINEER · LUXEMBOURG
+            </div>
+
+            <p className="hero-kicker reveal delay-1" data-reveal>
+              CLOUD / PLATFORM / INTEGRATION
+            </p>
+
+            <h1 className="hero-title reveal delay-2" data-reveal>
+              IMRANE
+              <span>ASRIR</span>
+            </h1>
+
+            <p className="hero-intro reveal delay-3" data-reveal>
+              Je transforme des environnements complexes en plateformes
+              <strong> déployables, sécurisées et fiables.</strong>
+            </p>
+
+            <div className="hero-actions reveal delay-4" data-reveal>
+              <a href="#work" className="button button-primary">
+                Explorer mon travail <ArrowDownRight size={18} />
+              </a>
+              <a href="mailto:imr.asrir@gmail.com" className="button button-ghost">
+                Me contacter <Mail size={17} />
+              </a>
+            </div>
+          </div>
+
+          <div className="portrait-wrap reveal delay-2" data-reveal>
+            <div className="portrait-frame">
+              <div className="portrait-label top">DEVOPS / 2026</div>
+              <img src="/imrane-portrait.webp" alt="Portrait professionnel d'Imrane Asri" className="portrait" />
+              <div className="portrait-glow" />
+              <div className="portrait-label bottom">ENGINEERING WITH PURPOSE</div>
+            </div>
+          </div>
+
+          <div className="hero-side">
+            <span>SCROLL TO DISCOVER</span>
+            <div className="side-line" />
+            <ArrowDown size={15} />
+          </div>
+
+          <div className="hero-meta">
+            <span>BASED IN FRANCE</span>
+            <span>WORKING IN LUXEMBOURG</span>
+            <span>AVAILABLE FOR THE NEXT CHALLENGE</span>
+          </div>
+        </section>
+
+        <div className="marquee" aria-hidden="true">
+          <div className="marquee-track">
+            <span>KUBERNETES</span><i>✦</i><span>OPENSHIFT</span><i>✦</i>
+            <span>GITOPS</span><i>✦</i><span>API MANAGEMENT</span><i>✦</i>
+            <span>CI/CD</span><i>✦</i><span>CLOUD</span><i>✦</i>
+            <span>KUBERNETES</span><i>✦</i><span>OPENSHIFT</span><i>✦</i>
+            <span>GITOPS</span><i>✦</i><span>API MANAGEMENT</span><i>✦</i>
+          </div>
+        </div>
+
+        <section id="story" className="section story">
+          <div className="section-index">01 / STORY</div>
+          <div className="story-layout">
+            <div className="section-heading reveal" data-reveal>
+              <p className="eyebrow">WHO I AM</p>
+              <h2>Pas juste faire tourner une app. <em>Comprendre le système.</em></h2>
+            </div>
+            <div className="story-copy reveal delay-1" data-reveal>
+              <p>
+                DevOps Engineer chez ITS4U Group, je travaille sur des projets
+                clients dans le secteur bancaire, à l’intersection de
+                l’intégration applicative, du middleware, de l’API Management
+                et des plateformes cloud-native.
+              </p>
+              <p>
+                Mon terrain de jeu : Kubernetes, OpenShift, Azure, CI/CD,
+                API gateways, sécurité des flux et automatisation. Mon approche
+                reste orientée delivery, qualité et fiabilité.
+              </p>
+              <div className="signature-line">
+                <span>IMRANE ASRIR</span>
+                <span>DEVOPS ENGINEER</span>
               </div>
-              <p className="mb-4 text-sm font-medium uppercase tracking-[0.28em] text-cyan-300/80">
-                Cloud · Kubernetes · Automation
-              </p>
-              <h1 className="max-w-4xl text-5xl font-semibold tracking-tight text-white md:text-7xl">
-                Je construis des plateformes{" "}
-                <span className="text-cyan-300">fiables et automatisées.</span>
-              </h1>
-              <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-400">
-                Je m’appelle Imrane Asri. Je travaille sur des environnements
-                DevOps, Kubernetes/OpenShift, GitOps, sécurité et intégration
-                dans des contextes critiques.
-              </p>
-              <div className="mt-9 flex flex-wrap gap-3">
-                <a href="#projects" className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-100">
-                  Voir mes projets <ArrowDown size={16} />
-                </a>
-                <a href="#contact" className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
-                  Me contacter <ArrowUpRight size={16} />
-                </a>
+            </div>
+          </div>
+
+          <div className="capability-grid">
+            {capabilities.map(({ icon: Icon, label, detail }, index) => (
+              <div className="capability reveal" data-reveal key={label} style={{ transitionDelay: `${index * 70}ms` }}>
+                <Icon size={20} />
+                <span className="capability-number">0{index + 1}</span>
+                <h3>{label}</h3>
+                <p>{detail}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="signal-section">
+          <div className="signal-inner">
+            <div className="terminal-window reveal" data-reveal>
+              <div className="terminal-top">
+                <span><i /> <i /> <i /></span>
+                <span>imrane@platform:~</span>
+                <span>● live</span>
+              </div>
+              <div className="terminal-body">
+                <p><b>$</b> whoami</p>
+                <p className="terminal-output">devops.engineer --focus=platform</p>
+                <p><b>$</b> stack --list</p>
+                <p className="terminal-output">k8s · openshift · azure · gitops · api · security</p>
+                <p><b>$</b> mission</p>
+                <p className="terminal-output accent">make-it-reliable.sh ✓</p>
+                <span className="cursor">▋</span>
               </div>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 shadow-glow">
-              <div className="mb-5 flex items-center justify-between">
-                <span className="text-sm text-slate-400">focus actuel</span>
-                <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs text-emerald-300">
-                  building
-                </span>
-              </div>
-              <div className="space-y-4">
-                {["OpenShift", "Argo CD / GitOps", "Terraform", "Vault & Security"].map((item, index) => (
-                  <div key={item} className="flex items-center justify-between rounded-2xl border border-white/5 bg-slate-900/70 px-4 py-4">
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs text-slate-500">0{index + 1}</span>
-                      <span className="text-sm font-medium text-slate-200">{item}</span>
-                    </div>
-                    <span className="text-xs text-slate-500">active</span>
-                  </div>
-                ))}
-              </div>
+            <div className="signal-copy reveal delay-1" data-reveal>
+              <p className="eyebrow">HOW I THINK</p>
+              <h2>Observe.<br />Automate.<br /><em>Secure.</em></h2>
+              <p>
+                Une bonne plateforme doit réduire le bruit opérationnel,
+                rendre les déploiements reproductibles et donner aux équipes
+                une vision claire de ce qui se passe.
+              </p>
             </div>
           </div>
         </section>
 
-        <section id="about" className="mx-auto max-w-6xl px-6 py-24">
-          <div className="grid gap-12 md:grid-cols-[.7fr_1.3fr]">
-            <div>
-              <p className="text-sm uppercase tracking-[0.25em] text-cyan-300/70">01 · À propos</p>
-              <h2 className="mt-3 text-3xl font-semibold">Transformer les problèmes infra en systèmes reproductibles.</h2>
-            </div>
-            <div className="space-y-5 text-lg leading-8 text-slate-400">
-              <p>
-                Mon parcours m’a amené à travailler à l’intersection de l’infrastructure,
-                du développement et de l’intégration. J’aime comprendre le problème
-                jusqu’à la couche réseau, sécurité ou orchestration.
-              </p>
-              <p>
-                Mon objectif est de construire des plateformes simples à opérer :
-                automatisées, observables, sécurisées et documentées.
-              </p>
-            </div>
+        <section id="experience" className="section experience">
+          <div className="section-index">02 / EXPERIENCE</div>
+          <div className="section-heading reveal" data-reveal>
+            <p className="eyebrow">CAREER LOG</p>
+            <h2>Des environnements exigeants.<br /><em>Des responsabilités réelles.</em></h2>
           </div>
-        </section>
 
-        <section id="skills" className="border-y border-white/5 bg-white/[0.02]">
-          <div className="mx-auto max-w-6xl px-6 py-24">
-            <p className="text-sm uppercase tracking-[0.25em] text-cyan-300/70">02 · Compétences</p>
-            <h2 className="mt-3 text-3xl font-semibold">Une stack orientée plateforme.</h2>
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {skills.map(({ label, icon: Icon }) => (
-                <div key={label} className="rounded-2xl border border-white/8 bg-slate-950/60 p-5 transition hover:-translate-y-1 hover:border-cyan-300/20">
-                  <Icon className="mb-8 text-cyan-300" size={22} />
-                  <p className="text-sm font-medium text-slate-200">{label}</p>
+          <div className="timeline">
+            {experiences.map((item, index) => (
+              <article className="timeline-item reveal" data-reveal key={item.company + item.period}>
+                <div className="timeline-marker">
+                  <span>0{index + 1}</span>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="projects" className="mx-auto max-w-6xl px-6 py-24">
-          <p className="text-sm uppercase tracking-[0.25em] text-cyan-300/70">03 · Projets</p>
-          <div className="mt-3 flex flex-col justify-between gap-4 md:flex-row md:items-end">
-            <h2 className="max-w-2xl text-3xl font-semibold">Des projets qui racontent la façon dont je travaille.</h2>
-            <a className="inline-flex items-center gap-2 text-sm text-slate-300 hover:text-white" href="https://github.com/imrane-as" target="_blank" rel="noreferrer">
-              Voir GitHub <Github size={16} />
-            </a>
-          </div>
-
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {projects.map((project) => (
-              <article key={project.title} className="group rounded-3xl border border-white/8 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-cyan-300/20">
-                <p className="text-xs uppercase tracking-[0.2em] text-cyan-300/70">{project.tag}</p>
-                <h3 className="mt-5 text-xl font-semibold text-white">{project.title}</h3>
-                <p className="mt-4 min-h-24 text-sm leading-7 text-slate-400">{project.description}</p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {project.stack.map((item) => (
-                    <span key={item} className="rounded-full border border-white/10 px-2.5 py-1 text-xs text-slate-400">
-                      {item}
-                    </span>
-                  ))}
+                <div className="timeline-date">{item.period}</div>
+                <div className="timeline-main">
+                  <p className="timeline-company">{item.company}</p>
+                  <h3>{item.role}</h3>
+                  <p className="timeline-context">{item.context}</p>
+                  <ul>
+                    {item.points.map((point) => <li key={point}>{point}</li>)}
+                  </ul>
+                  <div className="tags">
+                    {item.stack.map((tag) => <span key={tag}>{tag}</span>)}
+                  </div>
                 </div>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="mx-auto max-w-6xl px-6 pb-24">
-          <div className="rounded-3xl border border-cyan-400/10 bg-cyan-400/[0.04] p-8 md:p-12">
-            <p className="text-sm uppercase tracking-[0.25em] text-cyan-300/70">04 · Expérience</p>
-            <div className="mt-8 grid gap-10 md:grid-cols-[.7fr_1.3fr]">
-              <div>
-                <p className="text-sm text-slate-500">2025 — aujourd’hui</p>
-                <h3 className="mt-2 text-2xl font-semibold">DevOps / Technical Analyst</h3>
-                <p className="mt-2 text-slate-400">Luxembourg</p>
+        <section id="work" className="section work">
+          <div className="section-index">03 / SELECTED WORK</div>
+          <div className="work-heading">
+            <div className="section-heading reveal" data-reveal>
+              <p className="eyebrow">CASE FILES</p>
+              <h2>Je ne liste pas des outils.<br /><em>Je raconte ce qu’ils permettent.</em></h2>
+            </div>
+            <p className="work-note reveal delay-1" data-reveal>
+              Chaque projet est une combinaison de plateforme, sécurité,
+              automatisation et coordination.
+            </p>
+          </div>
+
+          <div className="project-list">
+            {projects.map((project) => (
+              <article className="project-card reveal" data-reveal key={project.number}>
+                <div className="project-number">{project.number}</div>
+                <div className="project-content">
+                  <p className="eyebrow">{project.eyebrow}</p>
+                  <h3>{project.title}</h3>
+                  <p>{project.text}</p>
+                  <div className="tags">
+                    {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
+                  </div>
+                </div>
+                <div className="project-arrow"><ArrowUpRight size={28} /></div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="architecture">
+          <div className="section-index">04 / THE SYSTEM</div>
+          <div className="architecture-intro reveal" data-reveal>
+            <p className="eyebrow">FROM CODE TO PRODUCTION</p>
+            <h2>Une chaîne qui relie<br /><em>les idées au réel.</em></h2>
+          </div>
+          <div className="architecture-flow">
+            {[
+              [Braces, "CODE", "Git · APIs · Apps"],
+              [Terminal, "PIPELINE", "CI/CD · Automation"],
+              [Container, "PLATFORM", "K8s · OpenShift · AKS"],
+              [ShieldCheck, "SECURITY", "mTLS · OAuth2 · Secrets"],
+              [Globe2, "PRODUCTION", "Observe · Operate · Improve"],
+            ].map(([Icon, title, detail], index) => {
+              const Component = Icon as typeof Braces;
+              return (
+                <div className="flow-node reveal" data-reveal key={title} style={{ transitionDelay: `${index * 90}ms` }}>
+                  <div className="flow-icon"><Component size={20} /></div>
+                  <strong>{title}</strong>
+                  <span>{detail}</span>
+                  {index < 4 && <div className="flow-connector" />}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="education section">
+          <div className="section-index">05 / EDUCATION</div>
+          <div className="education-grid">
+            <div className="section-heading reveal" data-reveal>
+              <p className="eyebrow">FOUNDATION</p>
+              <h2>Une base software.<br /><em>Une culture infrastructure.</em></h2>
+            </div>
+            <div className="education-list">
+              <div className="edu-item reveal" data-reveal>
+                <span>2023 — 2024</span>
+                <div><strong>Nantes University</strong><p>Master’s Degree · Software Architecture (ALMA)</p></div>
               </div>
-              <div className="space-y-4 text-sm leading-7 text-slate-400">
-                <p>Coordination technique sur des flux d’intégration et des environnements Kubernetes/OpenShift.</p>
-                <p>Travail autour de l’API management, mTLS, certificats, firewalling, GitOps, CI/CD et troubleshooting.</p>
-                <p>Documentation technique et accompagnement des phases SIT, UAT, PREPROD et PROD.</p>
+              <div className="edu-item reveal" data-reveal>
+                <span>2020 — 2023</span>
+                <div><strong>ENSEM Casablanca</strong><p>Engineering Degree · Computer Science · Networks & Databases</p></div>
+              </div>
+              <div className="edu-item reveal" data-reveal>
+                <span>2017 — 2020</span>
+                <div><strong>Preparatory Classes</strong><p>TSI · Technology and Industrial Sciences</p></div>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="contact" className="border-t border-white/5">
-          <div className="mx-auto max-w-6xl px-6 py-24">
-            <p className="text-sm uppercase tracking-[0.25em] text-cyan-300/70">05 · Contact</p>
-            <h2 className="mt-3 max-w-3xl text-4xl font-semibold md:text-5xl">
-              Construisons quelque chose de solide.
+        <section id="contact" className="contact">
+          <div className="contact-grid" />
+          <div className="contact-inner">
+            <p className="eyebrow reveal" data-reveal>06 / LET'S BUILD</p>
+            <h2 className="reveal delay-1" data-reveal>
+              The next system<br />
+              <em>starts with a conversation.</em>
             </h2>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <a href="mailto:imrane.asrir@its4u.com" className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950">
-                <Mail size={16} /> Email
+            <p className="contact-text reveal delay-2" data-reveal>
+              Une opportunité DevOps, un projet cloud-native ou simplement
+              envie d’échanger sur l’ingénierie plateforme ?
+            </p>
+            <div className="contact-actions reveal delay-3" data-reveal>
+              <a href="mailto:imr.asrir@gmail.com" className="button button-primary">
+                imr.asrir@gmail.com <ArrowUpRight size={18} />
               </a>
-              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-semibold">
-                <Linkedin size={16} /> LinkedIn
+              <a href="https://github.com/imrane-as/potfolio" target="_blank" rel="noreferrer" className="icon-button" aria-label="GitHub">
+                <Github size={20} />
               </a>
-              <a href="https://github.com/imrane-as" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-semibold">
-                <Github size={16} /> GitHub
+              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="icon-button" aria-label="LinkedIn">
+                <Linkedin size={20} />
               </a>
+            </div>
+            <div className="contact-bottom">
+              <span>ARABIC · FR C1 · EN B2</span>
+              <span>METZ ↔ LUXEMBOURG</span>
+              <span>© {new Date().getFullYear()} IMRANE ASRIR</span>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-white/5">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
-          <span>© {new Date().getFullYear()} Imrane Asri</span>
-          <span>Built with React · TypeScript · Tailwind</span>
-        </div>
+      <footer className="footer">
+        <span>IMRANE ASRIR / DEVOPS ENGINEER</span>
+        <span>BUILT WITH REACT · TYPESCRIPT · CSS</span>
       </footer>
     </div>
   );

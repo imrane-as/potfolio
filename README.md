@@ -1,6 +1,18 @@
-# Imrane Asri — Portfolio
+# Imrane Asrir — Portfolio
 
-Portfolio personnel d'Imrane Asri, orienté DevOps, Cloud, Kubernetes/OpenShift, GitOps et automatisation.
+A personal portfolio for **Imrane Asrir**, DevOps Engineer / API Management.
+
+The site is intentionally built as an experience rather than a template: editorial typography, motion, technical storytelling, system diagrams, career timeline and a professional portrait.
+
+## Source
+
+The content is based on Imrane's CV:
+- DevOps / API Management
+- Kubernetes / OpenShift / AKS
+- Azure / AWS
+- CI/CD, GitLab, Argo CD, Helm
+- API Management, DataPower, TLS/mTLS, OAuth2
+- Banking and financial-services transformation projects
 
 ## Stack
 
@@ -8,16 +20,17 @@ Portfolio personnel d'Imrane Asri, orienté DevOps, Cloud, Kubernetes/OpenShift,
 - TypeScript
 - Vite
 - Tailwind CSS
+- Custom CSS motion system
 - Lucide React
 
-## Local
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Build de production :
+Production build:
 
 ```bash
 npm run build
