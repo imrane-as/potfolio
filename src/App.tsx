@@ -80,7 +80,7 @@ const projects = {
 };
 
 function Logo({slug,label}:{slug:string;label:string}){return <img src={`https://cdn.simpleicons.org/${slug}`} alt={label} loading="lazy"/>}
-function CompanyLogo({url,mark}:{url:string;mark:string}){return <span className="company-logo"><img src={url} alt="" loading="lazy" onError={(e)=>{e.currentTarget.style.display="none"}}/><span>{mark}</span></span>}
+function CompanyLogo({url}:{url:string}){return <span className="company-logo"><img src={url} alt="" loading="lazy" onError={(e)=>{e.currentTarget.style.display="none"}}/></span>}
 
 function App(){
   const [lang,setLang]=useState<Lang>("en"),[menuOpen,setMenuOpen]=useState(false),[scroll,setScroll]=useState(0);
@@ -152,11 +152,11 @@ function App(){
         <div className="hero-copy"><div className="eyebrow reveal" data-reveal><span className="status-dot"/> {t.hero.eyebrow}</div><p className="hero-kicker reveal delay-1" data-reveal>{t.hero.kicker}</p><h1 className="hero-title reveal delay-2" data-reveal>IMRANE<span>ASRIR</span></h1><p className="hero-intro reveal delay-3" data-reveal>{t.hero.intro}</p>
           <div className="hero-actions reveal delay-4" data-reveal><a href="#work" className="button button-primary">{t.hero.work}<ArrowDownRight size={18}/></a><button onClick={downloadCV} className="button button-ghost"><Download size={17}/>{t.cv}</button></div>
         </div>
-        <div className="portrait-wrap reveal delay-2" data-reveal><div className="portrait-frame"><div className="portrait-label top">ENGINEER / 2026</div><img src={`${import.meta.env.BASE_URL}profile.webp`} alt="Professional portrait" className="portrait"/><div className="portrait-glow"/><div className="portrait-scan"/><div className="portrait-label bottom">BUILD · SHIP · OPERATE</div></div><div className="portrait-stamp"><span>IA</span><small>PLATFORM<br/>ENGINEERING</small></div></div>
+        <div className="portrait-wrap reveal delay-2" data-reveal><div className="portrait-frame"><div className="portrait-label top">ENGINEER / 2026</div><img src="/potfolio/profile.webp" alt="Professional portrait" className="portrait"/><div className="portrait-glow"/><div className="portrait-scan"/><div className="portrait-label bottom">BUILD · SHIP · OPERATE</div></div><div className="portrait-stamp"><span>IA</span><small>PLATFORM<br/>ENGINEERING</small></div></div>
         <div className="hero-side"><span>{t.hero.scroll}</span><div className="side-line"/></div><div className="hero-meta"><span>METZ / FRANCE</span><span>LUXEMBOURG</span><span>{t.hero.meta}</span></div>
       </section>
 
-      <section className="proof-bar"><div className="proof-label">WORKED ACROSS</div>{exp.map(e=><div className="company-proof" key={e.company}><CompanyLogo url={e.logo} mark={e.mark}/><span>{e.company}</span></div>)}</section>
+      <section className="proof-bar"><div className="proof-label">WORKED ACROSS</div>{exp.map(e=><div className="company-proof" key={e.company}><CompanyLogo url={e.logo}/><span>{e.company}</span></div>)}</section>
 
       <section id="about" className="section story"><div className="section-index">{t.about.index}</div><div className="story-layout"><div className="section-heading reveal" data-reveal><p className="eyebrow">{t.about.eyebrow}</p><h2>{t.about.title}</h2></div><div className="story-copy reveal delay-1" data-reveal><p>{t.about.p1}</p><p>{t.about.p2}</p><div className="signature-line"><span>IMRANE ASRIR</span><span>{t.about.signature}</span></div></div></div>
         <div className="capability-grid">{capabilities.map(([label,detail,Icon],i)=><div className="capability reveal" data-reveal key={label as string} style={{transitionDelay:`${i*70}ms`}}><Icon size={20}/><span className="capability-number">0{i+1}</span><h3>{label}</h3><p>{detail}</p></div>)}</div>
