@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { jsPDF } from "jspdf";
 import {
   ArrowDownRight, ArrowUpRight, Braces, Check, Cloud, Container,
