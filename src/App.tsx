@@ -15,7 +15,7 @@ const toolLogos = [
 
 const experiences = [
   {
-    period: "03.2026 — PRESENT", company: "BIL Luxembourg", mark: "BIL",
+    period: "03.2026 — PRESENT", company: "BIL Luxembourg", mark: "BIL", logo: "https://www.bil.com/favicon.ico",
     role: "API Management & DevOps Engineer", context: "Banking · Finacle core banking transformation",
     points: [
       "Design and coordination of application connectivity across APIs, middleware, security and network layers.",
@@ -25,7 +25,7 @@ const experiences = [
     stack: ["IBM API Connect", "OpenShift", "DataPower", "OAuth2", "mTLS"]
   },
   {
-    period: "04.2025 — 02.2026", company: "POST Luxembourg", mark: "POST",
+    period: "04.2025 — 02.2026", company: "POST Luxembourg", mark: "POST", logo: "https://www.post.lu/favicon.ico",
     role: "Project Manager / Application Integration", context: "Cloud-native delivery · Integration platforms",
     points: [
       "Cloud-native deployment and operations across Azure, AKS and OpenShift.",
@@ -35,7 +35,7 @@ const experiences = [
     stack: ["Azure", "AKS", "OpenShift", "Kubernetes", "Argo CD"]
   },
   {
-    period: "03.2025 — PRESENT", company: "ITS4U Group", mark: "ITS4U",
+    period: "03.2025 — PRESENT", company: "ITS4U Group", mark: "ITS4U", logo: "https://www.its4u-group.com/favicon.ico",
     role: "DevOps Engineer / API Management", context: "Consulting · Cloud · Automation",
     points: [
       "Platform engineering, CI/CD and Kubernetes environments for enterprise clients.",
@@ -45,7 +45,7 @@ const experiences = [
     stack: ["Azure", "Kubernetes", "Docker", "Azure DevOps"]
   },
   {
-    period: "01.2024 — 06.2024", company: "Capgemini", mark: "CG",
+    period: "01.2024 — 06.2024", company: "Capgemini", mark: "CG", logo: "https://cdn.simpleicons.org/capgemini",
     role: "DevOps Engineer", context: "Digital services · Software engineering",
     points: [
       "Development of a centralized web application for contract management.",
@@ -96,7 +96,7 @@ function Logo({ slug, label }: { slug: string; label: string }) {
   );
 }
 
-function App() {
+function CompanyLogo({ url, mark }: { url: string; mark: string }) {\n  return <span className="company-logo"><img src={url} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.display = "none"; }} /><span>{mark}</span></span>;\n}\n\nfunction App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scroll, setScroll] = useState(0);
 
@@ -260,7 +260,7 @@ function App() {
                 <div className="timeline-marker"><span>0{index + 1}</span></div>
                 <div className="timeline-date">{item.period}</div>
                 <div className="timeline-main">
-                  <div className="company-line"><span className="company-mark">{item.mark}</span><span className="timeline-company">{item.company}</span></div>
+                  <div className="company-line"><CompanyLogo url={item.logo} mark={item.mark} /><span className="timeline-company">{item.company}</span></div>
                   <h3>{item.role}</h3><p className="timeline-context">{item.context}</p>
                   <ul>{item.points.map((point) => <li key={point}><Check size={13} />{point}</li>)}</ul>
                   <div className="tags">{item.stack.map((tag) => <span key={tag}>{tag}</span>)}</div>
