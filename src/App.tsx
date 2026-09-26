@@ -149,10 +149,10 @@ function App(){
 
     <main id="top">
       <section className="hero"><div className="hero-grid"/><div className="hero-orbit orbit-a"/><div className="hero-orbit orbit-b"/>
-        <div className="hero-copy"><div className="eyebrow reveal" data-reveal><span className="status-dot"/> {t.hero.eyebrow}</div><p className="hero-kicker reveal delay-1" data-reveal>{t.hero.kicker}</p><h1 className="hero-title reveal delay-2" data-reveal>IMRANE <span>ASRIR</span></h1><p className="hero-intro reveal delay-3" data-reveal>{t.hero.intro}</p>
+        <div className="hero-copy"><div className="eyebrow reveal" data-reveal><span className="status-dot"/> {t.hero.eyebrow}</div><p className="hero-kicker reveal delay-1" data-reveal>{t.hero.kicker}</p><h1 className="hero-title reveal delay-2" data-reveal>IMRANE <span className="surname">ASRIR</span></h1><p className="hero-intro reveal delay-3" data-reveal>{t.hero.intro}</p>
           <div className="hero-actions reveal delay-4" data-reveal><a href="#work" className="button button-primary">{t.hero.work}<ArrowDownRight size={18}/></a><button onClick={downloadCV} className="button button-ghost"><Download size={17}/>{t.cv}</button></div>
         </div>
-        <div className="portrait-wrap reveal delay-2" data-reveal><div className="portrait-frame"><div className="portrait-label top">ENGINEER / 2026</div><img src="/potfolio/profile.webp" alt="Professional portrait" className="portrait"/><div className="portrait-glow"/><div className="portrait-scan"/><div className="portrait-label bottom">BUILD · SHIP · OPERATE</div></div><div className="portrait-stamp"><span>IA</span><small>PLATFORM<br/>ENGINEERING</small></div></div>
+        <div className="portrait-wrap reveal delay-2" data-reveal><div className="portrait-frame"><div className="portrait-label top">ENGINEER / 2026</div><img src="/potfolio/profile-hi.webp?v=20260926" alt="Imrane Asrir — professional portrait" className="portrait" width="900" height="900" fetchPriority="high" decoding="async"/><div className="portrait-glow"/><div className="portrait-scan"/><div className="portrait-label bottom">BUILD · SHIP · OPERATE</div></div><div className="portrait-stamp"><span>IA</span><small>PLATFORM<br/>ENGINEERING</small></div></div>
         <div className="hero-side"><span>{t.hero.scroll}</span><div className="side-line"/></div><div className="hero-meta"><span>METZ / FRANCE</span><span>LUXEMBOURG</span><span>{t.hero.meta}</span></div>
       </section>
 
