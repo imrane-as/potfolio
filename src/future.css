@@ -1536,3 +1536,77 @@
   .credential-orbit { width:90vw !important; height:90vw !important; }
   .credential-node { max-width:96px !important; }
 }
+
+
+/* MOBILE BUG FIX — terminal CTA sizing + origin composition */
+@media (max-width:760px){
+  .signal-inner,
+  .signal-inner > *{
+    min-width:0 !important;
+    max-width:100% !important;
+  }
+
+  .terminal-window{
+    box-sizing:border-box !important;
+    width:100% !important;
+    max-width:100% !important;
+  }
+
+  .terminal-body{
+    box-sizing:border-box !important;
+    width:100% !important;
+    overflow:hidden !important;
+  }
+
+  .terminal-toggle{
+    box-sizing:border-box !important;
+    display:flex !important;
+    width:calc(100% - 28px) !important;
+    max-width:calc(100% - 28px) !important;
+    min-height:44px !important;
+    margin:0 14px 14px !important;
+    padding:11px 12px !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:8px !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+  }
+
+  .terminal-toggle svg{
+    flex:0 0 auto !important;
+  }
+
+  .origin-mosaic{
+    width:min(84vw,330px) !important;
+    height:min(84vw,330px) !important;
+    min-height:0 !important;
+    aspect-ratio:1 / 1 !important;
+  }
+
+  .origin-copy h2{
+    font-size:42px !important;
+    line-height:.92 !important;
+    max-width:100% !important;
+  }
+}
+
+@media (max-width:420px){
+  .terminal-toggle{
+    width:calc(100% - 24px) !important;
+    max-width:calc(100% - 24px) !important;
+    margin-left:12px !important;
+    margin-right:12px !important;
+    font-size:7.5px !important;
+  }
+
+  .origin-mosaic{
+    width:min(84vw,320px) !important;
+    height:min(84vw,320px) !important;
+  }
+
+  .origin-copy h2{
+    font-size:40px !important;
+  }
+}
