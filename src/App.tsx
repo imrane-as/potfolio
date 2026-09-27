@@ -103,8 +103,11 @@ function Logo({slug,label}:{slug:string;label:string}){
 }
 function CompanyLogo({url}:{url:string}){return <span className="company-logo"><img src={url} alt="" loading="lazy" onError={(e)=>{e.currentTarget.style.display="none"}}/></span>}
 
-const DigitalAvatar=({status,onSecret}:{status:string;onSecret:()=>void})=>(
-  <div className={"avatar-dock avatar-"+status.toLowerCase()} onDoubleClick={onSecret} aria-label="Interactive digital avatar">
+const DigitalAvatar=({status,onSecret,scroll}:{status:string;onSecret:()=>void;scroll:number})=>(
+  <div className="avatar-journey" style={{"--journey":`${scroll}%`} as React.CSSProperties} aria-label="Digital Twin journey">
+    <div className="journey-rail"><i/><i/><i/><i/><i/><i/></div>
+    <div className="journey-label">SCROLL // DESCEND</div>
+    <div className={"avatar-dock avatar-"+status.toLowerCase()} onDoubleClick={onSecret} aria-label="Interactive digital avatar">
     <div className="avatar-hud-top"><span className="hud-dot"/> DIGITAL TWIN <b>v2.026</b></div>
     <div className="avatar-stage">
       <div className="avatar-orbit avatar-orbit-a"/>
@@ -134,6 +137,7 @@ const DigitalAvatar=({status,onSecret}:{status:string;onSecret:()=>void})=>(
       <div className="avatar-chip chip-one">{status==="ONLINE"?"API":status==="DISCOVERING"?"TRACE":status==="SHIPPING"?"SHIP":status==="CONNECTED"?"LINK":"OK"}</div><div className="avatar-chip chip-two">{status==="VERIFIED"?"PROOF":"K8S"}</div><div className="avatar-chip chip-three">{status==="SHIPPING"?"CI/CD":"MTLS"}</div>
     </div>
     <div className="avatar-hud-bottom"><span>ENGINEER_ID: IA-026</span><strong>● {status}</strong></div>
+    </div>
   </div>
 );
 
@@ -256,7 +260,7 @@ function App(){
         <div className="hero-copy"><div className="eyebrow reveal" data-reveal><span className="status-dot"/> {t.hero.eyebrow}</div><p className="hero-kicker reveal delay-1" data-reveal>{t.hero.kicker}</p><h1 className="hero-title reveal delay-2" data-reveal>IMRANE <span className="surname">ASRIR</span></h1><p className="hero-intro reveal delay-3" data-reveal>{t.hero.intro}</p>
           <div className="hero-actions reveal delay-4" data-reveal><a href="#work" className="button button-primary">{t.hero.work}<ArrowDownRight size={18}/></a><button onClick={downloadCV} className="button button-ghost"><Download size={17}/>{t.cv}</button></div>
         </div>
-        <div className="portrait-wrap reveal delay-2" data-reveal><div className="portrait-frame"><div className="portrait-label top">ENGINEER / 2026</div><img src="/potfolio/profile-hi.webp?v=20260926" alt="Imrane Asrir — professional portrait" className="portrait" width="900" height="900" fetchPriority="high" decoding="async"/><div className="portrait-glow"/><div className="portrait-scan"/><div className="portrait-label bottom">BUILD · SHIP · OPERATE</div></div><div className="portrait-stamp"><span>IA</span><small>PLATFORM<br/>ENGINEERING</small></div></div><DigitalAvatar status={twinStatus} onSecret={()=>setEasterEgg(true)}/>
+        <div className="portrait-wrap reveal delay-2" data-reveal><div className="portrait-frame"><div className="portrait-label top">ENGINEER / 2026</div><img src="/potfolio/profile-hi.webp?v=20260926" alt="Imrane Asrir — professional portrait" className="portrait" width="900" height="900" fetchPriority="high" decoding="async"/><div className="portrait-glow"/><div className="portrait-scan"/><div className="portrait-label bottom">BUILD · SHIP · OPERATE</div></div><div className="portrait-stamp"><span>IA</span><small>PLATFORM<br/>ENGINEERING</small></div></div><DigitalAvatar status={twinStatus} scroll={scroll} onSecret={()=>setEasterEgg(true)}/>
         <div className="morocco-badge reveal delay-3" data-reveal><span className="morocco-star">✦</span><div><strong>MA → LU</strong><small>MOROCCAN ROOTS</small></div></div><div className="hero-side"><span>{t.hero.scroll}</span><div className="side-line"/></div><div className="hero-meta"><span>METZ / FRANCE</span><span>LUXEMBOURG</span><span>{t.hero.meta}</span></div>
       </section>
 
