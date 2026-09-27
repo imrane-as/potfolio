@@ -681,3 +681,65 @@
     right:5px!important;
   }
 }
+
+
+/* LADDER MODE — clean vertical ladder, avatar climbs the rungs */
+.avatar-journey .journey-stairs{
+  top:12vh!important;
+  right:8px!important;
+  width:92px!important;
+  height:76vh!important;
+  opacity:.72!important;
+  overflow:visible;
+  filter:drop-shadow(0 0 8px #6c63ff22);
+}
+.avatar-journey .avatar-climber{
+  width:76px!important;
+  height:136px!important;
+  right:16px!important;
+  top:calc(12vh + (var(--stair) * 9.1vh))!important;
+  transform:translateY(-88%)!important;
+  transition:top .5s cubic-bezier(.22,.8,.28,1),right .35s ease!important;
+}
+.avatar-journey .avatar-climber:before{
+  content:"";
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:10px;
+  height:2px;
+  background:#6c63ff66;
+  box-shadow:0 0 12px #6c63ff55;
+}
+.avatar-journey .climber-person{
+  animation:climberClimb .7s steps(2,end) infinite;
+}
+@keyframes climberClimb{
+  0%,100%{transform:translateY(1px) rotate(-1deg)}
+  50%{transform:translateY(-3px) rotate(1deg)}
+}
+@media(max-width:760px){
+  .avatar-journey .journey-stairs{
+    top:11vh!important;
+    right:0!important;
+    width:70px!important;
+    height:77vh!important;
+  }
+  .avatar-journey .avatar-climber{
+    width:60px!important;
+    height:108px!important;
+    right:5px!important;
+    top:calc(11vh + (var(--stair) * 9.15vh))!important;
+    transform:translateY(-82%)!important;
+  }
+}
+@media(max-width:380px){
+  .avatar-journey .journey-stairs{
+    width:62px!important;
+  }
+  .avatar-journey .avatar-climber{
+    width:54px!important;
+    height:98px!important;
+    right:3px!important;
+  }
+}
