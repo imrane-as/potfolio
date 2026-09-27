@@ -334,3 +334,263 @@
   .hero:before,.hero-grid:after,.future-lens,.lens-bars i{animation:none!important}
   .capability,.tool-logo,.project-card,.flow-node,.timeline-item{transition:none!important}
 }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   2050 SIGNATURE PASS — Moroccan geometry + systems interface
+   ═══════════════════════════════════════════════════════════════ */
+
+/* A discreet Moroccan signal runs through the whole interface. */
+.section:not(.experience):not(.work):not(.architecture):not(.origin-section):not(.proof-lab):not(.contact),
+.stack-section,.signal-section{
+  overflow:hidden;
+}
+.section:not(.experience):not(.work):not(.architecture):not(.origin-section):not(.proof-lab):not(.contact)::after,
+.stack-section::after,.signal-section::after{
+  content:"";
+  position:absolute;
+  top:0;left:8vw;right:8vw;height:1px;
+  background:linear-gradient(90deg,transparent,var(--future-red) 16%,var(--future-gold) 50%,var(--future-green) 84%,transparent);
+  opacity:.28;
+  transform:scaleX(.72);
+  transform-origin:center;
+  animation:signalLine 7s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes signalLine{
+  0%,100%{opacity:.16;transform:scaleX(.55)}
+  50%{opacity:.5;transform:scaleX(1)}
+}
+
+/* Hero gets a proper futuristic HUD without adding another column. */
+.hero::marker{display:none}
+.hero-copy::before{
+  content:"SYS / IA-026";
+  position:absolute;
+  left:0;
+  top:-28px;
+  font:800 7px "Space Grotesk";
+  letter-spacing:.22em;
+  color:#20233255;
+  padding-left:10px;
+  border-left:2px solid var(--future-red);
+}
+.hero-copy::after{
+  content:"";
+  position:absolute;
+  left:-7vw;
+  top:18%;
+  width:1px;
+  height:180px;
+  background:linear-gradient(transparent,var(--future-gold),transparent);
+  opacity:.32;
+}
+.hero .status-dot{
+  position:relative;
+  animation:statusPulse 2.2s ease-in-out infinite;
+}
+@keyframes statusPulse{
+  0%,100%{box-shadow:0 0 0 5px #d6f4f0}
+  50%{box-shadow:0 0 0 9px #d6f4f000,0 0 18px #00b8a988}
+}
+
+/* Portrait becomes a framed "identity module". */
+.portrait-wrap{
+  position:relative;
+}
+.portrait-wrap::before{
+  content:"";
+  position:absolute;
+  width:calc(100% + 28px);
+  height:calc(100% + 28px);
+  left:-14px;top:-14px;
+  border:1px solid transparent;
+  border-radius:38px;
+  background:linear-gradient(135deg,var(--future-red),transparent 24%,transparent 72%,var(--future-green)) border-box;
+  -webkit-mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  opacity:.45;
+  animation:identityOrbit 10s linear infinite;
+  pointer-events:none;
+}
+@keyframes identityOrbit{to{transform:rotate(360deg)}}
+.portrait-label{
+  letter-spacing:.16em!important;
+}
+.portrait-stamp{
+  background:rgba(255,255,255,.9)!important;
+  backdrop-filter:blur(10px);
+}
+
+/* Navigation feels like a floating control surface. */
+.nav::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:-1px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--future-purple),var(--future-gold),var(--future-red),transparent);
+  opacity:.38;
+  transform:scaleX(.4);
+  transition:transform .6s ease;
+}
+.nav:hover::after{transform:scaleX(1)}
+.menu-button{
+  transition:transform .3s ease,box-shadow .3s ease!important;
+}
+.menu-button:hover{
+  transform:translateY(-2px) rotate(-2deg)!important;
+  box-shadow:5px 5px 0 rgba(0,98,51,.12);
+}
+
+/* Proof / work surfaces gain tiny "data" accents. */
+.proof-bar{position:relative;overflow:hidden}
+.proof-bar::after{
+  content:"MA / LU / 026";
+  position:absolute;
+  right:18px;bottom:6px;
+  color:#ffffff22;
+  font:800 6px "Space Grotesk";
+  letter-spacing:.25em;
+  pointer-events:none;
+}
+.company-proof{
+  transition:background .3s ease,transform .3s ease!important;
+}
+.company-proof:hover{
+  background:#ffffff08;
+  transform:translateY(-2px);
+}
+.company-logo{
+  transition:transform .3s ease!important;
+}
+.company-proof:hover .company-logo{
+  transform:rotate(-3deg) scale(1.06);
+}
+
+/* Headings get an engineered underline rather than a generic divider. */
+.section-heading h2,.stack-copy h2,.architecture-intro h2,.signal-copy h2,.work-heading h2{
+  position:relative;
+}
+.section-heading h2::after,.stack-copy h2::after,.architecture-intro h2::after,.signal-copy h2::after,.work-heading h2::after{
+  content:"";
+  display:block;
+  width:52px;height:3px;
+  margin-top:22px;
+  background:linear-gradient(90deg,var(--future-red),var(--future-gold),var(--future-green));
+  transform-origin:left;
+  animation:headingPulse 4s ease-in-out infinite;
+}
+@keyframes headingPulse{
+  0%,100%{transform:scaleX(.7);opacity:.55}
+  50%{transform:scaleX(1.25);opacity:1}
+}
+
+/* Zellige-inspired corner geometry on capability cards. */
+.capability:nth-child(odd)::after,
+.flow-node:nth-child(odd)::after{
+  content:"";
+  position:absolute;
+  right:13px;bottom:13px;
+  width:11px;height:11px;
+  border:1px solid var(--future-gold);
+  transform:rotate(45deg);
+  opacity:.42;
+  transition:transform .35s ease,opacity .35s ease;
+}
+.capability:hover::after,.flow-node:hover::after{
+  transform:rotate(135deg) scale(1.15);
+  opacity:.9;
+}
+
+/* Work cards get a directional scan on hover. */
+.project-card{position:relative;overflow:hidden}
+.project-card::before{
+  content:"";
+  position:absolute;
+  top:0;bottom:0;left:-35%;
+  width:22%;
+  background:linear-gradient(90deg,transparent,#6c63ff18,transparent);
+  transform:skewX(-18deg);
+  transition:left .7s ease;
+  pointer-events:none;
+}
+.project-card:hover::before{left:125%}
+
+/* Experience timeline becomes a live system trace. */
+.timeline{
+  position:relative;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:18px;top:0;bottom:0;
+  width:1px;
+  background:linear-gradient(var(--future-purple),var(--future-green),var(--future-red),transparent);
+  opacity:.35;
+}
+.timeline-item{
+  position:relative;
+}
+.timeline-marker{
+  position:relative;
+  z-index:2;
+}
+.timeline-marker span{
+  box-shadow:0 0 0 6px var(--ink),0 0 0 7px #6c63ff33;
+  transition:box-shadow .3s ease,transform .3s ease!important;
+}
+.timeline-item:hover .timeline-marker span{
+  transform:scale(1.08);
+  box-shadow:0 0 0 6px var(--ink),0 0 0 8px #d6a72f66,0 0 24px #6c63ff55;
+}
+
+/* Architecture nodes get a moving status beacon. */
+.flow-node::before{
+  content:"";
+  position:absolute;
+  top:12px;right:12px;
+  width:5px;height:5px;border-radius:50%;
+  background:var(--future-green);
+  box-shadow:0 0 0 4px rgba(0,98,51,.08),0 0 12px rgba(0,98,51,.4);
+  animation:beacon 2.4s ease-in-out infinite;
+}
+.flow-node:nth-child(2)::before{background:var(--future-gold)}
+.flow-node:nth-child(3)::before{background:var(--future-purple)}
+.flow-node:nth-child(4)::before{background:var(--future-red)}
+.flow-node:nth-child(5)::before{background:var(--future-teal)}
+@keyframes beacon{
+  0%,100%{opacity:.45;transform:scale(.8)}
+  50%{opacity:1;transform:scale(1.2)}
+}
+
+/* Footer closes the visual language with a small zellige mark. */
+.footer{
+  position:relative;
+}
+.footer::before{
+  content:"✦";
+  position:absolute;
+  left:50%;top:-12px;
+  transform:translateX(-50%);
+  width:24px;height:24px;
+  display:grid;place-items:center;
+  background:var(--future-ink);
+  color:var(--future-gold);
+  border:1px solid #ffffff20;
+  border-radius:50%;
+  font-size:9px;
+}
+
+/* Keep the futuristic layer elegant on small screens. */
+@media(max-width:760px){
+  .hero-copy::after{display:none}
+  .hero-copy::before{top:-20px;font-size:6px}
+  .portrait-wrap::before{width:calc(100% + 16px);height:calc(100% + 16px);left:-8px;top:-8px;border-radius:28px}
+  .section:not(.experience):not(.work):not(.architecture):not(.origin-section):not(.proof-lab):not(.contact)::after,
+  .stack-section::after,.signal-section::after{left:6vw;right:6vw}
+  .timeline::before{left:17px}
+  .section-heading h2::after,.stack-copy h2::after,.architecture-intro h2::after,.signal-copy h2::after,.work-heading h2::after{margin-top:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  .portrait-wrap::before,.hero .status-dot,.section-heading h2::after,.stack-copy h2::after,.architecture-intro h2::after,.signal-copy h2::after,.work-heading h2::after,.flow-node::before,.timeline-marker span{animation:none!important}
+}
