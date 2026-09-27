@@ -400,3 +400,100 @@ button,a{-webkit-tap-highlight-color:transparent}
   .capability h3{font-size:9px!important}
   .capability p{font-size:7.5px!important}
 }
+
+
+/* FINAL MOBILE RESET — no ladder gutter, no oversized legacy spacing */
+@media(max-width:760px){
+  .hero,.section,.architecture,.stack-section,.signal-section,.work,.education,.experience,.contact{
+    padding-left:6vw!important;
+    padding-right:6vw!important;
+  }
+  .hero{
+    padding-top:92px!important;
+    padding-bottom:58px!important;
+  }
+  .hero-copy{width:100%!important}
+  .hero-intro{max-width:34rem!important}
+  .hero-actions{width:100%!important}
+  .hero-actions .button{width:100%!important}
+  .future-switch{
+    width:max-content!important;
+    margin:11px 0 0!important;
+    min-height:36px!important;
+    padding:0 10px!important;
+    font-size:7px!important;
+  }
+  .portrait-wrap{
+    width:min(82vw,350px)!important;
+    margin:38px auto 0!important;
+  }
+  .section,.architecture,.stack-section,.signal-section,.work,.education{
+    padding-top:76px!important;
+    padding-bottom:76px!important;
+  }
+  .section-index{margin-bottom:25px!important}
+  .story-layout,.stack-inner,.signal-inner,.education-grid,.work-heading{
+    gap:30px!important;
+  }
+  .capability-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+    margin-top:40px!important;
+  }
+  .capability{
+    min-height:0!important;
+    height:auto!important;
+    aspect-ratio:1.05/1!important;
+    padding:15px!important;
+    border-radius:16px!important;
+  }
+  .capability h3{
+    margin-top:42px!important;
+    font-size:10px!important;
+  }
+  .capability p{font-size:8px!important}
+  .logo-wall{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .tool-logo{min-height:82px!important}
+  .experience{padding-top:76px!important;padding-bottom:76px!important}
+  .timeline-item{grid-template-columns:38px 1fr!important;gap:12px!important}
+  .timeline-date,.timeline-main{grid-column:2!important}
+  .timeline-main h3{font-size:clamp(23px,7vw,34px)!important}
+  .project-card{grid-template-columns:34px 1fr!important;padding:24px 16px!important}
+  .project-arrow{grid-column:2!important;width:40px!important;height:40px!important}
+  .architecture-flow{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+  .flow-node{min-height:138px!important;padding:15px!important;border-radius:16px!important}
+  .flow-node strong{margin-top:28px!important;font-size:9px!important}
+  .architecture-detail{margin-top:30px!important;padding:18px!important;box-shadow:7px 7px 0 #202332!important}
+  .contact{min-height:620px!important;padding-top:90px!important;padding-bottom:90px!important}
+  .contact-actions{flex-wrap:wrap!important}
+  .contact-actions .button-primary{flex:1 1 100%!important}
+  .contact-bottom{left:6vw!important;right:6vw!important}
+}
+@media(max-width:380px){
+  .hero-title{font-size:15.5vw!important}
+  .capability{aspect-ratio:1/1!important;padding:13px!important}
+  .capability h3{font-size:9px!important}
+  .capability p{font-size:7.5px!important}
+  .architecture-flow{grid-template-columns:1fr 1fr!important}
+}
+
+/* 2050 polish: subtle interface grain + luminous edges, without changing layout */
+.future-mode .nav{
+  background:#f7f7f0cc;
+  border-bottom-color:#6c63ff28;
+}
+.future-mode .button-primary{
+  background:linear-gradient(120deg,#202332,#34304e);
+  box-shadow:0 0 30px #6c63ff1c;
+}
+.future-mode .capability,
+.future-mode .tool-logo,
+.future-mode .project-card,
+.future-mode .flow-node{
+  border-color:#6c63ff2e;
+}
+.future-mode .capability:hover,
+.future-mode .tool-logo:hover,
+.future-mode .flow-node:hover{
+  box-shadow:0 18px 42px #6c63ff1c;
+}
