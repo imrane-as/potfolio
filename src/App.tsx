@@ -103,50 +103,6 @@ function Logo({slug,label}:{slug:string;label:string}){
 }
 function CompanyLogo({url}:{url:string}){return <span className="company-logo"><img src={url} alt="" loading="lazy" onError={(e)=>{e.currentTarget.style.display="none"}}/></span>}
 
-const DigitalAvatar=({status,onSecret,scroll}:{status:string;onSecret:()=>void;scroll:number})=>{
-  const step=Math.min(5,Math.floor(scroll/20));
-  const labels=["HOME","ABOUT","STACK","WORK","PROOF","CONTACT"];
-  const ys=[25,195,365,535,705,875];
-  return (
-  <div className="digital-path" style={{"--progress":`${scroll}%`} as React.CSSProperties} aria-label="Digital Twin journey">
-    <div className="path-caption"><span>SYSTEM PATH</span><b>IA / 026</b></div>
-    <svg className="path-line" viewBox="0 0 120 900" preserveAspectRatio="none" aria-hidden="true">
-      <defs><linearGradient id="pathGradient" x1="0" y1="0" x2="0" y2="1"><stop stopColor="#6c63ff"/><stop offset=".52" stopColor="#00b8a9"/><stop offset="1" stopColor="#6c63ff"/></linearGradient></defs>
-      <path d="M58 25 C22 120 94 175 58 260 S22 395 58 470 S94 605 58 690 S22 790 58 875" fill="none" stroke="#6c63ff22" strokeWidth="2"/>
-      <path className="path-progress" d="M58 25 C22 120 94 175 58 260 S22 395 58 470 S94 605 58 690 S22 790 58 875" fill="none" stroke="url(#pathGradient)" strokeWidth="3" pathLength="100"/>
-      {ys.map((y,i)=><circle key={i} className={`path-dot ${step===i?"path-dot-active":""}`} cx="58" cy={y} r="4"/>)}
-    </svg>
-    <div className="path-labels">
-      {labels.map((label,i)=><div key={label} className={`path-label ${step===i?"path-label-active":""}`}><small>0{i+1}</small><span>{label}</span></div>)}
-    </div>
-    <div className={`avatar-climber avatar-path-${status.toLowerCase()}`} onDoubleClick={onSecret} role="button" tabIndex={0} aria-label="Digital Twin">
-      <div className="climber-name">IMRANE<span> / 026</span></div>
-      <svg className="climber-body" viewBox="0 0 150 230" role="img" aria-label="Digital Twin avatar">
-        <defs>
-          <linearGradient id="climberSkin2" x1="0" x2="1"><stop offset="0" stopColor="#f5c7a9"/><stop offset="1" stopColor="#b96f55"/></linearGradient>
-          <linearGradient id="climberSuit2" x1="0" x2="1"><stop offset="0" stopColor="#171a28"/><stop offset=".6" stopColor="#32385a"/><stop offset="1" stopColor="#6c63ff"/></linearGradient>
-          <filter id="climberShadow2"><feDropShadow dx="0" dy="7" stdDeviation="5" floodColor="#202332" floodOpacity=".28"/></filter>
-        </defs>
-        <g className="climber-person" filter="url(#climberShadow2)">
-          <circle cx="75" cy="34" r="25" fill="url(#climberSkin2)"/>
-          <path d="M49 35c2-25 17-34 29-34 18 0 29 11 30 32-9-10-20-14-31-12-8 7-17 12-28 14z" fill="#202332"/>
-          <circle cx="66" cy="38" r="3" fill="#202332"/><circle cx="84" cy="38" r="3" fill="#202332"/>
-          <path d="M67 51c6 4 11 4 17 0" fill="none" stroke="#202332" strokeWidth="2.5" strokeLinecap="round"/>
-          <path d="M53 65c7-8 37-8 44 0l10 62-32 18-32-18z" fill="url(#climberSuit2)"/>
-          <path d="M58 75l17 25 17-25" fill="none" stroke="#fff" strokeWidth="2" opacity=".75"/>
-          <path className="climber-arm-a" d="M55 75l-27 38 13 9 30-28" fill="none" stroke="#32385a" strokeWidth="13" strokeLinecap="round"/>
-          <path className="climber-arm-b" d="M95 75l27 29-8 12-29-22" fill="none" stroke="#32385a" strokeWidth="13" strokeLinecap="round"/>
-          <path className="climber-leg-a" d="M62 140l-8 49 31 26" fill="none" stroke="#202332" strokeWidth="18" strokeLinecap="round"/>
-          <path className="climber-leg-b" d="M87 140l11 43-24 31" fill="none" stroke="#202332" strokeWidth="18" strokeLinecap="round"/>
-          <path d="M84 215l10 7" stroke="#6c63ff" strokeWidth="7" strokeLinecap="round"/>
-          <path d="M73 212l-9 7" stroke="#6c63ff" strokeWidth="7" strokeLinecap="round"/>
-        </g>
-      </svg>
-      <div className="climber-status"><i/> {status}</div>
-    </div>
-  </div>
-  );
-};
 function App(){
   const [lang,setLang]=useState<Lang>("en"),[menuOpen,setMenuOpen]=useState(false),[scroll,setScroll]=useState(0),[commandOpen,setCommandOpen]=useState(false),[terminalOpen,setTerminalOpen]=useState(false),[terminalInput,setTerminalInput]=useState(""),[terminalHistory,setTerminalHistory]=useState<string[]>(["$ help","help · whoami · stack · architecture · morocco · clear"]),[archSelected,setArchSelected]=useState(0),[easterEgg,setEasterEgg]=useState(false);
   const shellRef=useRef<HTMLDivElement>(null);
@@ -267,7 +223,7 @@ function App(){
           <div className="hero-actions reveal delay-4" data-reveal><a href="#work" className="button button-primary">{t.hero.work}<ArrowDownRight size={18}/></a><button onClick={downloadCV} className="button button-ghost"><Download size={17}/>{t.cv}</button></div>
         </div>
         <div className="portrait-wrap reveal delay-2" data-reveal><div className="portrait-frame"><div className="portrait-label top">ENGINEER / 2026</div><img src="/potfolio/profile-hi.webp?v=20260926" alt="Imrane Asrir — professional portrait" className="portrait" width="900" height="900" fetchPriority="high" decoding="async"/><div className="portrait-glow"/><div className="portrait-scan"/><div className="portrait-label bottom">BUILD · SHIP · OPERATE</div></div><div className="portrait-stamp"><span>IA</span><small>PLATFORM<br/>ENGINEERING</small></div></div>
-        <div className="morocco-badge reveal delay-3" data-reveal><span className="morocco-star">✦</span><div><strong>MA → LU</strong><small>MOROCCAN ROOTS</small></div></div><div className="hero-side"><span>{t.hero.scroll}</span><div className="side-line"/></div><div className="hero-meta"><span>METZ / FRANCE</span><span>LUXEMBOURG</span><span>{t.hero.meta}</span></div>
+        <div className="morocco-badge reveal delay-3" data-reveal><span className="morocco-star">✦</span><div><strong>MA → LU</strong><small>MOROCCAN ROOTS</small></div></div><div className="hero-side"><span>{t.hero.scroll}</span><div className="side-line"/></div><div className="hero-meta"><span>METZ / FRANCE</span><span>LUXEMBOURG</span><span>{t.hero.meta}</span></div><div className="future-lens" aria-hidden="true"><span className="lens-core"/><span className="lens-copy"><b>IA / 026</b><small>SYSTEM ONLINE · 2050 READY</small></span><span className="lens-bars"><i/><i/><i/><i/></span></div>
       </section>
 
       <section className="proof-bar"><div className="proof-label">WORKED ACROSS</div>{exp.map(e=><div className="company-proof" key={e.company}><CompanyLogo url={e.logo}/><span>{e.company}</span></div>)}</section>
