@@ -1610,3 +1610,81 @@
     font-size:40px !important;
   }
 }
+
+
+/* FINAL MOBILE FIX — Morocco origin must fit cleanly above the iOS browser chrome */
+@media (max-width:760px){
+  .origin-section{
+    padding:52px 6vw 72px !important;
+  }
+
+  .origin-inner{
+    gap:28px !important;
+  }
+
+  .origin-mosaic{
+    width:min(72vw,270px) !important;
+    height:min(72vw,270px) !important;
+    min-height:270px !important;
+    margin:0 auto !important;
+    border-width:3px !important;
+    box-shadow:12px 12px 0 var(--ink) !important;
+    transform:rotate(-1.5deg) !important;
+  }
+
+  .origin-mosaic .zellige-grid{
+    inset:18px !important;
+  }
+
+  .origin-seal{
+    width:58px !important;
+    height:58px !important;
+    border-width:3px !important;
+    box-shadow:0 0 0 6px var(--zellige),0 0 0 9px var(--ink) !important;
+  }
+
+  .origin-seal b{font-size:27px !important}
+  .origin-seal span{font-size:5px !important;margin-top:3px !important}
+
+  .origin-copy h2{
+    font-size:35px !important;
+    line-height:.94 !important;
+    letter-spacing:-.065em !important;
+    margin:9px 0 18px !important;
+    max-width:330px !important;
+  }
+
+  .origin-copy>p:not(.eyebrow){
+    font-size:12px !important;
+    line-height:1.55 !important;
+    max-width:330px !important;
+  }
+
+  .route-line{
+    margin-top:20px !important;
+    font-size:6.5px !important;
+  }
+
+  /* Legacy floating avatar/side dock is not part of the current mobile design. */
+  .avatar-dock{display:none !important}
+}
+
+@media (max-width:420px){
+  .origin-section{
+    padding-top:46px !important;
+    padding-bottom:64px !important;
+  }
+
+  .origin-mosaic{
+    width:70vw !important;
+    height:70vw !important;
+    min-height:0 !important;
+    max-width:255px !important;
+    max-height:255px !important;
+  }
+
+  .origin-copy h2{
+    font-size:33px !important;
+    max-width:310px !important;
+  }
+}
