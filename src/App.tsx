@@ -103,8 +103,10 @@ function Logo({slug,label}:{slug:string;label:string}){
 }
 function CompanyLogo({url}:{url:string}){return <span className="company-logo"><img src={url} alt="" loading="lazy" onError={(e)=>{e.currentTarget.style.display="none"}}/></span>}
 
-const DigitalAvatar=({status,onSecret,scroll}:{status:string;onSecret:()=>void;scroll:number})=>(
-  <div className="avatar-journey" style={{"--journey-y":`${scroll*0.72}vh`, "--walk":`${Math.round(scroll*18)}`} as React.CSSProperties} aria-label="Digital Twin walking through the portfolio">
+const DigitalAvatar=({status,onSecret,scroll}:{status:string;onSecret:()=>void;scroll:number})=>{
+  const stair=Math.min(8,Math.floor(scroll/12.5));
+  return (
+  <div className="avatar-journey" style={{"--stair":stair} as React.CSSProperties} aria-label="Digital Twin climbing through the portfolio">
     <div className="journey-label">DIGITAL TWIN // IA-026</div>
     <svg className="journey-stairs" viewBox="0 0 110 760" preserveAspectRatio="none" aria-hidden="true">
       <path d="M28 735h54M28 735v-55h14v-55h14v-55h14v-55h14v-55h14v-55h14v-55h14v-55h14v-55h14" fill="none" stroke="currentColor" strokeWidth="2"/>
@@ -137,7 +139,8 @@ const DigitalAvatar=({status,onSecret,scroll}:{status:string;onSecret:()=>void;s
       <div className="climber-status"><i/> {status}</div>
     </div>
   </div>
-);
+  );
+};
 function App(){
   const [lang,setLang]=useState<Lang>("en"),[menuOpen,setMenuOpen]=useState(false),[scroll,setScroll]=useState(0),[commandOpen,setCommandOpen]=useState(false),[terminalOpen,setTerminalOpen]=useState(false),[terminalInput,setTerminalInput]=useState(""),[terminalHistory,setTerminalHistory]=useState<string[]>(["$ help","help · whoami · stack · architecture · morocco · clear"]),[archSelected,setArchSelected]=useState(0),[easterEgg,setEasterEgg]=useState(false);
   const shellRef=useRef<HTMLDivElement>(null);
