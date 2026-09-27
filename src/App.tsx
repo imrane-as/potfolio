@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { jsPDF } from "jspdf";
 import {
   ArrowDownRight, ArrowUpRight, Braces, Check, Cloud, Container,
@@ -12,8 +12,8 @@ type Capability = readonly [string, string, typeof Container];
 const copy = {
   en: {
     nav:{about:"About",experience:"Experience",stack:"Stack",work:"Work",contact:"Contact",talk:"Let's talk"},
-    hero:{eyebrow:"API MANAGEMENT · DEVOPS · PLATFORM ENGINEERING",kicker:"CLOUD / API / AUTOMATION",intro:<>I transform complex enterprise infrastructure into <strong>clear, reliable systems</strong> that teams can actually operate.</>,work:"Découvrir mon parcours",contact:"Démarrer une discussion",scroll:"DÉFILER POUR EXPLORER",meta:"OUVERT À LA PROCHAINE ÉTAPE"},
-    about:{index:"01 / ABOUT",eyebrow:"THE ENGINEER",title:<>Not just keeping systems alive.<br/><em>Understanding how they connect.</em></>,p1:"I'm an API Management & DevOps Engineer working at the intersection of application integration, middleware, cloud platforms and security.",p2:"My work sits close to production: designing connectivity, automating delivery, troubleshooting failures and making complex platforms easier to operate.",signature:"API MANAGEMENT · DEVOPS"},
+    hero:{eyebrow:"DEVOPS · APPLICATION INTEGRATION · API MANAGEMENT",kicker:"CLOUD / API / AUTOMATION",intro:<>I transform complex enterprise infrastructure into <strong>clear, reliable systems</strong> that teams can actually operate.</>,work:"Découvrir mon parcours",contact:"Démarrer une discussion",scroll:"DÉFILER POUR EXPLORER",meta:"OUVERT À LA PROCHAINE ÉTAPE"},
+    about:{index:"01 / ABOUT",eyebrow:"THE ENGINEER",title:<>Not just keeping systems alive.<br/><em>Understanding how they connect.</em></>,p1:"I'm a DevOps & Application Integration Engineer working at the intersection of application integration, middleware, cloud platforms and security.",p2:"My work sits close to production: designing connectivity, automating delivery, troubleshooting failures and making complex platforms easier to operate.",signature:"API MANAGEMENT · DEVOPS"},
     toolbox:{eyebrow:"THE TOOLBOX",title:<>Tools are not the story.<br/><em>The system is.</em></>,text:"A practical stack shaped by enterprise delivery, cloud-native platforms, API ecosystems and production constraints."},
     how:{eyebrow:"HOW I WORK",title:<>Observe.<br/>Automate.<br/><em>Secure.</em></>,text:"Good platform engineering reduces operational noise, makes delivery reproducible and turns production signals into useful decisions."},
     experience:{index:"02 / EXPERIENCE",eyebrow:"CAREER LOG",title:<>Enterprise environments.<br/><em>Real delivery responsibility.</em></>},
@@ -21,13 +21,13 @@ const copy = {
     system:{index:"04 / THE SYSTEM",eyebrow:"FROM CODE TO PRODUCTION",title:<>A delivery chain built<br/><em>to survive reality.</em></>},
     education:{index:"05 / EDUCATION",eyebrow:"FOUNDATION",title:<>Software foundations.<br/><em>Infrastructure mindset.</em></>},
     contact:{index:"06 / LET'S BUILD",title:<>The next system<br/><em>starts with a conversation.</em></>,text:"DevOps, API Management, cloud-native platforms or a difficult integration problem — let's talk.",mail:"imr.asrir@gmail.com"},
-    origin:{eyebrow:"ROOTS / ORIGIN",title:<>From Morocco.<br/><em>Built for the world.</em></>,text:"Moroccan roots, European delivery, global engineering mindset.",arabic:"من المغرب إلى العالم"},
+    origin:{eyebrow:"ROOTS / ORIGIN",title:<>From Morocco.<br/><em>Built for the world.</em></>,text:"Moroccan roots, European delivery, global engineering mindset."},
     cv:"Download CV",language:"FR",online:"● online",terminal:"imrane@platform:~"
   },
   fr: {
     nav:{about:"À propos",experience:"Expérience",stack:"Stack",work:"Projets",contact:"Contact",talk:"Me contacter"},
-    hero:{eyebrow:"API MANAGEMENT · DEVOPS · LUXEMBOURG",kicker:"PLATEFORME / CLOUD / INTÉGRATION",intro:<>Je conçois et exploite des plateformes <strong>sécurisées, observables et fiables</strong> pour des environnements d'entreprise complexes.</>,work:"Voir mes projets",contact:"Démarrer une discussion",scroll:"DÉFILER POUR EXPLORER",meta:"OUVERT À UN NOUVEAU DÉFI"},
-    about:{index:"01 / À PROPOS",eyebrow:"L'INGÉNIEUR",title:<>Pas seulement maintenir les systèmes.<br/><em>Comprendre comment ils se connectent.</em></>,p1:"Je suis ingénieur API Management & DevOps, à l'intersection de l'intégration applicative, du middleware, des plateformes cloud et de la sécurité.",p2:"Mon travail est proche de la production : concevoir les connectivités, automatiser les déploiements, diagnostiquer les incidents et rendre les plateformes complexes plus simples à exploiter.",signature:"API MANAGEMENT · DEVOPS"},
+    hero:{eyebrow:"DEVOPS · INTÉGRATION APPLICATIVE · API MANAGEMENT",kicker:"PLATEFORME / CLOUD / INTÉGRATION",intro:<>Je conçois et exploite des plateformes <strong>sécurisées, observables et fiables</strong> pour des environnements d'entreprise complexes.</>,work:"Voir mes projets",contact:"Démarrer une discussion",scroll:"DÉFILER POUR EXPLORER",meta:"OUVERT À UN NOUVEAU DÉFI"},
+    about:{index:"01 / À PROPOS",eyebrow:"L'INGÉNIEUR",title:<>Pas seulement maintenir les systèmes.<br/><em>Comprendre comment ils se connectent.</em></>,p1:"Je suis ingénieur DevOps & Intégration Applicative, à l'intersection de l'intégration applicative, du middleware, des plateformes cloud et de la sécurité.",p2:"Mon travail est proche de la production : concevoir les connectivités, automatiser les déploiements, diagnostiquer les incidents et rendre les plateformes complexes plus simples à exploiter.",signature:"API MANAGEMENT · DEVOPS"},
     toolbox:{eyebrow:"LA TOOLBOX",title:<>Les outils ne sont pas le sujet.<br/><em>Le système l'est.</em></>,text:"Une stack construite autour de la production d'entreprise, des plateformes cloud-native, des écosystèmes API et des contraintes réelles d'exploitation."},
     how:{eyebrow:"MA FAÇON DE TRAVAILLER",title:<>Observer.<br/>Automatiser.<br/><em>Sécuriser.</em></>,text:"Une bonne ingénierie de plateforme réduit le bruit opérationnel, rend les livraisons reproductibles et transforme les signaux de production en décisions utiles."},
     experience:{index:"02 / EXPÉRIENCE",eyebrow:"PARCOURS",title:<>Environnements d'entreprise.<br/><em>Responsabilité technique réelle.</em></>},
@@ -35,7 +35,7 @@ const copy = {
     system:{index:"04 / LE SYSTÈME",eyebrow:"DU CODE À LA PRODUCTION",title:<>Une chaîne de livraison conçue<br/><em>pour le réel.</em></>},
     education:{index:"05 / FORMATION",eyebrow:"FONDATIONS",title:<>Fondamentaux logiciels.<br/><em>Culture infrastructure.</em></>},
     contact:{index:"06 / CONSTRUISONS",title:<>Le prochain système<br/><em>commence par une discussion.</em></>,text:"DevOps, API Management, plateformes cloud-native ou problème d'intégration complexe — parlons-en.",mail:"imr.asrir@gmail.com"},
-    origin:{eyebrow:"RACINES / ORIGINE",title:<>Du Maroc.<br/><em>Pour le monde.</em></>,text:"Des racines marocaines, une expérience européenne, une culture d'ingénierie ouverte sur le monde.",arabic:"من المغرب إلى العالم"},
+    origin:{eyebrow:"RACINES / ORIGINE",title:<>Du Maroc.<br/><em>Pour le monde.</em></>,text:"Des racines marocaines, une expérience européenne, une culture d'ingénierie ouverte sur le monde."},
     cv:"Télécharger le CV",language:"EN",online:"● en ligne",terminal:"imrane@platform:~"
   }
 } as const;
@@ -105,6 +105,25 @@ function CompanyLogo({url}:{url:string}){return <span className="company-logo"><
 
 function App(){
   const [lang,setLang]=useState<Lang>("en"),[menuOpen,setMenuOpen]=useState(false),[scroll,setScroll]=useState(0);
+  const shellRef=useRef<HTMLDivElement>(null);
+  const pointerFrame=useRef<number|null>(null);
+  const handlePointerMove=(e:React.PointerEvent<HTMLElement>)=>{
+    const el=e.currentTarget;
+    const rect=el.getBoundingClientRect();
+    const x=((e.clientX-rect.left)/rect.width)*100;
+    const y=((e.clientY-rect.top)/rect.height)*100;
+    if(pointerFrame.current) cancelAnimationFrame(pointerFrame.current);
+    pointerFrame.current=requestAnimationFrame(()=>{
+      el.style.setProperty("--mx",x+"%");
+      el.style.setProperty("--my",y+"%");
+      el.style.setProperty("--px",(e.clientX-rect.left)+"px");
+      el.style.setProperty("--py",(e.clientY-rect.top)+"px");
+    });
+  };
+  const resetPointer=(e:React.PointerEvent<HTMLElement>)=>{
+    e.currentTarget.style.setProperty("--mx","50%");
+    e.currentTarget.style.setProperty("--my","50%");
+  };
   const t=copy[lang], exp=experiences[lang], projs=projects[lang];
   const capabilities: Capability[] = lang === "en"
     ? [
@@ -159,7 +178,7 @@ function App(){
     doc.save("Imrane_Asrir_Detailed_CV_"+lang.toUpperCase()+".pdf");
   };
 
-  return <div className="site-shell"><div className="scroll-progress" style={{width:`${scroll}%`}}/><div className="noise"/>
+  return <div ref={shellRef} className="site-shell" onPointerMove={handlePointerMove}><div className="pointer-glow"/><div className="scroll-progress" style={{width:`${scroll}%`}}/><div className="noise"/>
     <header className="nav"><a href="#top" className="brand">IA<span>/</span></a>
       <div className={`nav-links ${menuOpen?"open":""}`}>
         {([["about",t.nav.about],["experience",t.nav.experience],["stack",t.nav.stack],["work",t.nav.work],["contact",t.nav.contact]] as const).map(([id,label])=><a key={id} href={"#"+id} onClick={()=>setMenuOpen(false)}>{label}</a>)}
@@ -169,12 +188,12 @@ function App(){
     </header>
 
     <main id="top">
-      <section className="hero"><div className="hero-grid"/><div className="hero-orbit orbit-a"/><div className="hero-orbit orbit-b"/>
+      <section className="hero" onPointerLeave={resetPointer}><div className="hero-grid"/><div className="hero-cursor-orb"/><div className="hero-grid-sheen"/><div className="hero-orbit orbit-a"/><div className="hero-orbit orbit-b"/>
         <div className="hero-copy"><div className="eyebrow reveal" data-reveal><span className="status-dot"/> {t.hero.eyebrow}</div><p className="hero-kicker reveal delay-1" data-reveal>{t.hero.kicker}</p><h1 className="hero-title reveal delay-2" data-reveal>IMRANE <span className="surname">ASRIR</span></h1><p className="hero-intro reveal delay-3" data-reveal>{t.hero.intro}</p>
           <div className="hero-actions reveal delay-4" data-reveal><a href="#work" className="button button-primary">{t.hero.work}<ArrowDownRight size={18}/></a><button onClick={downloadCV} className="button button-ghost"><Download size={17}/>{t.cv}</button></div>
         </div>
         <div className="portrait-wrap reveal delay-2" data-reveal><div className="portrait-frame"><div className="portrait-label top">ENGINEER / 2026</div><img src="/potfolio/profile-hi.webp?v=20260926" alt="Imrane Asrir — professional portrait" className="portrait" width="900" height="900" fetchPriority="high" decoding="async"/><div className="portrait-glow"/><div className="portrait-scan"/><div className="portrait-label bottom">BUILD · SHIP · OPERATE</div></div><div className="portrait-stamp"><span>IA</span><small>PLATFORM<br/>ENGINEERING</small></div></div>
-        <div className="morocco-badge reveal delay-3" data-reveal><span className="morocco-star">✦</span><div><strong>MA → LU</strong><small>{t.origin.arabic}</small></div></div><div className="hero-side"><span>{t.hero.scroll}</span><div className="side-line"/></div><div className="hero-meta"><span>METZ / FRANCE</span><span>LUXEMBOURG</span><span>{t.hero.meta}</span></div>
+        <div className="morocco-badge reveal delay-3" data-reveal><span className="morocco-star">✦</span><div><strong>MA → LU</strong><small>MOROCCAN ROOTS</small></div></div><div className="hero-side"><span>{t.hero.scroll}</span><div className="side-line"/></div><div className="hero-meta"><span>METZ / FRANCE</span><span>LUXEMBOURG</span><span>{t.hero.meta}</span></div>
       </section>
 
       <section className="proof-bar"><div className="proof-label">WORKED ACROSS</div>{exp.map(e=><div className="company-proof" key={e.company}><CompanyLogo url={e.logo}/><span>{e.company}</span></div>)}</section>
@@ -187,7 +206,7 @@ function App(){
 
       <section className="signal-section"><div className="signal-inner"><div className="terminal-window reveal" data-reveal><div className="terminal-top"><span><i/><i/><i/></span><span>{t.hero.eyebrow.includes("API")?"imrane@platform:~":"imrane@plateforme:~"}</span><span>{t.online}</span></div><div className="terminal-body"><p><b>$</b> whoami</p><p className="terminal-output">api-management.engineer</p><p><b>$</b> platform --focus</p><p className="terminal-output">kubernetes · openshift · cloud · gitops</p><p><b>$</b> security --mode</p><p className="terminal-output">oauth2 · tls · mtls · secrets</p><p><b>$</b> mission</p><p className="terminal-output accent">make-it-reliable.sh ✓</p><span className="cursor">▋</span></div></div><div className="signal-copy reveal delay-1" data-reveal><p className="eyebrow">{t.how.eyebrow}</p><h2>{t.how.title}</h2><p>{t.how.text}</p></div></div></section>
 
-      <section className="origin-section"><div className="origin-pattern"/><div className="origin-inner"><div className="origin-mosaic reveal" data-reveal><div className="zellige-grid"><span key={0}/><span key={1}/><span key={2}/><span key={3}/><span key={4}/><span key={5}/><span key={6}/><span key={7}/><span key={8}/><span key={9}/><span key={10}/><span key={11}/><span key={12}/><span key={13}/><span key={14}/><span key={15}/></div><div className="origin-seal"><b>MA</b><span>33°N</span><span>6°W</span></div></div><div className="origin-copy reveal delay-1" data-reveal><p className="eyebrow">{t.origin.eyebrow}</p><h2>{t.origin.title}</h2><p>{t.origin.text}</p><div className="origin-arabic">{t.origin.arabic}</div><div className="route-line"><span>CASABLANCA</span><i/><span>LUXEMBOURG</span></div></div></div></section>
+      <section className="origin-section"><div className="origin-pattern"/><div className="origin-inner"><div className="origin-mosaic reveal" data-reveal><div className="zellige-grid"><span key={0}/><span key={1}/><span key={2}/><span key={3}/><span key={4}/><span key={5}/><span key={6}/><span key={7}/><span key={8}/><span key={9}/><span key={10}/><span key={11}/><span key={12}/><span key={13}/><span key={14}/><span key={15}/></div><div className="origin-seal"><b>MA</b><span>33°N</span><span>6°W</span></div></div><div className="origin-copy reveal delay-1" data-reveal><p className="eyebrow">{t.origin.eyebrow}</p><h2>{t.origin.title}</h2><p>{t.origin.text}</p><div className="route-line"><span>CASABLANCA</span><i/><span>LUXEMBOURG</span></div></div></div></section>
 
       <section id="experience" className="section experience"><div className="section-index">{t.experience.index}</div><div className="section-heading reveal" data-reveal><p className="eyebrow">{t.experience.eyebrow}</p><h2>{t.experience.title}</h2></div><div className="timeline">{exp.map((item,i)=><article className="timeline-item reveal" data-reveal key={item.company+item.period}><div className="timeline-marker"><span>0{i+1}</span></div><div className="timeline-date">{item.period}</div><div className="timeline-main"><div className="company-line"><CompanyLogo url={item.logo}/><span className="timeline-company">{item.company}</span></div><h3>{item.role}</h3><p className="timeline-context">{item.context}</p><ul>{item.points.map(pt=><li key={pt}><Check size={13}/>{pt}</li>)}</ul><div className="tags">{item.stack.map(tag=><span key={tag}>{tag}</span>)}</div></div></article>)}</div></section>
 
@@ -197,7 +216,7 @@ function App(){
 
       <section className="education section"><div className="section-index">{t.education.index}</div><div className="education-grid"><div className="section-heading reveal" data-reveal><p className="eyebrow">{t.education.eyebrow}</p><h2>{t.education.title}</h2></div><div className="education-list"><div className="edu-item reveal" data-reveal><span>2023 — 2024</span><div><strong>Nantes University</strong><p>Master's Degree · Software Architecture (ALMA)</p></div></div><div className="edu-item reveal" data-reveal><span>2020 — 2023</span><div><strong>ENSEM Casablanca</strong><p>Engineering Degree · Computer Science · Networks & Databases</p></div></div><div className="edu-item reveal" data-reveal><span>2017 — 2020</span><div><strong>Preparatory Classes</strong><p>TSI · Technology and Industrial Sciences</p></div></div></div></div></section>
 
-      <section id="contact" className="contact"><div className="contact-grid"/><div className="contact-inner"><p className="eyebrow reveal" data-reveal>{t.contact.index}</p><h2 className="reveal delay-1" data-reveal>{t.contact.title}</h2><p className="contact-text reveal delay-2" data-reveal>{t.contact.text}</p><div className="contact-actions reveal delay-3" data-reveal><a href={"mailto:"+t.contact.mail} className="button button-primary">{t.contact.mail}<ArrowUpRight size={18}/></a><button onClick={downloadCV} className="button button-ghost"><Download size={17}/>{t.cv}</button><a href="https://github.com/imrane-as/potfolio" target="_blank" rel="noreferrer" className="icon-button"><Github size={20}/></a><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="icon-button"><Linkedin size={20}/></a></div><div className="contact-bottom"><span>AR · FR C1 · EN B2</span><span>METZ ↔ LUXEMBOURG</span><span>© {new Date().getFullYear()} IMRANE ASRIR</span></div></div></section>
+      <section id="contact" className="contact"><div className="contact-grid"/><div className="contact-inner"><p className="eyebrow reveal" data-reveal>{t.contact.index}</p><h2 className="reveal delay-1" data-reveal>{t.contact.title}</h2><p className="contact-text reveal delay-2" data-reveal>{t.contact.text}</p><div className="contact-actions reveal delay-3" data-reveal><a href={"mailto:"+t.contact.mail} className="button button-primary">{t.contact.mail}<ArrowUpRight size={18}/></a><button onClick={downloadCV} className="button button-ghost"><Download size={17}/>{t.cv}</button><a href="https://github.com/imrane-as/potfolio" target="_blank" rel="noreferrer" className="icon-button"><Github size={20}/></a><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="icon-button"><Linkedin size={20}/></a></div><div className="contact-bottom"><span>FR C1 · EN B2</span><span>METZ ↔ LUXEMBOURG</span><span>© {new Date().getFullYear()} IMRANE ASRIR</span></div></div></section>
     </main>
     <footer className="footer"><span>IMRANE ASRIR / API MANAGEMENT & DEVOPS</span><span>REACT · TYPESCRIPT · MOTION · SYSTEMS</span></footer>
   </div>
