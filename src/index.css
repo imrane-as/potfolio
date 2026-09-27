@@ -601,3 +601,69 @@
 @media(prefers-reduced-motion:reduce){
   .climber-person,.climber-arm-a,.climber-arm-b,.climber-leg-a,.climber-leg-b{animation:none}
 }
+
+
+/* FINAL STAIRCASE FIX — avatar sits ON the visible steps */
+.avatar-journey{
+  position:fixed!important;
+  z-index:220;
+  inset:0 0 0 auto!important;
+  width:150px!important;
+  height:100vh!important;
+  pointer-events:none;
+  --step-y:calc(78vh - (var(--stair) * 8.2vh));
+  --step-x:calc(4px + ((var(--stair) % 2) * 36px));
+}
+.avatar-journey .journey-label{
+  top:18vh!important;
+  right:8px!important;
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  font-size:6px;
+  color:#6c63ff;
+}
+.avatar-journey .journey-stairs{
+  top:16vh!important;
+  right:0!important;
+  width:145px!important;
+  height:68vh!important;
+  opacity:.55!important;
+}
+.avatar-journey .avatar-climber{
+  top:var(--step-y)!important;
+  right:calc(12px + (var(--stair) * 2px))!important;
+  width:82px!important;
+  height:145px!important;
+  transform:translateY(-100%)!important;
+  transition:top .38s cubic-bezier(.22,.8,.28,1),right .38s cubic-bezier(.22,.8,.28,1)!important;
+}
+.avatar-journey .avatar-climber:after{
+  content:"";
+  position:absolute;
+  left:12px;
+  bottom:-3px;
+  width:58px;
+  height:7px;
+  border-radius:50%;
+  background:#6c63ff25;
+  filter:blur(3px);
+}
+@media(max-width:760px){
+  .avatar-journey{width:105px!important}
+  .avatar-journey .journey-label{right:2px!important;top:17vh!important;font-size:5px}
+  .avatar-journey .journey-stairs{
+    right:-1px!important;
+    width:102px!important;
+    height:70vh!important;
+    top:15vh!important;
+  }
+  .avatar-journey .avatar-climber{
+    width:62px!important;
+    height:110px!important;
+    top:calc(76vh - (var(--stair) * 8.2vh))!important;
+    right:5px!important;
+  }
+  .avatar-journey .climber-body{width:62px!important;height:96px!important}
+  .avatar-journey .climber-name{font-size:5px!important}
+  .avatar-journey .climber-status{font-size:4px!important}
+}
