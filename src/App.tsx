@@ -103,6 +103,40 @@ function Logo({slug,label}:{slug:string;label:string}){
 }
 function CompanyLogo({url}:{url:string}){return <span className="company-logo"><img src={url} alt="" loading="lazy" onError={(e)=>{e.currentTarget.style.display="none"}}/></span>}
 
+const DigitalAvatar=()=>(
+  <div className="avatar-dock" aria-label="Interactive digital avatar">
+    <div className="avatar-hud-top"><span className="hud-dot"/> DIGITAL TWIN <b>v2.026</b></div>
+    <div className="avatar-stage">
+      <div className="avatar-orbit avatar-orbit-a"/>
+      <div className="avatar-orbit avatar-orbit-b"/>
+      <div className="avatar-radar"/>
+      <svg className="digital-avatar" viewBox="0 0 300 340" role="img" aria-label="Stylized digital avatar of an engineer">
+        <defs>
+          <linearGradient id="avatarSkin" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stopColor="#f5c7a9"/><stop offset="1" stopColor="#b96f55"/></linearGradient>
+          <linearGradient id="avatarJacket" x1="0" x2="1"><stop offset="0" stopColor="#171a28"/><stop offset=".55" stopColor="#32385a"/><stop offset="1" stopColor="#6c63ff"/></linearGradient>
+          <linearGradient id="avatarGlow" x1="0" x2="1"><stop offset="0" stopColor="#00b8a9"/><stop offset="1" stopColor="#6c63ff"/></linearGradient>
+          <filter id="avatarShadow"><feDropShadow dx="0" dy="12" stdDeviation="10" floodColor="#202332" floodOpacity=".28"/></filter>
+        </defs>
+        <path d="M72 335c7-69 36-103 78-103s71 34 78 103" fill="url(#avatarJacket)" filter="url(#avatarShadow)"/>
+        <path d="M113 245l37 42 37-42-9-27h-56z" fill="#f7f1e8"/>
+        <path d="M107 120c0-48 28-76 66-76s66 28 66 76v61c0 45-30 73-66 73s-66-28-66-73z" fill="url(#avatarSkin)" filter="url(#avatarShadow)"/>
+        <path d="M107 127c-8-66 22-94 70-94 42 0 65 24 66 78-15-21-36-32-63-34-22 19-47 29-73 28z" fill="#202332"/>
+        <path d="M115 112c14-42 38-57 72-57 29 0 48 13 58 38-25-15-48-18-69-9-18 13-38 23-61 28z" fill="#2c3041"/>
+        <path d="M132 150c8-5 16-5 24 0M177 150c8-5 16-5 24 0" fill="none" stroke="#202332" strokeWidth="4" strokeLinecap="round"/>
+        <circle cx="147" cy="161" r="5" fill="#202332"/><circle cx="191" cy="161" r="5" fill="#202332"/>
+        <path d="M164 160l-4 23 9 3" fill="none" stroke="#9a5c4c" strokeWidth="3" strokeLinecap="round"/>
+        <path d="M145 201c12 9 28 9 40 0" fill="none" stroke="#202332" strokeWidth="4" strokeLinecap="round"/>
+        <path d="M84 310l40-32 26 36 26-36 40 32" fill="none" stroke="url(#avatarGlow)" strokeWidth="4"/>
+        <path d="M121 280l29 34 29-34" fill="none" stroke="#fff" strokeWidth="2" opacity=".75"/>
+        <path d="M73 327h154" stroke="#fff" strokeOpacity=".15"/>
+      </svg>
+      <div className="avatar-scanline"/>
+      <div className="avatar-chip chip-one">API</div><div className="avatar-chip chip-two">K8S</div><div className="avatar-chip chip-three">MTLS</div>
+    </div>
+    <div className="avatar-hud-bottom"><span>ENGINEER_ID: IA-026</span><strong>● ONLINE</strong></div>
+  </div>
+);
+
 function App(){
   const [lang,setLang]=useState<Lang>("en"),[menuOpen,setMenuOpen]=useState(false),[scroll,setScroll]=useState(0);
   const shellRef=useRef<HTMLDivElement>(null);
@@ -192,7 +226,7 @@ function App(){
         <div className="hero-copy"><div className="eyebrow reveal" data-reveal><span className="status-dot"/> {t.hero.eyebrow}</div><p className="hero-kicker reveal delay-1" data-reveal>{t.hero.kicker}</p><h1 className="hero-title reveal delay-2" data-reveal>IMRANE <span className="surname">ASRIR</span></h1><p className="hero-intro reveal delay-3" data-reveal>{t.hero.intro}</p>
           <div className="hero-actions reveal delay-4" data-reveal><a href="#work" className="button button-primary">{t.hero.work}<ArrowDownRight size={18}/></a><button onClick={downloadCV} className="button button-ghost"><Download size={17}/>{t.cv}</button></div>
         </div>
-        <div className="portrait-wrap reveal delay-2" data-reveal><div className="portrait-frame"><div className="portrait-label top">ENGINEER / 2026</div><img src="/potfolio/profile-hi.webp?v=20260926" alt="Imrane Asrir — professional portrait" className="portrait" width="900" height="900" fetchPriority="high" decoding="async"/><div className="portrait-glow"/><div className="portrait-scan"/><div className="portrait-label bottom">BUILD · SHIP · OPERATE</div></div><div className="portrait-stamp"><span>IA</span><small>PLATFORM<br/>ENGINEERING</small></div></div>
+        <div className="portrait-wrap reveal delay-2" data-reveal><div className="portrait-frame"><div className="portrait-label top">ENGINEER / 2026</div><img src="/potfolio/profile-hi.webp?v=20260926" alt="Imrane Asrir — professional portrait" className="portrait" width="900" height="900" fetchPriority="high" decoding="async"/><div className="portrait-glow"/><div className="portrait-scan"/><div className="portrait-label bottom">BUILD · SHIP · OPERATE</div></div><div className="portrait-stamp"><span>IA</span><small>PLATFORM<br/>ENGINEERING</small></div></div><DigitalAvatar/>
         <div className="morocco-badge reveal delay-3" data-reveal><span className="morocco-star">✦</span><div><strong>MA → LU</strong><small>MOROCCAN ROOTS</small></div></div><div className="hero-side"><span>{t.hero.scroll}</span><div className="side-line"/></div><div className="hero-meta"><span>METZ / FRANCE</span><span>LUXEMBOURG</span><span>{t.hero.meta}</span></div>
       </section>
 
