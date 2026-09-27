@@ -3,7 +3,7 @@ import { jsPDF } from "jspdf";
 import {
   ArrowDownRight, ArrowUpRight, Braces, Check, Cloud, Container,
   Github, Globe2, Layers3, Linkedin, Mail, Menu, Network,
-  ShieldCheck, Terminal, X, Download, Languages
+  ShieldCheck, Terminal, X, Download, Languages, Command, Search
 } from "lucide-react";
 
 type Lang = "en" | "fr";
@@ -22,7 +22,7 @@ const copy = {
     education:{index:"05 / EDUCATION",eyebrow:"FOUNDATION",title:<>Software foundations.<br/><em>Infrastructure mindset.</em></>},
     contact:{index:"06 / LET'S BUILD",title:<>The next system<br/><em>starts with a conversation.</em></>,text:"DevOps, API Management, cloud-native platforms or a difficult integration problem — let's talk.",mail:"imr.asrir@gmail.com"},
     origin:{eyebrow:"ROOTS / ORIGIN",title:<>From Morocco.<br/><em>Built for the world.</em></>,text:"Moroccan roots, European delivery, global engineering mindset."},
-    cv:"Download CV",language:"FR",online:"● online",terminal:"imrane@platform:~"
+    cv:"Download CV",language:"FR",online:"● online",terminal:"imrane@platform:~",os:{open:"OPEN COMMAND",title:"IMRANE OS",hint:"Navigate the system",close:"ESC to close",about:"About me",experience:"Experience",stack:"Tech stack",work:"Selected work",contact:"Contact",proof:"Proof Lab",cv:"Download CV"}
   },
   fr: {
     nav:{about:"À propos",experience:"Expérience",stack:"Stack",work:"Projets",contact:"Contact",talk:"Me contacter"},
@@ -36,7 +36,7 @@ const copy = {
     education:{index:"05 / FORMATION",eyebrow:"FONDATIONS",title:<>Fondamentaux logiciels.<br/><em>Culture infrastructure.</em></>},
     contact:{index:"06 / CONSTRUISONS",title:<>Le prochain système<br/><em>commence par une discussion.</em></>,text:"DevOps, API Management, plateformes cloud-native ou problème d'intégration complexe — parlons-en.",mail:"imr.asrir@gmail.com"},
     origin:{eyebrow:"RACINES / ORIGINE",title:<>Du Maroc.<br/><em>Pour le monde.</em></>,text:"Des racines marocaines, une expérience européenne, une culture d'ingénierie ouverte sur le monde."},
-    cv:"Télécharger le CV",language:"EN",online:"● en ligne",terminal:"imrane@platform:~"
+    cv:"Télécharger le CV",language:"EN",online:"● en ligne",terminal:"imrane@platform:~",os:{open:"COMMANDES",title:"IMRANE OS",hint:"Naviguer dans le système",close:"Échap pour fermer",about:"À propos",experience:"Expérience",stack:"Stack technique",work:"Projets",contact:"Contact",proof:"Proof Lab",cv:"Télécharger le CV"}
   }
 } as const;
 
@@ -103,7 +103,7 @@ function Logo({slug,label}:{slug:string;label:string}){
 }
 function CompanyLogo({url}:{url:string}){return <span className="company-logo"><img src={url} alt="" loading="lazy" onError={(e)=>{e.currentTarget.style.display="none"}}/></span>}
 
-const DigitalAvatar=()=>(
+const DigitalAvatar=({status}:{status:string})=>(
   <div className="avatar-dock" aria-label="Interactive digital avatar">
     <div className="avatar-hud-top"><span className="hud-dot"/> DIGITAL TWIN <b>v2.026</b></div>
     <div className="avatar-stage">
@@ -133,12 +133,12 @@ const DigitalAvatar=()=>(
       <div className="avatar-scanline"/>
       <div className="avatar-chip chip-one">API</div><div className="avatar-chip chip-two">K8S</div><div className="avatar-chip chip-three">MTLS</div>
     </div>
-    <div className="avatar-hud-bottom"><span>ENGINEER_ID: IA-026</span><strong>● ONLINE</strong></div>
+    <div className="avatar-hud-bottom"><span>ENGINEER_ID: IA-026</span><strong>● {status}</strong></div>
   </div>
 );
 
 function App(){
-  const [lang,setLang]=useState<Lang>("en"),[menuOpen,setMenuOpen]=useState(false),[scroll,setScroll]=useState(0);
+  const [lang,setLang]=useState<Lang>("en"),[menuOpen,setMenuOpen]=useState(false),[scroll,setScroll]=useState(0),[commandOpen,setCommandOpen]=useState(false);
   const shellRef=useRef<HTMLDivElement>(null);
   const pointerFrame=useRef<number|null>(null);
   const handlePointerMove=(e:React.PointerEvent<HTMLElement>)=>{
@@ -159,6 +159,7 @@ function App(){
     e.currentTarget.style.setProperty("--my","50%");
   };
   const t=copy[lang], exp=experiences[lang], projs=projects[lang];
+  const twinStatus = scroll < 15 ? "ONLINE" : scroll < 34 ? "DISCOVERING" : scroll < 57 ? "SHIPPING" : scroll < 78 ? "CONNECTED" : "VERIFIED";
   const capabilities: Capability[] = lang === "en"
     ? [
         ["PLATFORM", "Kubernetes · OpenShift · AKS", Container],
@@ -178,6 +179,7 @@ function App(){
       ];
 
   useEffect(()=>{const f=()=>{const m=document.documentElement.scrollHeight-window.innerHeight;setScroll(m>0?window.scrollY/m*100:0)};addEventListener("scroll",f,{passive:true});f();return()=>removeEventListener("scroll",f)},[]);
+  useEffect(()=>{const onKey=(e:KeyboardEvent)=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==="k"){e.preventDefault();setCommandOpen(v=>!v)}if(e.key==="Escape")setCommandOpen(false)};addEventListener("keydown",onKey);return()=>removeEventListener("keydown",onKey)},[]);
   useEffect(()=>{const o=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("is-visible")),{threshold:.12});document.querySelectorAll("[data-reveal]").forEach(x=>o.observe(x));return()=>o.disconnect()},[lang]);
 
   const downloadCV=()=>{
@@ -217,16 +219,27 @@ function App(){
       <div className={`nav-links ${menuOpen?"open":""}`}>
         {([["about",t.nav.about],["experience",t.nav.experience],["stack",t.nav.stack],["work",t.nav.work],["contact",t.nav.contact]] as const).map(([id,label])=><a key={id} href={"#"+id} onClick={()=>setMenuOpen(false)}>{label}</a>)}
       </div>
-      <div className="nav-tools"><button className="lang-switch" onClick={()=>setLang(lang==="en"?"fr":"en")}><Languages size={14}/>{lang.toUpperCase()} <span>→ {t.language}</span></button><button className="cv-button" onClick={downloadCV}><Download size={14}/>{t.cv}</button><a className="nav-cta" href="#contact">{t.nav.talk} <ArrowUpRight size={15}/></a></div>
+      <div className="nav-tools"><button className="lang-switch" onClick={()=>setLang(lang==="en"?"fr":"en")}><Languages size={14}/>{lang.toUpperCase()} <span>→ {t.language}</span></button><button className="command-trigger" onClick={()=>setCommandOpen(true)} aria-label={t.os.open}><Command size={13}/><span>⌘K</span></button><button className="cv-button" onClick={downloadCV}><Download size={14}/>{t.cv}</button><a className="nav-cta" href="#contact">{t.nav.talk} <ArrowUpRight size={15}/></a></div>
       <button className="menu-button" onClick={()=>setMenuOpen(!menuOpen)} aria-label="Toggle menu">{menuOpen?<X size={21}/>:<Menu size={21}/>}</button>
     </header>
+    {commandOpen&&<div className="command-overlay" onMouseDown={()=>setCommandOpen(false)}>
+      <div className="command-palette" role="dialog" aria-modal="true" aria-label={t.os.title} onMouseDown={e=>e.stopPropagation()}>
+        <div className="command-head"><div><span className="command-kicker"><span className="status-dot"/> {t.os.title}</span><strong>{t.os.hint}</strong></div><button onClick={()=>setCommandOpen(false)} aria-label={t.os.close}><X size={18}/></button></div>
+        <div className="command-search"><Search size={16}/><span>⌘K</span><input autoFocus placeholder={lang==="en"?"Jump to a section…":"Aller à une section…"} onKeyDown={e=>{if(e.key==="Escape")setCommandOpen(false)}}/></div>
+        <div className="command-grid">
+          {([["about",t.os.about],["experience",t.os.experience],["stack",t.os.stack],["work",t.os.work],["contact",t.os.contact],["proof-lab",t.os.proof]] as const).map(([id,label],i)=><a key={id} href={"#"+id} onClick={()=>setCommandOpen(false)}><span>0{i+1}</span>{label}<ArrowUpRight size={14}/></a>)}
+          <button className="command-cv" onClick={()=>{setCommandOpen(false);downloadCV()}}><span>↳</span>{t.os.cv}<Download size={14}/></button>
+        </div>
+        <div className="command-foot"><span>{t.os.close}</span><span>IMRANE / SYSTEM NAVIGATION</span></div>
+      </div>
+    </div>}
 
     <main id="top">
       <section className="hero" onPointerLeave={resetPointer}><div className="hero-grid"/><div className="hero-cursor-orb"/><div className="hero-grid-sheen"/><div className="hero-orbit orbit-a"/><div className="hero-orbit orbit-b"/>
         <div className="hero-copy"><div className="eyebrow reveal" data-reveal><span className="status-dot"/> {t.hero.eyebrow}</div><p className="hero-kicker reveal delay-1" data-reveal>{t.hero.kicker}</p><h1 className="hero-title reveal delay-2" data-reveal>IMRANE <span className="surname">ASRIR</span></h1><p className="hero-intro reveal delay-3" data-reveal>{t.hero.intro}</p>
           <div className="hero-actions reveal delay-4" data-reveal><a href="#work" className="button button-primary">{t.hero.work}<ArrowDownRight size={18}/></a><button onClick={downloadCV} className="button button-ghost"><Download size={17}/>{t.cv}</button></div>
         </div>
-        <div className="portrait-wrap reveal delay-2" data-reveal><div className="portrait-frame"><div className="portrait-label top">ENGINEER / 2026</div><img src="/potfolio/profile-hi.webp?v=20260926" alt="Imrane Asrir — professional portrait" className="portrait" width="900" height="900" fetchPriority="high" decoding="async"/><div className="portrait-glow"/><div className="portrait-scan"/><div className="portrait-label bottom">BUILD · SHIP · OPERATE</div></div><div className="portrait-stamp"><span>IA</span><small>PLATFORM<br/>ENGINEERING</small></div></div><DigitalAvatar/>
+        <div className="portrait-wrap reveal delay-2" data-reveal><div className="portrait-frame"><div className="portrait-label top">ENGINEER / 2026</div><img src="/potfolio/profile-hi.webp?v=20260926" alt="Imrane Asrir — professional portrait" className="portrait" width="900" height="900" fetchPriority="high" decoding="async"/><div className="portrait-glow"/><div className="portrait-scan"/><div className="portrait-label bottom">BUILD · SHIP · OPERATE</div></div><div className="portrait-stamp"><span>IA</span><small>PLATFORM<br/>ENGINEERING</small></div></div><DigitalAvatar status={twinStatus}/>
         <div className="morocco-badge reveal delay-3" data-reveal><span className="morocco-star">✦</span><div><strong>MA → LU</strong><small>MOROCCAN ROOTS</small></div></div><div className="hero-side"><span>{t.hero.scroll}</span><div className="side-line"/></div><div className="hero-meta"><span>METZ / FRANCE</span><span>LUXEMBOURG</span><span>{t.hero.meta}</span></div>
       </section>
 
@@ -250,7 +263,7 @@ function App(){
 
       <section className="education section"><div className="section-index">{t.education.index}</div><div className="education-grid"><div className="section-heading reveal" data-reveal><p className="eyebrow">{t.education.eyebrow}</p><h2>{t.education.title}</h2></div><div className="education-list"><div className="edu-item reveal" data-reveal><span>2023 — 2024</span><div><strong>Nantes University</strong><p>Master's Degree · Software Architecture (ALMA)</p></div></div><div className="edu-item reveal" data-reveal><span>2020 — 2023</span><div><strong>ENSEM Casablanca</strong><p>Engineering Degree · Computer Science · Networks & Databases</p></div></div><div className="edu-item reveal" data-reveal><span>2017 — 2020</span><div><strong>Preparatory Classes</strong><p>TSI · Technology and Industrial Sciences</p></div></div></div></div></section>
 
-      <section className="proof-lab"><div className="proof-lab-noise"/><div className="proof-lab-inner"><div className="proof-lab-head reveal" data-reveal><p className="eyebrow">07 / PROOF LAB</p><h2>Don't take my word.<br/><em>Open the evidence.</em></h2><p>Credentials, assessments and learning milestones — turned into an interactive constellation instead of a boring list.</p></div><div className="credential-orbit"><div className="orbit-ring ring-one"/><div className="orbit-ring ring-two"/><div className="credential-core"><span>IA</span><small>VERIFIED<br/>SIGNALS</small></div><a className="credential-node node-trimoji" href="https://assess.trimoji.fr/test/864e3188-8882-48bd-b0a1-5c3649fcd9f7/profile" target="_blank" rel="noreferrer"><b>01</b><strong>TRIMOJI</strong><small>PROFILE / ASSESSMENT</small></a><a className="credential-node node-credly-a" href="https://www.credly.com/badges/79492c9d-e3b1-47cb-93b5-6609250877b6/linked_in_profile" target="_blank" rel="noreferrer"><b>02</b><strong>CREDLY</strong><small>VERIFIED BADGE</small></a><a className="credential-node node-credly-b" href="https://www.credly.com/badges/953314b4-c02b-4462-9648-ba9d10fa5684/linked_in_profile" target="_blank" rel="noreferrer"><b>03</b><strong>CREDLY</strong><small>VERIFIED BADGE</small></a><a className="credential-node node-credly-c" href="https://www.credly.com/badges/ab136c3c-733d-4768-a1d6-5dae0006d42b/linked_in_profile" target="_blank" rel="noreferrer"><b>04</b><strong>CREDLY</strong><small>VERIFIED BADGE</small></a><a className="credential-node node-pluralsight" href="https://app.pluralsight.com/achievements/share/521e7163-b4c5-4b8e-9a67-2b2345dabd07" target="_blank" rel="noreferrer"><b>05</b><strong>PLURALSIGHT</strong><small>ACHIEVEMENT</small></a></div></div></section>
+      <section id="proof-lab" className="proof-lab"><div className="proof-lab-noise"/><div className="proof-lab-inner"><div className="proof-lab-head reveal" data-reveal><p className="eyebrow">07 / PROOF LAB</p><h2>Don't take my word.<br/><em>Open the evidence.</em></h2><p>Credentials, assessments and learning milestones — turned into an interactive constellation instead of a boring list.</p></div><div className="credential-orbit"><div className="orbit-ring ring-one"/><div className="orbit-ring ring-two"/><div className="credential-core"><span>IA</span><small>VERIFIED<br/>SIGNALS</small></div><a className="credential-node node-trimoji" href="https://assess.trimoji.fr/test/864e3188-8882-48bd-b0a1-5c3649fcd9f7/profile" target="_blank" rel="noreferrer"><b>01</b><strong>TRIMOJI</strong><small>PROFILE / ASSESSMENT</small></a><a className="credential-node node-credly-a" href="https://www.credly.com/badges/79492c9d-e3b1-47cb-93b5-6609250877b6/linked_in_profile" target="_blank" rel="noreferrer"><b>02</b><strong>CREDLY</strong><small>VERIFIED BADGE</small></a><a className="credential-node node-credly-b" href="https://www.credly.com/badges/953314b4-c02b-4462-9648-ba9d10fa5684/linked_in_profile" target="_blank" rel="noreferrer"><b>03</b><strong>CREDLY</strong><small>VERIFIED BADGE</small></a><a className="credential-node node-credly-c" href="https://www.credly.com/badges/ab136c3c-733d-4768-a1d6-5dae0006d42b/linked_in_profile" target="_blank" rel="noreferrer"><b>04</b><strong>CREDLY</strong><small>VERIFIED BADGE</small></a><a className="credential-node node-pluralsight" href="https://app.pluralsight.com/achievements/share/521e7163-b4c5-4b8e-9a67-2b2345dabd07" target="_blank" rel="noreferrer"><b>05</b><strong>PLURALSIGHT</strong><small>ACHIEVEMENT</small></a></div></div></section>
 
       <section id="contact" className="contact"><div className="contact-grid"/><div className="contact-inner"><p className="eyebrow reveal" data-reveal>{t.contact.index}</p><h2 className="reveal delay-1" data-reveal>{t.contact.title}</h2><p className="contact-text reveal delay-2" data-reveal>{t.contact.text}</p><div className="contact-actions reveal delay-3" data-reveal><a href={"mailto:"+t.contact.mail} className="button button-primary">{t.contact.mail}<ArrowUpRight size={18}/></a><button onClick={downloadCV} className="button button-ghost"><Download size={17}/>{t.cv}</button><a href="https://github.com/imrane-as/potfolio" target="_blank" rel="noreferrer" className="icon-button"><Github size={20}/></a><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="icon-button"><Linkedin size={20}/></a></div><div className="contact-bottom"><span>FR C1 · EN B2</span><span>METZ ↔ LUXEMBOURG</span><span>© {new Date().getFullYear()} IMRANE ASRIR</span></div></div></section>
     </main>
@@ -258,3 +271,4 @@ function App(){
   </div>
 }
 export default App;
+
