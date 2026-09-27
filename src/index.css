@@ -667,3 +667,17 @@
   .avatar-journey .climber-name{font-size:5px!important}
   .avatar-journey .climber-status{font-size:4px!important}
 }
+
+
+/* JOURNEY DIRECTION FIX — scroll down = avatar walks DOWN the staircase */
+.avatar-journey .avatar-climber{
+  top:calc(15vh + (var(--stair) * 8.2vh))!important;
+  right:calc(12px + (var(--stair) * 2px))!important;
+  transition:top .42s cubic-bezier(.22,.8,.28,1),right .42s cubic-bezier(.22,.8,.28,1)!important;
+}
+@media(max-width:760px){
+  .avatar-journey .avatar-climber{
+    top:calc(14vh + (var(--stair) * 8.2vh))!important;
+    right:5px!important;
+  }
+}
