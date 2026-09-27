@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+<defs>
+  <pattern id="z" width="120" height="120" patternUnits="userSpaceOnUse">
+    <rect width="120" height="120" fill="#f7f3e9"/>
+    <g transform="translate(60 60)">
+      <polygon points="0,-55 13,-32 32,-32 32,-13 55,0 32,13 32,32 13,32 0,55 -13,32 -32,32 -32,13 -55,0 -32,-13 -32,-32 -13,-32" fill="#fffaf0" stroke="#d6a72f" stroke-width="2"/>
+      <polygon points="0,-45 10,-24 24,-24 24,-10 45,0 24,10 24,24 10,24 0,45 -10,24 -24,24 -24,10 -45,0 -24,-10 -24,-24 -10,-24" fill="none" stroke="#006233" stroke-width="3"/>
+      <polygon points="0,-34 8,-14 14,-8 34,0 14,8 8,14 0,34 -8,14 -14,8 -34,0 -14,-8 -8,-14" fill="none" stroke="#183b73" stroke-width="2"/>
+      <polygon points="0,-21 6,-6 21,0 6,6 0,21 -6,6 -21,0 -6,-6" fill="#c1272d" opacity=".72"/>
+      <circle r="5" fill="#d6a72f"/>
+    </g>
+    <g fill="none" stroke="#006233" stroke-width="1.5" opacity=".55">
+      <path d="M0 0h20l10 10v20l-10 10H0L-10 30V10z" transform="translate(0 0)"/>
+      <path d="M0 0h20l10 10v20l-10 10H0L-10 30V10z" transform="translate(120 0)"/>
+      <path d="M0 0h20l10 10v20l-10 10H0L-10 30V10z" transform="translate(0 120)"/>
+      <path d="M0 0h20l10 10v20l-10 10H0L-10 30V10z" transform="translate(120 120)"/>
+    </g>
+  </pattern>
+</defs>
+<rect width="240" height="240" fill="url(#z)"/>
+</svg>
