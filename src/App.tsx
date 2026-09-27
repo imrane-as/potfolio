@@ -104,30 +104,35 @@ function Logo({slug,label}:{slug:string;label:string}){
 function CompanyLogo({url}:{url:string}){return <span className="company-logo"><img src={url} alt="" loading="lazy" onError={(e)=>{e.currentTarget.style.display="none"}}/></span>}
 
 const DigitalAvatar=({status,onSecret,scroll}:{status:string;onSecret:()=>void;scroll:number})=>{
-  const stair=Math.min(8,Math.floor(scroll/12.5));
+  const step=Math.min(5,Math.floor(scroll/20));
+  const labels=["HOME","ABOUT","STACK","WORK","PROOF","CONTACT"];
+  const ys=[25,195,365,535,705,875];
   return (
-  <div className="avatar-journey" style={{"--stair":stair} as React.CSSProperties} aria-label="Digital Twin climbing through the portfolio">
-    <div className="journey-label">DIGITAL TWIN // IA-026</div>
-    <svg className="journey-stairs" viewBox="0 0 110 760" preserveAspectRatio="none" aria-hidden="true">
-      <defs><linearGradient id="ladderGlow" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#6c63ff"/><stop offset=".5" stopColor="#00b8a9"/><stop offset="1" stopColor="#6c63ff"/></linearGradient></defs>
-      <path d="M27 24V736 M83 24V736" fill="none" stroke="url(#ladderGlow)" strokeWidth="4" strokeLinecap="round"/>
-      <path d="M27 55H83 M27 105H83 M27 155H83 M27 205H83 M27 255H83 M27 305H83 M27 355H83 M27 405H83 M27 455H83 M27 505H83 M27 555H83 M27 605H83 M27 655H83 M27 705H83" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
-      <path d="M21 55H89 M21 155H89 M21 255H89 M21 355H89 M21 455H89 M21 555H89 M21 655H89" fill="none" stroke="currentColor" strokeWidth="1" opacity=".22"/>
+  <div className="digital-path" style={{"--progress":`${scroll}%`} as React.CSSProperties} aria-label="Digital Twin journey">
+    <div className="path-caption"><span>SYSTEM PATH</span><b>IA / 026</b></div>
+    <svg className="path-line" viewBox="0 0 120 900" preserveAspectRatio="none" aria-hidden="true">
+      <defs><linearGradient id="pathGradient" x1="0" y1="0" x2="0" y2="1"><stop stopColor="#6c63ff"/><stop offset=".52" stopColor="#00b8a9"/><stop offset="1" stopColor="#6c63ff"/></linearGradient></defs>
+      <path d="M58 25 C22 120 94 175 58 260 S22 395 58 470 S94 605 58 690 S22 790 58 875" fill="none" stroke="#6c63ff22" strokeWidth="2"/>
+      <path className="path-progress" d="M58 25 C22 120 94 175 58 260 S22 395 58 470 S94 605 58 690 S22 790 58 875" fill="none" stroke="url(#pathGradient)" strokeWidth="3" pathLength="100"/>
+      {ys.map((y,i)=><circle key={i} className={`path-dot ${step===i?"path-dot-active":""}`} cx="58" cy={y} r="4"/>)}
     </svg>
-    <div className={"avatar-climber avatar-"+status.toLowerCase()} onDoubleClick={onSecret} role="button" tabIndex={0} aria-label="Digital Twin">
+    <div className="path-labels">
+      {labels.map((label,i)=><div key={label} className={`path-label ${step===i?"path-label-active":""}`}><small>0{i+1}</small><span>{label}</span></div>)}
+    </div>
+    <div className={`avatar-climber avatar-path-${status.toLowerCase()}`} onDoubleClick={onSecret} role="button" tabIndex={0} aria-label="Digital Twin">
       <div className="climber-name">IMRANE<span> / 026</span></div>
-      <svg className="climber-body" viewBox="0 0 150 230" role="img" aria-label="Full body digital avatar walking upstairs">
+      <svg className="climber-body" viewBox="0 0 150 230" role="img" aria-label="Digital Twin avatar">
         <defs>
-          <linearGradient id="climberSkin" x1="0" x2="1"><stop offset="0" stopColor="#f5c7a9"/><stop offset="1" stopColor="#b96f55"/></linearGradient>
-          <linearGradient id="climberSuit" x1="0" x2="1"><stop offset="0" stopColor="#171a28"/><stop offset=".6" stopColor="#32385a"/><stop offset="1" stopColor="#6c63ff"/></linearGradient>
-          <filter id="climberShadow"><feDropShadow dx="0" dy="7" stdDeviation="5" floodColor="#202332" floodOpacity=".28"/></filter>
+          <linearGradient id="climberSkin2" x1="0" x2="1"><stop offset="0" stopColor="#f5c7a9"/><stop offset="1" stopColor="#b96f55"/></linearGradient>
+          <linearGradient id="climberSuit2" x1="0" x2="1"><stop offset="0" stopColor="#171a28"/><stop offset=".6" stopColor="#32385a"/><stop offset="1" stopColor="#6c63ff"/></linearGradient>
+          <filter id="climberShadow2"><feDropShadow dx="0" dy="7" stdDeviation="5" floodColor="#202332" floodOpacity=".28"/></filter>
         </defs>
-        <g className="climber-person" filter="url(#climberShadow)">
-          <circle cx="75" cy="34" r="25" fill="url(#climberSkin)"/>
+        <g className="climber-person" filter="url(#climberShadow2)">
+          <circle cx="75" cy="34" r="25" fill="url(#climberSkin2)"/>
           <path d="M49 35c2-25 17-34 29-34 18 0 29 11 30 32-9-10-20-14-31-12-8 7-17 12-28 14z" fill="#202332"/>
           <circle cx="66" cy="38" r="3" fill="#202332"/><circle cx="84" cy="38" r="3" fill="#202332"/>
           <path d="M67 51c6 4 11 4 17 0" fill="none" stroke="#202332" strokeWidth="2.5" strokeLinecap="round"/>
-          <path d="M53 65c7-8 37-8 44 0l10 62-32 18-32-18z" fill="url(#climberSuit)"/>
+          <path d="M53 65c7-8 37-8 44 0l10 62-32 18-32-18z" fill="url(#climberSuit2)"/>
           <path d="M58 75l17 25 17-25" fill="none" stroke="#fff" strokeWidth="2" opacity=".75"/>
           <path className="climber-arm-a" d="M55 75l-27 38 13 9 30-28" fill="none" stroke="#32385a" strokeWidth="13" strokeLinecap="round"/>
           <path className="climber-arm-b" d="M95 75l27 29-8 12-29-22" fill="none" stroke="#32385a" strokeWidth="13" strokeLinecap="round"/>
@@ -135,7 +140,6 @@ const DigitalAvatar=({status,onSecret,scroll}:{status:string;onSecret:()=>void;s
           <path className="climber-leg-b" d="M87 140l11 43-24 31" fill="none" stroke="#202332" strokeWidth="18" strokeLinecap="round"/>
           <path d="M84 215l10 7" stroke="#6c63ff" strokeWidth="7" strokeLinecap="round"/>
           <path d="M73 212l-9 7" stroke="#6c63ff" strokeWidth="7" strokeLinecap="round"/>
-          <path d="M28 113l-10 8M122 104l10 5" stroke="#00b8a9" strokeWidth="3" strokeLinecap="round"/>
         </g>
       </svg>
       <div className="climber-status"><i/> {status}</div>
