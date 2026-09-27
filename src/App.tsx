@@ -104,7 +104,7 @@ function Logo({slug,label}:{slug:string;label:string}){
 function CompanyLogo({url}:{url:string}){return <span className="company-logo"><img src={url} alt="" loading="lazy" onError={(e)=>{e.currentTarget.style.display="none"}}/></span>}
 
 const DigitalAvatar=({status,onSecret,scroll}:{status:string;onSecret:()=>void;scroll:number})=>(
-  <div className="avatar-journey" style={{"--journey":`${scroll}%`} as React.CSSProperties} aria-label="Digital Twin journey">
+  <div className="avatar-journey" style={{"--journey-y":`${scroll*0.72}vh`} as React.CSSProperties} aria-label="Digital Twin journey">
     <div className="journey-rail"><i/><i/><i/><i/><i/><i/></div>
     <div className="journey-label">SCROLL // DESCEND</div>
     <div className={"avatar-dock avatar-"+status.toLowerCase()} onDoubleClick={onSecret} aria-label="Interactive digital avatar">
