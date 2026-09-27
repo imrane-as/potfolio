@@ -1368,3 +1368,17 @@
 @media(prefers-reduced-motion:reduce){
   .site-shell::before,.hero,.origin-mosaic::before{animation:none!important}
 }
+
+
+/* Keep viewport HUD layers fixed after the global atmosphere stacking layer. */
+.site-shell > .future-progress,
+.site-shell > .future-corner,
+.site-shell > .scroll-progress{
+  position:fixed!important;
+}
+.site-shell > .pointer-glow{
+  position:fixed!important;
+}
+.site-shell > .noise{
+  position:fixed!important;
+}
