@@ -802,3 +802,143 @@
   .avatar-journey .climber-body{width:39px!important;height:64px!important}
   .hero,.section{padding-right:49px!important}
 }
+
+
+/* 2026 DIGITAL PATH — elegant navigation spine, no ladder */
+.digital-path{
+  position:fixed;
+  z-index:220;
+  top:0;
+  right:0;
+  width:132px;
+  height:100vh;
+  pointer-events:none;
+  --progress:0%;
+}
+.digital-path .path-caption{
+  position:absolute;
+  top:14vh;
+  right:14px;
+  display:flex;
+  gap:7px;
+  align-items:center;
+  padding:6px 8px;
+  border:1px solid #ffffff38;
+  border-radius:999px;
+  background:#ffffff9c;
+  backdrop-filter:blur(12px);
+  box-shadow:0 8px 24px #20233210;
+  font:800 5px "Space Grotesk";
+  letter-spacing:.12em;
+  color:#7b8191;
+}
+.digital-path .path-caption b{color:#6c63ff}
+.digital-path .path-line{
+  position:absolute;
+  top:17vh;
+  right:12px;
+  width:88px;
+  height:68vh;
+  overflow:visible;
+}
+.digital-path .path-progress{
+  stroke-dasharray:100;
+  stroke-dashoffset:calc(100 - var(--progress));
+  filter:drop-shadow(0 0 6px #6c63ff66);
+}
+.digital-path .path-dot{
+  fill:#fff;
+  stroke:#6c63ff55;
+  stroke-width:2;
+  transition:all .3s ease;
+}
+.digital-path .path-dot-active{
+  fill:#6c63ff;
+  stroke:#fff;
+  stroke-width:3;
+  filter:drop-shadow(0 0 8px #6c63ff);
+}
+.digital-path .path-labels{
+  position:absolute;
+  top:17vh;
+  right:3px;
+  height:68vh;
+  width:76px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.digital-path .path-label{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  width:max-content;
+  min-width:58px;
+  padding:5px 7px;
+  border:1px solid #ffffff58;
+  border-radius:999px;
+  background:#ffffff9c;
+  backdrop-filter:blur(12px);
+  color:#8b91a0;
+  font:800 5px "Space Grotesk";
+  letter-spacing:.08em;
+  box-shadow:0 6px 20px #2023320d;
+  transition:all .25s ease;
+}
+.digital-path .path-label small{font-size:5px;color:#6c63ff}
+.digital-path .path-label-active{
+  color:#202332;
+  border-color:#6c63ff55;
+  background:#fff;
+  box-shadow:0 8px 24px #6c63ff22;
+  transform:translateX(-5px);
+}
+.digital-path .avatar-climber{
+  position:absolute!important;
+  top:calc(17vh + (var(--progress) * .68))!important;
+  right:52px!important;
+  width:60px!important;
+  height:108px!important;
+  transform:translateY(-45%)!important;
+  pointer-events:auto;
+  transition:top .25s linear!important;
+}
+.digital-path .climber-body{width:60px!important;height:92px!important}
+.digital-path .climber-name{font-size:5px!important;top:-12px!important}
+.digital-path .climber-status{font-size:4px!important;padding:3px 5px!important}
+.digital-path .climber-person{animation:climberFloat .8s ease-in-out infinite}
+@keyframes climberFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@media(max-width:760px){
+  .digital-path{width:92px}
+  .digital-path .path-caption{display:none}
+  .digital-path .path-line{right:6px;width:58px;top:14vh;height:72vh}
+  .digital-path .path-labels{right:0;top:14vh;height:72vh;width:56px}
+  .digital-path .path-label{
+    min-width:46px;
+    padding:4px 5px;
+    gap:4px;
+    font-size:4px;
+    background:#ffffffc7;
+  }
+  .digital-path .path-label small{font-size:4px}
+  .digital-path .path-label-active{transform:translateX(-3px)}
+  .digital-path .avatar-climber{
+    width:45px!important;
+    height:82px!important;
+    right:43px!important;
+    top:calc(14vh + (var(--progress) * .72))!important;
+  }
+  .digital-path .climber-body{width:45px!important;height:69px!important}
+  .digital-path .climber-name{font-size:4px!important}
+  .digital-path .climber-status{font-size:3px!important;padding:2px 4px!important}
+  .hero,.section{padding-right:98px!important}
+}
+@media(max-width:380px){
+  .digital-path{width:78px}
+  .digital-path .path-line{right:4px;width:50px}
+  .digital-path .path-labels{right:-1px;width:48px}
+  .digital-path .path-label{min-width:40px;padding:3px 4px;font-size:3.5px}
+  .digital-path .avatar-climber{right:35px!important;width:39px!important;height:72px!important}
+  .digital-path .climber-body{width:39px!important;height:60px!important}
+  .hero,.section{padding-right:84px!important}
+}
