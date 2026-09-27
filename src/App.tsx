@@ -79,7 +79,7 @@ const projects = {
   ]
 };
 
-function Logo({slug,label}:{slug:string;label:string}){return <img src={`https://cdn.simpleicons.org/${slug}`} alt={label} loading="lazy"/>}
+function Logo({slug,label}:{slug:string;label:string}){return <img src={`https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/${slug}.svg`} alt={label} loading="lazy" decoding="async"/>}
 function CompanyLogo({url}:{url:string}){return <span className="company-logo"><img src={url} alt="" loading="lazy" onError={(e)=>{e.currentTarget.style.display="none"}}/></span>}
 
 function App(){
