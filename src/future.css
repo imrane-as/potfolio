@@ -608,3 +608,228 @@
 .work{background:linear-gradient(rgba(23,26,40,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(23,26,40,.035) 1px,transparent 1px),var(--paper)!important;background-size:48px 48px!important}.project-card{border:1px solid rgba(23,26,40,.1)!important;box-shadow:10px 10px 0 rgba(108,99,255,.09)!important}.project-card:nth-child(2){transform:translateY(28px)}.project-card:nth-child(3){transform:translateY(56px)}.project-card:nth-child(2):hover{transform:translateY(22px)!important}.project-card:nth-child(3):hover{transform:translateY(50px)!important}
 .origin-section{position:relative;isolation:isolate}.origin-section::after{content:"";position:absolute;left:0;right:0;bottom:0;height:35%;background:linear-gradient(transparent,rgba(8,20,17,.35));pointer-events:none}.contact::before{content:"CONNECT";position:absolute;right:-4vw;bottom:-4vw;font:900 clamp(90px,18vw,260px)/.7 "Space Grotesk";letter-spacing:-.08em;color:#ffffff04;pointer-events:none}:focus-visible{outline:2px solid var(--future-gold)!important;outline-offset:4px}
 @media(max-width:760px){.future-corner{display:none}.future-progress i{display:none}.hero-zellige{right:-34vw;top:28%;width:78vw;height:78vw;opacity:.15}.hero::after{background:radial-gradient(280px circle at 80% 30%,rgba(108,99,255,.08),transparent 70%)}.capability:nth-child(2n){transform:none}.capability:nth-child(2n):hover{transform:none!important}.project-card:nth-child(2),.project-card:nth-child(3){transform:none}.project-card:nth-child(2):hover,.project-card:nth-child(3):hover{transform:none!important}.logo-wall::before,.timeline-item::after{display:none}.contact::before{font-size:24vw}}@media(prefers-reduced-motion:reduce){.hero-zellige,.hero-title .surname::after,.timeline-item::after{animation:none!important}.button::before{display:none}}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   2050 REFINEMENT — cleaner hierarchy, tighter hero, real responsive
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Desktop hero: fewer oversized objects, stronger editorial balance. */
+@media(min-width:1051px){
+  .hero{
+    grid-template-columns:minmax(0,1.04fr) minmax(420px,.78fr)!important;
+    column-gap:4vw!important;
+    padding-left:7vw!important;
+    padding-right:7vw!important;
+  }
+  .hero-copy{max-width:760px!important}
+  .hero-kicker{margin-top:30px!important}
+  .hero-title{font-size:clamp(76px,8.7vw,138px)!important;line-height:.82!important}
+  .hero-intro{max-width:560px!important;margin:28px 0 28px!important;font-size:17px!important}
+  .hero-actions{gap:10px!important}
+  .portrait-wrap{
+    width:min(31vw,420px)!important;
+    justify-self:end!important;
+  }
+  .portrait-frame{
+    padding:10px!important;
+    box-shadow:15px 16px 0 var(--future-ink),0 28px 65px rgba(23,26,40,.10)!important;
+  }
+  .portrait-label.top{top:22px!important;left:22px!important}
+  .portrait-label.bottom{bottom:22px!important;right:22px!important}
+  .portrait-stamp{
+    right:-18px!important;
+    bottom:18px!important;
+    transform:scale(.88)!important;
+    transform-origin:right bottom;
+  }
+  .morocco-badge{
+    right:7vw!important;
+    top:88px!important;
+    padding:8px 11px!important;
+    box-shadow:5px 5px 0 var(--future-green)!important;
+  }
+  .morocco-badge small{direction:ltr!important;font-size:8px!important}
+  .hero-orbit.orbit-a{width:37vw!important;height:37vw!important;right:2vw!important;top:25%!important}
+  .hero-orbit.orbit-b{width:20vw!important;height:20vw!important;right:11vw!important;top:37%!important}
+  .hero-zellige{width:38vw!important;height:38vw!important;right:-3vw!important;top:17%!important;opacity:.17!important}
+  .future-lens{
+    left:7vw!important;
+    right:auto!important;
+    bottom:3.7rem!important;
+    width:330px!important;
+    max-width:330px!important;
+    min-height:42px!important;
+    padding:9px 12px!important;
+    border-radius:12px!important;
+    box-shadow:0 12px 32px rgba(23,26,40,.07),inset 0 1px #fff!important;
+  }
+  .lens-copy{gap:2px!important}
+  .lens-copy b{font-size:9px!important}
+  .lens-copy small{font-size:6px!important;letter-spacing:.12em!important}
+  .hero-meta{bottom:22px!important;font-size:7px!important}
+}
+
+/* Tablet: keep the portrait in the flow instead of letting it collide with copy. */
+@media(min-width:761px) and (max-width:1050px){
+  .hero{
+    min-height:920px!important;
+    padding-top:120px!important;
+    padding-bottom:110px!important;
+  }
+  .hero-copy{max-width:700px!important}
+  .hero-title{font-size:clamp(72px,11vw,120px)!important}
+  .portrait-wrap{
+    position:absolute!important;
+    right:6vw!important;
+    top:31%!important;
+    width:min(38vw,390px)!important;
+    opacity:1!important;
+  }
+  .morocco-badge{
+    right:6vw!important;
+    top:24%!important;
+  }
+  .future-lens{
+    left:6vw!important;
+    right:auto!important;
+    width:300px!important;
+    bottom:4rem!important;
+  }
+}
+
+/* Mobile: make the hero feel designed for a phone, not squeezed desktop. */
+@media(max-width:760px){
+  .hero{
+    padding:92px 6vw 42px!important;
+    gap:0!important;
+  }
+  .hero-copy::before{top:-17px!important}
+  .hero-kicker{
+    margin:23px 0 10px!important;
+    font-size:9px!important;
+    line-height:1.4!important;
+  }
+  .hero-title{
+    font-size:15.2vw!important;
+    line-height:.88!important;
+    letter-spacing:-.075em!important;
+  }
+  .hero-title .surname::after{bottom:-4px!important;height:1px!important}
+  .hero-intro{
+    margin:23px 0 20px!important;
+    font-size:14px!important;
+    line-height:1.6!important;
+  }
+  .hero-actions{
+    flex-direction:row!important;
+    align-items:stretch!important;
+    gap:8px!important;
+  }
+  .hero-actions .button{
+    width:auto!important;
+    flex:1 1 0!important;
+    min-height:48px!important;
+    padding:11px 10px!important;
+    font-size:9px!important;
+  }
+  .portrait-wrap{
+    width:min(82vw,360px)!important;
+    margin:38px auto 0!important;
+  }
+  .portrait-frame{
+    padding:8px!important;
+    border-radius:24px!important;
+    box-shadow:9px 10px 0 var(--future-ink),0 20px 45px rgba(23,26,40,.08)!important;
+    transform:rotate(1.2deg)!important;
+  }
+  .portrait-frame:after{inset:8px!important;border-radius:17px!important}
+  .portrait-label{
+    padding:6px 7px!important;
+    font-size:6px!important;
+  }
+  .portrait-label.top{top:17px!important;left:17px!important}
+  .portrait-label.bottom{bottom:17px!important;right:17px!important}
+  .portrait-stamp{display:none!important}
+  .morocco-badge{
+    position:relative!important;
+    top:auto!important;
+    right:auto!important;
+    align-self:center!important;
+    width:max-content!important;
+    margin:22px auto 0!important;
+    padding:7px 10px!important;
+    gap:8px!important;
+    box-shadow:4px 4px 0 var(--future-green)!important;
+    transform:none!important;
+  }
+  .morocco-star{width:23px!important;height:23px!important;font-size:13px!important}
+  .morocco-badge strong{font-size:7px!important}
+  .morocco-badge small{font-size:6px!important;direction:ltr!important}
+  .hero-meta{
+    margin-top:22px!important;
+    gap:7px 10px!important;
+    justify-content:flex-start!important;
+    border-top:1px solid rgba(23,26,40,.10)!important;
+    padding-top:11px!important;
+  }
+  .hero-meta span{
+    font-size:6px!important;
+    letter-spacing:.08em!important;
+  }
+  .hero-meta span:last-child{margin-left:auto!important}
+  .future-lens{
+    position:relative!important;
+    left:auto!important;
+    right:auto!important;
+    bottom:auto!important;
+    width:100%!important;
+    max-width:none!important;
+    min-height:40px!important;
+    margin:15px 0 0!important;
+    padding:8px 10px!important;
+    border-radius:10px!important;
+    box-shadow:0 8px 22px rgba(23,26,40,.06),inset 0 1px #fff!important;
+  }
+  .lens-core{width:7px!important;height:7px!important}
+  .lens-copy{gap:1px!important}
+  .lens-copy b{font-size:8px!important}
+  .lens-copy small{font-size:5.5px!important;letter-spacing:.08em!important}
+  .lens-bars{margin-left:auto!important}
+  .hero-zellige{
+    right:-40vw!important;
+    top:29%!important;
+    width:82vw!important;
+    height:82vw!important;
+    opacity:.10!important;
+  }
+  .hero:before{
+    width:72vw!important;
+    height:72vw!important;
+    right:-32vw!important;
+    top:27%!important;
+  }
+  .hero-grid{background-size:30px 30px!important;opacity:.38!important}
+}
+
+/* Very narrow phones: preserve readable controls and avoid wrapping chaos. */
+@media(max-width:420px){
+  .hero{padding-left:5vw!important;padding-right:5vw!important}
+  .hero-title{font-size:16.5vw!important}
+  .hero-actions{flex-direction:column!important}
+  .hero-actions .button{width:100%!important}
+  .portrait-wrap{width:min(88vw,340px)!important}
+  .hero-meta span:last-child{width:100%;margin-left:0!important}
+}
+
+/* Remove decorative motion where it competes with content on touch devices. */
+@media(max-width:760px){
+  .hero-orbit,.hero-cursor-orb,.hero-grid-sheen{display:none!important}
+  .future-corner{display:none!important}
+  .portrait-wrap{filter:drop-shadow(0 20px 35px rgba(23,26,40,.07))!important}
+}
+
+/* Reduced motion stays genuinely quiet. */
+@media(prefers-reduced-motion:reduce){
+  .portrait-wrap::before,.hero-zellige,.future-lens,.hero-title .surname::after{animation:none!important}
+}
