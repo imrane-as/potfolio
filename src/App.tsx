@@ -21,6 +21,7 @@ const copy = {
     system:{index:"04 / THE SYSTEM",eyebrow:"FROM CODE TO PRODUCTION",title:<>A delivery chain built<br/><em>to survive reality.</em></>},
     education:{index:"05 / EDUCATION",eyebrow:"FOUNDATION",title:<>Software foundations.<br/><em>Infrastructure mindset.</em></>},
     contact:{index:"06 / LET'S BUILD",title:<>The next system<br/><em>starts with a conversation.</em></>,text:"DevOps, API Management, cloud-native platforms or a difficult integration problem — let's talk.",mail:"imr.asrir@gmail.com"},
+    origin:{eyebrow:"ROOTS / ORIGIN",title:<>From Morocco.<br/><em>Built for the world.</em></>,text:"Moroccan roots, European delivery, global engineering mindset.",arabic:"من المغرب إلى العالم"},
     cv:"Download CV",language:"FR",online:"● online",terminal:"imrane@platform:~"
   },
   fr: {
@@ -34,6 +35,7 @@ const copy = {
     system:{index:"04 / LE SYSTÈME",eyebrow:"DU CODE À LA PRODUCTION",title:<>Une chaîne de livraison conçue<br/><em>pour le réel.</em></>},
     education:{index:"05 / FORMATION",eyebrow:"FONDATIONS",title:<>Fondamentaux logiciels.<br/><em>Culture infrastructure.</em></>},
     contact:{index:"06 / CONSTRUISONS",title:<>Le prochain système<br/><em>commence par une discussion.</em></>,text:"DevOps, API Management, plateformes cloud-native ou problème d'intégration complexe — parlons-en.",mail:"imr.asrir@gmail.com"},
+    origin:{eyebrow:"RACINES / ORIGINE",title:<>Du Maroc.<br/><em>Pour le monde.</em></>,text:"Des racines marocaines, une expérience européenne, une culture d'ingénierie ouverte sur le monde.",arabic:"من المغرب إلى العالم"},
     cv:"Télécharger le CV",language:"EN",online:"● en ligne",terminal:"imrane@platform:~"
   }
 } as const;
@@ -172,7 +174,7 @@ function App(){
           <div className="hero-actions reveal delay-4" data-reveal><a href="#work" className="button button-primary">{t.hero.work}<ArrowDownRight size={18}/></a><button onClick={downloadCV} className="button button-ghost"><Download size={17}/>{t.cv}</button></div>
         </div>
         <div className="portrait-wrap reveal delay-2" data-reveal><div className="portrait-frame"><div className="portrait-label top">ENGINEER / 2026</div><img src="/potfolio/profile-hi.webp?v=20260926" alt="Imrane Asrir — professional portrait" className="portrait" width="900" height="900" fetchPriority="high" decoding="async"/><div className="portrait-glow"/><div className="portrait-scan"/><div className="portrait-label bottom">BUILD · SHIP · OPERATE</div></div><div className="portrait-stamp"><span>IA</span><small>PLATFORM<br/>ENGINEERING</small></div></div>
-        <div className="hero-side"><span>{t.hero.scroll}</span><div className="side-line"/></div><div className="hero-meta"><span>METZ / FRANCE</span><span>LUXEMBOURG</span><span>{t.hero.meta}</span></div>
+        <div className="morocco-badge reveal delay-3" data-reveal><span className="morocco-star">✦</span><div><strong>MA → LU</strong><small>{t.origin.arabic}</small></div></div><div className="hero-side"><span>{t.hero.scroll}</span><div className="side-line"/></div><div className="hero-meta"><span>METZ / FRANCE</span><span>LUXEMBOURG</span><span>{t.hero.meta}</span></div>
       </section>
 
       <section className="proof-bar"><div className="proof-label">WORKED ACROSS</div>{exp.map(e=><div className="company-proof" key={e.company}><CompanyLogo url={e.logo}/><span>{e.company}</span></div>)}</section>
@@ -184,6 +186,8 @@ function App(){
       <section id="stack" className="stack-section"><div className="stack-inner"><div className="stack-copy reveal" data-reveal><p className="eyebrow">{t.toolbox.eyebrow}</p><h2>{t.toolbox.title}</h2><p>{t.toolbox.text}</p></div><div className="logo-wall reveal delay-1" data-reveal>{toolLogos.map(([label,slug])=><div className="tool-logo" key={label}><Logo slug={slug} label={label}/><span>{label}</span></div>)}</div></div></section>
 
       <section className="signal-section"><div className="signal-inner"><div className="terminal-window reveal" data-reveal><div className="terminal-top"><span><i/><i/><i/></span><span>{t.hero.eyebrow.includes("API")?"imrane@platform:~":"imrane@plateforme:~"}</span><span>{t.online}</span></div><div className="terminal-body"><p><b>$</b> whoami</p><p className="terminal-output">api-management.engineer</p><p><b>$</b> platform --focus</p><p className="terminal-output">kubernetes · openshift · cloud · gitops</p><p><b>$</b> security --mode</p><p className="terminal-output">oauth2 · tls · mtls · secrets</p><p><b>$</b> mission</p><p className="terminal-output accent">make-it-reliable.sh ✓</p><span className="cursor">▋</span></div></div><div className="signal-copy reveal delay-1" data-reveal><p className="eyebrow">{t.how.eyebrow}</p><h2>{t.how.title}</h2><p>{t.how.text}</p></div></div></section>
+
+      <section className="origin-section"><div className="origin-pattern"/><div className="origin-inner"><div className="origin-mosaic reveal" data-reveal><div className="zellige-grid"><span key={0}/><span key={1}/><span key={2}/><span key={3}/><span key={4}/><span key={5}/><span key={6}/><span key={7}/><span key={8}/><span key={9}/><span key={10}/><span key={11}/><span key={12}/><span key={13}/><span key={14}/><span key={15}/></div><div className="origin-seal"><b>MA</b><span>33°N</span><span>6°W</span></div></div><div className="origin-copy reveal delay-1" data-reveal><p className="eyebrow">{t.origin.eyebrow}</p><h2>{t.origin.title}</h2><p>{t.origin.text}</p><div className="origin-arabic">{t.origin.arabic}</div><div className="route-line"><span>CASABLANCA</span><i/><span>LUXEMBOURG</span></div></div></div></section>
 
       <section id="experience" className="section experience"><div className="section-index">{t.experience.index}</div><div className="section-heading reveal" data-reveal><p className="eyebrow">{t.experience.eyebrow}</p><h2>{t.experience.title}</h2></div><div className="timeline">{exp.map((item,i)=><article className="timeline-item reveal" data-reveal key={item.company+item.period}><div className="timeline-marker"><span>0{i+1}</span></div><div className="timeline-date">{item.period}</div><div className="timeline-main"><div className="company-line"><CompanyLogo url={item.logo}/><span className="timeline-company">{item.company}</span></div><h3>{item.role}</h3><p className="timeline-context">{item.context}</p><ul>{item.points.map(pt=><li key={pt}><Check size={13}/>{pt}</li>)}</ul><div className="tags">{item.stack.map(tag=><span key={tag}>{tag}</span>)}</div></div></article>)}</div></section>
 
