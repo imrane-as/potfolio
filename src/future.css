@@ -833,3 +833,538 @@
 @media(prefers-reduced-motion:reduce){
   .portrait-wrap::before,.hero-zellige,.future-lens,.hero-title .surname::after{animation:none!important}
 }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   MOROCCAN ZELLIGE ATMOSPHERE — animated, not decorative wallpaper
+   ═══════════════════════════════════════════════════════════════ */
+
+.site-shell::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  pointer-events:none;
+  background-image:url("/potfolio/zellige.svg");
+  background-size:360px 360px;
+  background-repeat:repeat;
+  opacity:.035;
+  mix-blend-mode:multiply;
+  animation:zelligeSurface 42s linear infinite;
+}
+.site-shell > *{position:relative;z-index:1}
+.site-shell .future-progress,
+.site-shell .future-corner,
+.site-shell .pointer-glow,
+.site-shell .scroll-progress,
+.site-shell .noise{z-index:9999}
+@keyframes zelligeSurface{
+  0%{background-position:0 0}
+  50%{background-position:180px 120px}
+  100%{background-position:360px 240px}
+}
+
+/* Hero gets a closer, richer zellige field. */
+.hero{
+  background-image:
+    linear-gradient(rgba(247,245,239,.93),rgba(247,245,239,.93)),
+    url("/potfolio/zellige.svg")!important;
+  background-size:auto,520px 520px!important;
+  background-position:center,0 0!important;
+  animation:heroZelligeSurface 34s linear infinite;
+}
+@keyframes heroZelligeSurface{
+  0%,100%{background-position:center,0 0}
+  50%{background-position:center,260px 170px}
+}
+
+/* Origin mosaic gets the same geometry language without looking copied. */
+.origin-mosaic{
+  position:relative;
+  overflow:hidden;
+}
+.origin-mosaic::before{
+  content:"";
+  position:absolute;
+  inset:-30%;
+  background:url("/potfolio/zellige.svg") center/260px repeat;
+  opacity:.12;
+  transform:rotate(-7deg);
+  animation:originZellige 28s linear infinite;
+  pointer-events:none;
+}
+@keyframes originZellige{
+  from{transform:rotate(-7deg) translate3d(0,0,0)}
+  to{transform:rotate(-4deg) translate3d(90px,50px,0)}
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE PIXEL POLISH — every section gets its own rhythm
+   ═══════════════════════════════════════════════════════════════ */
+
+@media(max-width:760px){
+
+  /* Global mobile rhythm */
+  .site-shell{overflow-x:clip!important}
+  .section,.stack-section,.signal-section,.architecture,.education,.proof-lab,.contact,.origin-section{
+    overflow:clip!important;
+  }
+  .section-index{
+    margin-bottom:24px!important;
+    font-size:8px!important;
+    letter-spacing:.16em!important;
+  }
+  .section-index:before{width:18px!important}
+  .eyebrow{
+    font-size:8px!important;
+    letter-spacing:.14em!important;
+  }
+  .section-heading h2,.stack-copy h2,.signal-copy h2,.architecture-intro h2,.work-heading h2,.proof-lab-head h2,.contact h2,.origin-copy h2{
+    letter-spacing:-.045em!important;
+    line-height:.98!important;
+  }
+
+  /* Proof strip: horizontal rail instead of cramped logos */
+  .proof-bar{
+    display:flex!important;
+    align-items:center!important;
+    gap:10px!important;
+    padding:12px 6vw!important;
+    overflow-x:auto!important;
+    overscroll-behavior-x:contain;
+    scrollbar-width:none;
+    white-space:nowrap;
+    -webkit-overflow-scrolling:touch;
+  }
+  .proof-bar::-webkit-scrollbar{display:none}
+  .proof-label{
+    position:sticky!important;
+    left:0;
+    z-index:3;
+    flex:0 0 auto!important;
+    padding-right:8px!important;
+    background:var(--paper)!important;
+    font-size:7px!important;
+  }
+  .company-proof{
+    flex:0 0 auto!important;
+    min-height:40px!important;
+    padding:7px 10px!important;
+    border:1px solid rgba(23,26,40,.08)!important;
+    border-radius:999px!important;
+    background:rgba(255,255,255,.62)!important;
+    backdrop-filter:blur(8px);
+  }
+  .company-proof span{font-size:8px!important}
+  .company-logo{width:22px!important;height:22px!important}
+
+  /* About */
+  .story{
+    padding-top:70px!important;
+    padding-bottom:72px!important;
+  }
+  .story-layout{
+    display:block!important;
+  }
+  .story .section-heading{
+    margin-bottom:25px!important;
+  }
+  .story-copy{
+    max-width:none!important;
+  }
+  .story-copy p{
+    font-size:14px!important;
+    line-height:1.7!important;
+    margin-bottom:17px!important;
+  }
+  .signature-line{
+    margin-top:25px!important;
+    padding-top:13px!important;
+    font-size:7px!important;
+    letter-spacing:.1em!important;
+  }
+  .capability-grid{
+    grid-template-columns:1fr!important;
+    gap:10px!important;
+    margin-top:34px!important;
+  }
+  .capability{
+    min-height:0!important;
+    padding:21px 20px 22px!important;
+    border-radius:16px!important;
+  }
+  .capability:nth-child(2n){transform:none!important}
+  .capability-number{font-size:7px!important}
+  .capability h3{font-size:18px!important;margin:13px 0 7px!important}
+  .capability p{font-size:12px!important;line-height:1.55!important;max-width:290px!important}
+  .capability:after{right:14px!important;bottom:14px!important}
+
+  /* Stack */
+  .stack-section{
+    padding:72px 6vw 76px!important;
+  }
+  .stack-inner{display:block!important}
+  .stack-copy{max-width:none!important;margin-bottom:34px!important}
+  .stack-copy h2{font-size:36px!important}
+  .stack-copy>p:last-child{font-size:13px!important;line-height:1.65!important}
+  .logo-wall{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:8px!important;
+  }
+  .logo-wall::before{top:-19px!important;font-size:6px!important}
+  .tool-logo{
+    min-height:86px!important;
+    padding:14px 9px!important;
+    border-radius:13px!important;
+    gap:9px!important;
+  }
+  .tool-logo img{width:29px!important;height:29px!important}
+  .tool-logo span{font-size:8px!important;letter-spacing:.03em!important}
+  .tool-logo::after{left:9px!important;right:9px!important}
+
+  /* Terminal / how I work */
+  .signal-section{
+    padding:68px 6vw 76px!important;
+  }
+  .signal-inner{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:40px!important;
+  }
+  .terminal-window{
+    width:100%!important;
+    margin:0!important;
+    border-radius:16px!important;
+    box-shadow:7px 8px 0 rgba(0,98,51,.24),0 18px 40px rgba(0,0,0,.15)!important;
+  }
+  .terminal-top{
+    padding:11px 13px!important;
+    font-size:8px!important;
+  }
+  .terminal-top span:nth-child(2){
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+    white-space:nowrap!important;
+    max-width:125px!important;
+  }
+  .terminal-top span:last-child{display:none!important}
+  .terminal-body{
+    min-height:190px!important;
+    padding:16px 14px 14px!important;
+    font-size:10px!important;
+    line-height:1.65!important;
+  }
+  .terminal-toggle{
+    width:100%!important;
+    min-height:42px!important;
+    font-size:8px!important;
+    justify-content:center!important;
+  }
+  .signal-copy h2{font-size:39px!important}
+  .signal-copy>p:last-child{font-size:13px!important;line-height:1.65!important}
+
+  /* Origin */
+  .origin-section{
+    padding:74px 6vw!important;
+  }
+  .origin-inner{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:42px!important;
+  }
+  .origin-mosaic{
+    width:min(86vw,340px)!important;
+    height:min(86vw,340px)!important;
+    margin:0 auto!important;
+    border-radius:22px!important;
+  }
+  .origin-seal{
+    width:68px!important;
+    height:68px!important;
+  }
+  .origin-copy h2{font-size:46px!important}
+  .origin-copy>p:not(.eyebrow){font-size:13px!important;line-height:1.7!important}
+  .route-line{
+    margin-top:26px!important;
+    font-size:7px!important;
+    gap:9px!important;
+  }
+
+  /* Experience — readable, no horizontal collision */
+  .experience{
+    padding-top:76px!important;
+    padding-bottom:82px!important;
+  }
+  .experience>.section-heading{
+    margin-bottom:40px!important;
+  }
+  .timeline{
+    margin-left:0!important;
+    padding-left:0!important;
+  }
+  .timeline::before{
+    left:8px!important;
+    opacity:.22!important;
+  }
+  .timeline-item{
+    display:block!important;
+    padding:0 0 38px 31px!important;
+    margin:0!important;
+  }
+  .timeline-item:last-child{padding-bottom:0!important}
+  .timeline-marker{
+    position:absolute!important;
+    left:0!important;
+    top:1px!important;
+  }
+  .timeline-marker span{
+    width:17px!important;
+    height:17px!important;
+    font-size:6px!important;
+    box-shadow:0 0 0 5px var(--paper),0 0 0 6px rgba(108,99,255,.18)!important;
+  }
+  .timeline-date{
+    margin:0 0 9px!important;
+    font-size:7px!important;
+    letter-spacing:.1em!important;
+  }
+  .company-line{
+    gap:9px!important;
+    margin-bottom:10px!important;
+  }
+  .timeline-company{font-size:13px!important}
+  .timeline-main h3{
+    font-size:20px!important;
+    line-height:1.08!important;
+    margin-bottom:8px!important;
+  }
+  .timeline-context{
+    font-size:10px!important;
+    line-height:1.5!important;
+    margin-bottom:15px!important;
+  }
+  .timeline-main ul{
+    margin:0!important;
+    padding:0!important;
+    gap:9px!important;
+  }
+  .timeline-main li{
+    font-size:11px!important;
+    line-height:1.55!important;
+    align-items:flex-start!important;
+  }
+  .timeline-main li svg{
+    flex:0 0 auto!important;
+    margin-top:3px!important;
+  }
+  .timeline-main .tags{
+    margin-top:15px!important;
+    gap:5px!important;
+  }
+  .timeline-main .tags span{
+    font-size:7px!important;
+    padding:5px 7px!important;
+  }
+
+  /* Selected work */
+  .work{
+    padding-top:76px!important;
+    padding-bottom:82px!important;
+  }
+  .work-heading{
+    display:block!important;
+  }
+  .work-heading .section-heading{margin-bottom:22px!important}
+  .work-heading h2{font-size:39px!important}
+  .work-note{
+    font-size:12px!important;
+    line-height:1.65!important;
+    max-width:330px!important;
+  }
+  .project-list{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:13px!important;
+    margin-top:34px!important;
+  }
+  .project-card{
+    display:grid!important;
+    grid-template-columns:36px minmax(0,1fr) 26px!important;
+    gap:11px!important;
+    padding:21px 17px!important;
+    border-radius:17px!important;
+    min-height:0!important;
+  }
+  .project-number{font-size:8px!important}
+  .project-content .eyebrow{font-size:7px!important;margin-bottom:9px!important}
+  .project-content h3{font-size:22px!important;line-height:1.05!important;margin-bottom:10px!important}
+  .project-content>p:not(.eyebrow){font-size:11px!important;line-height:1.6!important}
+  .project-content .tags{margin-top:14px!important;gap:5px!important}
+  .project-content .tags span{font-size:7px!important;padding:5px 7px!important}
+  .project-arrow{align-self:start!important}
+
+  /* Architecture */
+  .architecture{
+    padding:76px 6vw 82px!important;
+  }
+  .architecture-intro h2{font-size:40px!important}
+  .architecture-flow{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:9px!important;
+    margin-top:34px!important;
+  }
+  .flow-node{
+    min-height:132px!important;
+    padding:16px 13px!important;
+    border-radius:15px!important;
+  }
+  .flow-node:last-child{
+    grid-column:1 / -1!important;
+    min-height:105px!important;
+  }
+  .flow-node strong{font-size:10px!important}
+  .flow-node>span{font-size:8px!important;line-height:1.35!important}
+  .flow-icon{width:33px!important;height:33px!important;margin-bottom:12px!important}
+  .flow-connector{display:none!important}
+  .architecture-detail{
+    margin-top:13px!important;
+    padding:18px!important;
+    border-radius:15px!important;
+    box-shadow:7px 7px 0 var(--future-ink)!important;
+  }
+  .architecture-detail>span{font-size:7px!important}
+  .architecture-detail>strong{font-size:16px!important;display:block!important;margin:7px 0!important}
+  .architecture-detail>p{font-size:11px!important;line-height:1.6!important}
+  .architecture-path{margin-top:15px!important}
+
+  /* Education */
+  .education{
+    padding:74px 6vw 78px!important;
+  }
+  .education-grid{
+    display:block!important;
+  }
+  .education-grid>.section-heading{
+    margin-bottom:30px!important;
+  }
+  .education-list{display:flex!important;flex-direction:column!important;gap:0!important}
+  .edu-item{
+    display:grid!important;
+    grid-template-columns:83px minmax(0,1fr)!important;
+    gap:13px!important;
+    padding:17px 0!important;
+    border-top:1px solid rgba(23,26,40,.11)!important;
+  }
+  .edu-item:last-child{border-bottom:1px solid rgba(23,26,40,.11)!important}
+  .edu-item>span{font-size:7px!important;line-height:1.5!important}
+  .edu-item strong{font-size:14px!important}
+  .edu-item p{font-size:10px!important;line-height:1.5!important;margin-top:4px!important}
+
+  /* Proof Lab — keep constellation usable on a phone */
+  .proof-lab{
+    padding:76px 6vw 82px!important;
+  }
+  .proof-lab-head h2{font-size:40px!important}
+  .proof-lab-head>p:last-child{font-size:12px!important;line-height:1.65!important}
+  .credential-orbit{
+    width:min(88vw,350px)!important;
+    height:min(88vw,350px)!important;
+    margin:42px auto 0!important;
+    transform:none!important;
+  }
+  .credential-core{
+    width:72px!important;
+    height:72px!important;
+  }
+  .credential-node{
+    min-width:92px!important;
+    padding:9px!important;
+    border-radius:11px!important;
+  }
+  .credential-node b{font-size:7px!important}
+  .credential-node strong{font-size:8px!important}
+  .credential-node small{font-size:5px!important}
+  .node-trimoji{left:0!important;top:8%!important}
+  .node-credly-a{right:0!important;top:8%!important}
+  .node-credly-b{right:2%!important;bottom:7%!important}
+  .node-credly-c{left:2%!important;bottom:7%!important}
+  .node-pluralsight{left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;margin-top:50px!important}
+  .orbit-ring.ring-one{inset:17%!important}
+  .orbit-ring.ring-two{inset:4%!important}
+
+  /* Contact */
+  .contact{
+    padding:78px 6vw 35px!important;
+  }
+  .contact h2{font-size:50px!important;line-height:.9!important}
+  .contact-text{font-size:13px!important;line-height:1.65!important;max-width:340px!important}
+  .contact-actions{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) 48px 48px!important;
+    gap:8px!important;
+    margin-top:25px!important;
+  }
+  .contact-actions .button-primary{
+    grid-column:1 / -1!important;
+  }
+  .contact-actions .button-ghost{
+    grid-column:1!important;
+  }
+  .contact-actions .icon-button{
+    width:48px!important;height:48px!important;
+  }
+  .contact-bottom{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:9px!important;
+    padding-top:30px!important;
+    margin-top:30px!important;
+    font-size:7px!important;
+  }
+  .contact-bottom span:last-child{
+    grid-column:1 / -1!important;
+  }
+
+  /* Footer */
+  .footer{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    gap:8px!important;
+    padding:28px 6vw 30px!important;
+    text-align:center!important;
+    font-size:6px!important;
+    line-height:1.5!important;
+  }
+
+  /* Zellige is stronger on the identity sections, still very subtle. */
+  .site-shell::before{background-size:270px 270px!important;opacity:.028!important}
+  .hero{
+    animation-duration:46s!important;
+    background-size:auto,380px 380px!important;
+  }
+  .origin-mosaic::before{opacity:.18!important}
+
+  /* Disable only expensive decorative layers on mobile; keep the identity animation. */
+  .hero-zellige{display:none!important}
+  .hero-grid:after{opacity:.45!important}
+}
+
+@media(max-width:420px){
+  .section-index{margin-bottom:20px!important}
+  .story,.stack-section,.signal-section,.experience,.work,.architecture,.education,.proof-lab,.contact,.origin-section{
+    padding-left:5vw!important;padding-right:5vw!important;
+  }
+  .logo-wall{gap:7px!important}
+  .tool-logo{min-height:82px!important}
+  .architecture-flow{gap:7px!important}
+  .flow-node{min-height:125px!important}
+  .contact h2{font-size:46px!important}
+  .credential-orbit{width:90vw!important;height:90vw!important}
+  .credential-node{min-width:86px!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .site-shell::before,.hero,.origin-mosaic::before{animation:none!important}
+}
