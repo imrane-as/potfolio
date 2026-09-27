@@ -340,3 +340,151 @@
   .avatar-orbit{width:64px;height:45px}
   .avatar-orbit-b{width:69px;height:30px}
 }
+
+
+/* DIGITAL TWIN JOURNEY — the avatar physically descends with the page */
+.avatar-journey{
+  --journey-y:0vh;
+  position:fixed;
+  z-index:220;
+  top:0;
+  right:12px;
+  bottom:0;
+  width:92px;
+  pointer-events:none;
+}
+.avatar-journey .journey-rail{
+  position:absolute;
+  top:8vh;
+  bottom:8vh;
+  right:35px;
+  width:2px;
+  border-radius:99px;
+  background:linear-gradient(#6c63ff00,#6c63ff80 12%,#00b8a9 50%,#ffb04a80 82%,#6c63ff00);
+  box-shadow:0 0 14px #6c63ff28;
+}
+.avatar-journey .journey-rail:before,
+.avatar-journey .journey-rail:after{
+  content:"";
+  position:absolute;
+  left:-7px;
+  width:16px;
+  height:100%;
+  border-top:1px solid #ffffff22;
+  border-bottom:1px solid #ffffff22;
+}
+.avatar-journey .journey-rail i{
+  position:absolute;
+  right:-7px;
+  width:16px;
+  height:2px;
+  border-radius:9px;
+  background:#ffffff50;
+  box-shadow:0 0 8px #6c63ff55;
+}
+.avatar-journey .journey-rail i:nth-child(1){top:0}
+.avatar-journey .journey-rail i:nth-child(2){top:20%}
+.avatar-journey .journey-rail i:nth-child(3){top:40%}
+.avatar-journey .journey-rail i:nth-child(4){top:60%}
+.avatar-journey .journey-rail i:nth-child(5){top:80%}
+.avatar-journey .journey-rail i:nth-child(6){top:100%}
+.avatar-journey .journey-label{
+  position:absolute;
+  right:0;
+  top:4.2vh;
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  font:800 6px "Space Grotesk";
+  letter-spacing:.18em;
+  color:#8d94a7;
+  white-space:nowrap;
+  opacity:.75;
+}
+.avatar-journey .avatar-dock{
+  position:absolute;
+  right:0;
+  top:calc(5vh + var(--journey-y));
+  bottom:auto;
+  width:78px;
+  height:78px;
+  padding:0;
+  margin:0;
+  border-radius:50%;
+  overflow:hidden;
+  transform:none;
+  pointer-events:auto;
+  border:1px solid #ffffff58;
+  background:#111525ee;
+  box-shadow:0 8px 26px #17192750,0 0 30px #6c63ff30;
+  transition:top .18s linear,box-shadow .3s ease;
+}
+.avatar-journey .avatar-dock:before{
+  content:"IA";
+  top:7px;
+  left:50%;
+  z-index:8;
+  transform:translateX(-50%);
+  font:900 7px "Space Grotesk";
+  letter-spacing:.12em;
+  color:#ffffffdf;
+}
+.avatar-journey .avatar-dock:after{
+  left:auto;
+  right:7px;
+  top:7px;
+  width:7px;
+  height:7px;
+  transform:none;
+  border:0;
+  border-radius:50%;
+  background:#00b8a9;
+  box-shadow:0 0 0 4px #00b8a918,0 0 12px #00b8a9;
+}
+.avatar-journey .avatar-stage{width:78px;height:78px;min-height:78px}
+.avatar-journey .digital-avatar{width:70px;height:73px;left:4px;bottom:-2px}
+.avatar-journey .avatar-orbit{left:1px;top:13px;width:77px;height:52px}
+.avatar-journey .avatar-orbit-b{left:-3px;top:22px;width:84px;height:36px}
+.avatar-journey .avatar-radar,
+.avatar-journey .avatar-chip,
+.avatar-journey .avatar-hud-top,
+.avatar-journey .avatar-hud-bottom{display:none}
+@media(max-width:760px){
+  .avatar-journey{
+    right:8px;
+    width:72px;
+  }
+  .avatar-journey .journey-rail{
+    right:28px;
+    top:10vh;
+    bottom:10vh;
+  }
+  .avatar-journey .journey-label{
+    right:-1px;
+    top:6vh;
+    font-size:5px;
+  }
+  .avatar-journey .avatar-dock{
+    right:0;
+    width:62px;
+    height:62px;
+    top:calc(7vh + var(--journey-y));
+  }
+  .avatar-journey .avatar-stage{width:62px;height:62px;min-height:62px}
+  .avatar-journey .digital-avatar{width:56px;height:59px;left:2px}
+  .avatar-journey .avatar-orbit{width:62px;height:43px;top:10px}
+  .avatar-journey .avatar-orbit-b{width:68px;height:30px;top:18px}
+  .avatar-journey .avatar-dock:before{font-size:6px;top:6px}
+  .avatar-journey .avatar-dock:after{right:5px;top:5px;width:6px;height:6px}
+}
+@media(max-width:380px){
+  .avatar-journey{right:5px;width:62px}
+  .avatar-journey .journey-rail{right:23px}
+  .avatar-journey .avatar-dock{width:54px;height:54px}
+  .avatar-journey .avatar-stage{width:54px;height:54px;min-height:54px}
+  .avatar-journey .digital-avatar{width:49px;height:52px}
+  .avatar-journey .avatar-orbit{width:54px;height:38px}
+  .avatar-journey .avatar-orbit-b{width:59px;height:27px}
+}
+@media(prefers-reduced-motion:reduce){
+  .avatar-journey .avatar-dock{transition:none}
+}
