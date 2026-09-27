@@ -1382,3 +1382,43 @@
 .site-shell > .noise{
   position:fixed!important;
 }
+
+
+/* Social actions: explicit labels beat ambiguous icon-only circles. */
+.social-button{
+  min-width:104px!important;
+  height:48px!important;
+  padding:0 13px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:7px!important;
+  border:1px solid rgba(255,255,255,.32)!important;
+  border-radius:14px!important;
+  color:#fff!important;
+  background:rgba(255,255,255,.045)!important;
+  font:800 10px "Space Grotesk"!important;
+  letter-spacing:.02em!important;
+  transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease!important;
+}
+.social-button svg{display:block!important;flex:0 0 auto!important}
+.social-button svg:last-child{opacity:.55!important}
+.social-button:hover{
+  transform:translateY(-3px)!important;
+  border-color:var(--purple)!important;
+  background:rgba(108,99,255,.15)!important;
+  box-shadow:0 10px 24px rgba(108,99,255,.14)!important;
+}
+@media(max-width:760px){
+  .contact-actions{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  }
+  .contact-actions .button-primary,
+  .contact-actions .button-ghost{
+    grid-column:1 / -1!important;
+  }
+  .contact-actions .social-button{
+    width:100%!important;
+    min-width:0!important;
+  }
+}
