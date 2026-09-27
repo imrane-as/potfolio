@@ -1443,9 +1443,12 @@
   isolation:isolate!important;
   overflow:hidden!important;
   background-image:
-    linear-gradient(rgba(247,245,239,.90),rgba(247,245,239,.94)),
+    linear-gradient(rgba(247,245,239,.86),rgba(247,245,239,.93)),
+    url("/potfolio/zellige-bg.webp"),
     url("/potfolio/zellige.svg")!important;
-  background-size:auto,420px 420px!important;
+  background-position:center top, right top, center!important;
+  background-repeat:no-repeat, no-repeat, repeat!important;
+  background-size:auto, min(760px,62vw) auto, 420px 420px!important;
 }
 .hero::after{
   content:"";
@@ -1454,13 +1457,21 @@
   left:0;
   right:0;
   top:0;
-  height:clamp(190px,25vw,360px);
+  height:clamp(210px,27vw,360px);
   background:url("/potfolio/morocco-skyline.svg") center top/100% 100% no-repeat;
-  opacity:.42;
+  opacity:.34;
   pointer-events:none;
   mix-blend-mode:multiply;
-  transform:translateY(-4%);
+  transform:translateY(-2%);
   animation:skylineFloat 18s ease-in-out infinite alternate;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  background:linear-gradient(180deg,rgba(255,255,255,.10),transparent 38%);
+  pointer-events:none;
 }
 .hero > *{position:relative;z-index:1}
 .hero .hero-grid{z-index:0!important}
@@ -1478,13 +1489,14 @@
 /* Mobile: skyline becomes a clean top band, never competing with the name. */
 @media(max-width:760px){
   .hero::after{
-    height:170px!important;
-    opacity:.30!important;
-    background-size:auto 170px!important;
+    height:150px!important;
+    opacity:.28!important;
+    background-size:auto 150px!important;
     background-position:center top!important;
   }
   .hero{
-    background-size:auto,280px 280px!important;
+    background-position:center top, 88% 0, center!important;
+    background-size:auto, 470px auto, 280px 280px!important;
   }
   .site-shell::before{
     background-size:220px 220px!important;
