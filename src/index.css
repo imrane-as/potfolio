@@ -743,3 +743,62 @@
     right:3px!important;
   }
 }
+
+
+/* MOBILE SAFE GUTTER — ladder lives in its own margin, never over content */
+@media(max-width:760px){
+  .avatar-journey{
+    width:48px!important;
+    right:0!important;
+  }
+  .avatar-journey .journey-stairs{
+    right:5px!important;
+    width:38px!important;
+    height:78vh!important;
+    top:11vh!important;
+    opacity:.58!important;
+  }
+  .avatar-journey .avatar-climber{
+    width:44px!important;
+    height:82px!important;
+    right:2px!important;
+    top:calc(11vh + (var(--stair) * 9.15vh))!important;
+    transform:translateY(-78%)!important;
+  }
+  .avatar-journey .climber-body{
+    width:44px!important;
+    height:72px!important;
+  }
+  .avatar-journey .climber-name{
+    font-size:4px!important;
+    right:-2px!important;
+  }
+  .avatar-journey .climber-status{
+    font-size:3.5px!important;
+    padding:2px 3px!important;
+    right:-5px!important;
+  }
+  .avatar-journey .journey-label{
+    display:none!important;
+  }
+
+  /* Reserve the rail's gutter so text/buttons can never sit underneath it. */
+  .hero,
+  .section{
+    padding-right:56px!important;
+  }
+
+  /* Keep wide cards/tables from being visually trapped by the gutter. */
+  .hero-actions,
+  .capability-grid,
+  .education-grid{
+    max-width:calc(100% - 2px);
+  }
+}
+@media(max-width:380px){
+  .avatar-journey{width:42px!important}
+  .avatar-journey .journey-stairs{width:32px!important;right:4px!important}
+  .avatar-journey .avatar-climber{width:39px!important;height:73px!important;right:1px!important}
+  .avatar-journey .climber-body{width:39px!important;height:64px!important}
+  .hero,.section{padding-right:49px!important}
+}
