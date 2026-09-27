@@ -1491,3 +1491,48 @@
     opacity:.038!important;
   }
 }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE FINAL PASS — iOS / 390px safe layout
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 760px) {
+  #about,#experience,#stack,#work,#contact,#proof-lab,.origin-section {
+    scroll-margin-top: 86px !important;
+  }
+  .proof-lab { padding-top:108px !important; }
+  .node-pluralsight {
+    left:50% !important; top:1% !important; bottom:auto !important;
+    margin-top:0 !important;
+    transform:translateX(-50%) rotate(-2deg) !important;
+  }
+  .credential-orbit {
+    width:min(88vw,350px) !important;
+    height:min(88vw,350px) !important;
+    overflow:visible !important;
+  }
+  .credential-node {
+    box-sizing:border-box !important;
+    max-width:104px !important;
+  }
+  .future-corner { display:none !important; }
+  html,body,#root {
+    max-width:100%;
+    overflow-x:clip !important;
+  }
+  .site-shell {
+    width:100% !important;
+    max-width:100% !important;
+    overflow-x:clip !important;
+  }
+  .hero { padding-bottom:48px !important; }
+  .signal-section,.origin-section,.proof-lab {
+    width:100% !important;
+    box-sizing:border-box !important;
+  }
+}
+@media (max-width:420px) {
+  .proof-lab { padding-top:104px !important; }
+  .credential-orbit { width:90vw !important; height:90vw !important; }
+  .credential-node { max-width:96px !important; }
+}
