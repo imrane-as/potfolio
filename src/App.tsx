@@ -109,8 +109,10 @@ const DigitalAvatar=({status,onSecret,scroll}:{status:string;onSecret:()=>void;s
   <div className="avatar-journey" style={{"--stair":stair} as React.CSSProperties} aria-label="Digital Twin climbing through the portfolio">
     <div className="journey-label">DIGITAL TWIN // IA-026</div>
     <svg className="journey-stairs" viewBox="0 0 110 760" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M28 735h54M28 735v-55h14v-55h14v-55h14v-55h14v-55h14v-55h14v-55h14v-55h14v-55h14" fill="none" stroke="currentColor" strokeWidth="2"/>
-      <path d="M28 735h54M42 680h40M56 625h26M70 570h12M84 515h12M98 460h12M112 405h-14" fill="none" stroke="currentColor" strokeWidth="1" opacity=".35"/>
+      <defs><linearGradient id="ladderGlow" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#6c63ff"/><stop offset=".5" stopColor="#00b8a9"/><stop offset="1" stopColor="#6c63ff"/></linearGradient></defs>
+      <path d="M27 24V736 M83 24V736" fill="none" stroke="url(#ladderGlow)" strokeWidth="4" strokeLinecap="round"/>
+      <path d="M27 55H83 M27 105H83 M27 155H83 M27 205H83 M27 255H83 M27 305H83 M27 355H83 M27 405H83 M27 455H83 M27 505H83 M27 555H83 M27 605H83 M27 655H83 M27 705H83" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+      <path d="M21 55H89 M21 155H89 M21 255H89 M21 355H89 M21 455H89 M21 555H89 M21 655H89" fill="none" stroke="currentColor" strokeWidth="1" opacity=".22"/>
     </svg>
     <div className={"avatar-climber avatar-"+status.toLowerCase()} onDoubleClick={onSecret} role="button" tabIndex={0} aria-label="Digital Twin">
       <div className="climber-name">IMRANE<span> / 026</span></div>
