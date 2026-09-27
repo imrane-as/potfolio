@@ -104,43 +104,40 @@ function Logo({slug,label}:{slug:string;label:string}){
 function CompanyLogo({url}:{url:string}){return <span className="company-logo"><img src={url} alt="" loading="lazy" onError={(e)=>{e.currentTarget.style.display="none"}}/></span>}
 
 const DigitalAvatar=({status,onSecret,scroll}:{status:string;onSecret:()=>void;scroll:number})=>(
-  <div className="avatar-journey" style={{"--journey-y":`${scroll*0.72}vh`} as React.CSSProperties} aria-label="Digital Twin journey">
-    <div className="journey-rail"><i/><i/><i/><i/><i/><i/></div>
-    <div className="journey-label">SCROLL // DESCEND</div>
-    <div className={"avatar-dock avatar-"+status.toLowerCase()} onDoubleClick={onSecret} aria-label="Interactive digital avatar">
-    <div className="avatar-hud-top"><span className="hud-dot"/> DIGITAL TWIN <b>v2.026</b></div>
-    <div className="avatar-stage">
-      <div className="avatar-orbit avatar-orbit-a"/>
-      <div className="avatar-orbit avatar-orbit-b"/>
-      <div className="avatar-radar"/>
-      <svg className="digital-avatar" viewBox="0 0 300 340" role="img" aria-label="Stylized digital avatar of an engineer">
+  <div className="avatar-journey" style={{"--journey-y":`${scroll*0.72}vh`, "--walk":`${Math.round(scroll*18)}`} as React.CSSProperties} aria-label="Digital Twin walking through the portfolio">
+    <div className="journey-label">DIGITAL TWIN // IA-026</div>
+    <svg className="journey-stairs" viewBox="0 0 110 760" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M28 735h54M28 735v-55h14v-55h14v-55h14v-55h14v-55h14v-55h14v-55h14v-55h14v-55h14" fill="none" stroke="currentColor" strokeWidth="2"/>
+      <path d="M28 735h54M42 680h40M56 625h26M70 570h12M84 515h12M98 460h12M112 405h-14" fill="none" stroke="currentColor" strokeWidth="1" opacity=".35"/>
+    </svg>
+    <div className={"avatar-climber avatar-"+status.toLowerCase()} onDoubleClick={onSecret} role="button" tabIndex={0} aria-label="Digital Twin">
+      <div className="climber-name">IMRANE<span> / 026</span></div>
+      <svg className="climber-body" viewBox="0 0 150 230" role="img" aria-label="Full body digital avatar walking upstairs">
         <defs>
-          <linearGradient id="avatarSkin" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stopColor="#f5c7a9"/><stop offset="1" stopColor="#b96f55"/></linearGradient>
-          <linearGradient id="avatarJacket" x1="0" x2="1"><stop offset="0" stopColor="#171a28"/><stop offset=".55" stopColor="#32385a"/><stop offset="1" stopColor="#6c63ff"/></linearGradient>
-          <linearGradient id="avatarGlow" x1="0" x2="1"><stop offset="0" stopColor="#00b8a9"/><stop offset="1" stopColor="#6c63ff"/></linearGradient>
-          <filter id="avatarShadow"><feDropShadow dx="0" dy="12" stdDeviation="10" floodColor="#202332" floodOpacity=".28"/></filter>
+          <linearGradient id="climberSkin" x1="0" x2="1"><stop offset="0" stopColor="#f5c7a9"/><stop offset="1" stopColor="#b96f55"/></linearGradient>
+          <linearGradient id="climberSuit" x1="0" x2="1"><stop offset="0" stopColor="#171a28"/><stop offset=".6" stopColor="#32385a"/><stop offset="1" stopColor="#6c63ff"/></linearGradient>
+          <filter id="climberShadow"><feDropShadow dx="0" dy="7" stdDeviation="5" floodColor="#202332" floodOpacity=".28"/></filter>
         </defs>
-        <path d="M72 335c7-69 36-103 78-103s71 34 78 103" fill="url(#avatarJacket)" filter="url(#avatarShadow)"/>
-        <path d="M113 245l37 42 37-42-9-27h-56z" fill="#f7f1e8"/>
-        <path d="M107 120c0-48 28-76 66-76s66 28 66 76v61c0 45-30 73-66 73s-66-28-66-73z" fill="url(#avatarSkin)" filter="url(#avatarShadow)"/>
-        <path d="M107 127c-8-66 22-94 70-94 42 0 65 24 66 78-15-21-36-32-63-34-22 19-47 29-73 28z" fill="#202332"/>
-        <path d="M115 112c14-42 38-57 72-57 29 0 48 13 58 38-25-15-48-18-69-9-18 13-38 23-61 28z" fill="#2c3041"/>
-        <path d="M132 150c8-5 16-5 24 0M177 150c8-5 16-5 24 0" fill="none" stroke="#202332" strokeWidth="4" strokeLinecap="round"/>
-        <circle cx="147" cy="161" r="5" fill="#202332"/><circle cx="191" cy="161" r="5" fill="#202332"/>
-        <path d="M164 160l-4 23 9 3" fill="none" stroke="#9a5c4c" strokeWidth="3" strokeLinecap="round"/>
-        <path d="M145 201c12 9 28 9 40 0" fill="none" stroke="#202332" strokeWidth="4" strokeLinecap="round"/>
-        <path d="M84 310l40-32 26 36 26-36 40 32" fill="none" stroke="url(#avatarGlow)" strokeWidth="4"/>
-        <path d="M121 280l29 34 29-34" fill="none" stroke="#fff" strokeWidth="2" opacity=".75"/>
-        <path d="M73 327h154" stroke="#fff" strokeOpacity=".15"/>
+        <g className="climber-person" filter="url(#climberShadow)">
+          <circle cx="75" cy="34" r="25" fill="url(#climberSkin)"/>
+          <path d="M49 35c2-25 17-34 29-34 18 0 29 11 30 32-9-10-20-14-31-12-8 7-17 12-28 14z" fill="#202332"/>
+          <circle cx="66" cy="38" r="3" fill="#202332"/><circle cx="84" cy="38" r="3" fill="#202332"/>
+          <path d="M67 51c6 4 11 4 17 0" fill="none" stroke="#202332" strokeWidth="2.5" strokeLinecap="round"/>
+          <path d="M53 65c7-8 37-8 44 0l10 62-32 18-32-18z" fill="url(#climberSuit)"/>
+          <path d="M58 75l17 25 17-25" fill="none" stroke="#fff" strokeWidth="2" opacity=".75"/>
+          <path className="climber-arm-a" d="M55 75l-27 38 13 9 30-28" fill="none" stroke="#32385a" strokeWidth="13" strokeLinecap="round"/>
+          <path className="climber-arm-b" d="M95 75l27 29-8 12-29-22" fill="none" stroke="#32385a" strokeWidth="13" strokeLinecap="round"/>
+          <path className="climber-leg-a" d="M62 140l-8 49 31 26" fill="none" stroke="#202332" strokeWidth="18" strokeLinecap="round"/>
+          <path className="climber-leg-b" d="M87 140l11 43-24 31" fill="none" stroke="#202332" strokeWidth="18" strokeLinecap="round"/>
+          <path d="M84 215l10 7" stroke="#6c63ff" strokeWidth="7" strokeLinecap="round"/>
+          <path d="M73 212l-9 7" stroke="#6c63ff" strokeWidth="7" strokeLinecap="round"/>
+          <path d="M28 113l-10 8M122 104l10 5" stroke="#00b8a9" strokeWidth="3" strokeLinecap="round"/>
+        </g>
       </svg>
-      <div className="avatar-scanline"/>
-      <div className="avatar-chip chip-one">{status==="ONLINE"?"API":status==="DISCOVERING"?"TRACE":status==="SHIPPING"?"SHIP":status==="CONNECTED"?"LINK":"OK"}</div><div className="avatar-chip chip-two">{status==="VERIFIED"?"PROOF":"K8S"}</div><div className="avatar-chip chip-three">{status==="SHIPPING"?"CI/CD":"MTLS"}</div>
-    </div>
-    <div className="avatar-hud-bottom"><span>ENGINEER_ID: IA-026</span><strong>● {status}</strong></div>
+      <div className="climber-status"><i/> {status}</div>
     </div>
   </div>
 );
-
 function App(){
   const [lang,setLang]=useState<Lang>("en"),[menuOpen,setMenuOpen]=useState(false),[scroll,setScroll]=useState(0),[commandOpen,setCommandOpen]=useState(false),[terminalOpen,setTerminalOpen]=useState(false),[terminalInput,setTerminalInput]=useState(""),[terminalHistory,setTerminalHistory]=useState<string[]>(["$ help","help · whoami · stack · architecture · morocco · clear"]),[archSelected,setArchSelected]=useState(0),[easterEgg,setEasterEgg]=useState(false);
   const shellRef=useRef<HTMLDivElement>(null);
