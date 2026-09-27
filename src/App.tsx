@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { jsPDF } from "jspdf";
+import "./future.css";
 import {
   ArrowDownRight, ArrowUpRight, Braces, Check, Cloud, Container,
   Github, Globe2, Layers3, Linkedin, Mail, Menu, Network,
