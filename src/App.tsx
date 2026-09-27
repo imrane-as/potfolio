@@ -79,7 +79,15 @@ const projects = {
   ]
 };
 
-function Logo({slug,label}:{slug:string;label:string}){return <img src={`https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/${slug}.svg`} alt={label} loading="lazy" decoding="async"/>}
+const logoFallbacks:Record<string,string> = {
+  microsoftazure:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg",
+  amazonaws:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+  ibm:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ibm/ibm-original.svg"
+};
+function Logo({slug,label}:{slug:string;label:string}){
+  const src = logoFallbacks[slug] ?? `https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/${slug}.svg`;
+  return <img src={src} alt={label} loading="lazy" decoding="async" onError={(e)=>{e.currentTarget.style.display="none"}}/>;
+}
 function CompanyLogo({url}:{url:string}){return <span className="company-logo"><img src={url} alt="" loading="lazy" onError={(e)=>{e.currentTarget.style.display="none"}}/></span>}
 
 function App(){
