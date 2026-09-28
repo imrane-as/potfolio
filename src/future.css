@@ -2952,3 +2952,191 @@ body{background:var(--fx-bg)!important;color:var(--fx-white)!important}
 /* CLEAN HERO — remove secondary floating labels that compete with the portrait */
 .portrait-stamp{display:none!important;}
 .future-lens{display:none!important;}
+
+
+/* =========================================================
+   UNIFIED RESPONSIVE ART DIRECTION
+   Mobile is the same portfolio — only the geometry changes.
+   ========================================================= */
+@media(max-width:900px){
+  .site-shell{overflow-x:hidden!important}
+  .nav{
+    height:76px!important;
+    background:#070a10ee!important;
+  }
+  .brand{font-size:21px!important}
+  .hero{
+    grid-template-columns:1fr!important;
+    min-height:100svh!important;
+    padding:118px 7vw 72px!important;
+    background:
+      radial-gradient(circle at 78% 28%,#1c315b55 0,transparent 30%),
+      linear-gradient(135deg,#070a10 0%,#0b1018 58%,#0d1420 100%)!important;
+  }
+  .hero-copy{
+    width:100%!important;
+    max-width:720px!important;
+  }
+  .morocco-badge{
+    top:96px!important;
+    right:7vw!important;
+    left:auto!important;
+    transform:scale(.72) rotate(-2deg)!important;
+    transform-origin:top right!important;
+    z-index:20!important;
+  }
+  .hero .eyebrow{
+    margin-top:50px!important;
+    margin-bottom:22px!important;
+    color:var(--fx-cyan)!important;
+  }
+  .hero-kicker{
+    margin:0 0 22px!important;
+    color:var(--fx-lime)!important;
+  }
+  .hero-title{
+    font-size:clamp(62px,14.5vw,110px)!important;
+    line-height:.80!important;
+    letter-spacing:-.09em!important;
+    margin-bottom:30px!important;
+  }
+  .hero-intro{
+    max-width:620px!important;
+    font-size:17px!important;
+    line-height:1.65!important;
+    margin:0 0 30px!important;
+  }
+  .hero-actions{
+    display:flex!important;
+    flex-wrap:wrap!important;
+    gap:10px!important;
+  }
+  .hero-actions .button{
+    width:auto!important;
+    min-height:52px!important;
+  }
+  .portrait-wrap{
+    width:min(72vw,430px)!important;
+    margin:58px auto 0!important;
+    justify-self:center!important;
+  }
+  .portrait-frame{
+    padding:10px!important;
+    box-shadow:16px 18px 0 #02050a!important;
+  }
+  .portrait-label.top{
+    top:20px!important;
+    left:20px!important;
+  }
+  .portrait-label.bottom{
+    bottom:20px!important;
+    right:20px!important;
+  }
+  .hero-meta{display:block!important}
+  .future-lens{display:none!important}
+
+  /* same section language as desktop */
+  .section,.stack-section,.signal-section,.architecture,.origin-section,.proof-lab,.contact{
+    color:var(--fx-white)!important;
+  }
+  .section,.stack-section,.architecture{padding:120px 7vw!important}
+  .section-heading h2,.architecture-intro h2{
+    font-size:clamp(46px,11vw,76px)!important;
+  }
+  .story-layout,.stack-inner,.education-grid{
+    grid-template-columns:1fr!important;
+    gap:55px!important;
+  }
+  .capability-grid{
+    grid-template-columns:repeat(2,1fr)!important;
+  }
+  .logo-wall{
+    grid-template-columns:repeat(3,1fr)!important;
+  }
+  .timeline-item{
+    grid-template-columns:72px 1fr!important;
+    gap:18px!important;
+  }
+  .timeline-date{
+    grid-column:2!important;
+  }
+  .timeline-main{
+    grid-column:2!important;
+    padding-left:22px!important;
+  }
+}
+
+@media(max-width:600px){
+  .nav{padding:0 6vw!important}
+  .hero{
+    min-height:auto!important;
+    padding:104px 6vw 72px!important;
+  }
+  .morocco-badge{
+    top:88px!important;
+    right:6vw!important;
+    transform:scale(.60) rotate(-2deg)!important;
+  }
+  .hero .eyebrow{
+    margin-top:62px!important;
+    margin-bottom:20px!important;
+  }
+  .hero-kicker{
+    font-size:10px!important;
+    margin-bottom:20px!important;
+  }
+  .hero-title{
+    font-size:clamp(57px,18.5vw,92px)!important;
+    line-height:.80!important;
+    letter-spacing:-.085em!important;
+    margin-bottom:28px!important;
+  }
+  .hero-intro{
+    font-size:16px!important;
+    line-height:1.62!important;
+    margin-bottom:28px!important;
+  }
+  .hero-actions{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:10px!important;
+  }
+  .hero-actions .button{
+    width:100%!important;
+    min-height:56px!important;
+    justify-content:center!important;
+  }
+  .portrait-wrap{
+    width:min(82vw,380px)!important;
+    margin:48px auto 0!important;
+  }
+  .portrait-frame{
+    padding:8px!important;
+    box-shadow:12px 14px 0 #02050a!important;
+  }
+  .portrait-label.top{top:18px!important;left:18px!important}
+  .portrait-label.bottom{bottom:18px!important;right:18px!important}
+
+  .section,.stack-section,.architecture{padding:94px 6vw!important}
+  .section-heading h2,.architecture-intro h2{
+    font-size:clamp(42px,12vw,66px)!important;
+  }
+  .capability-grid{grid-template-columns:1fr!important}
+  .logo-wall{grid-template-columns:repeat(2,1fr)!important}
+  .tool-logo{min-height:96px!important}
+  .timeline-item{
+    grid-template-columns:48px 1fr!important;
+    gap:12px!important;
+    padding:36px 0!important;
+  }
+  .timeline-date{font-size:8px!important}
+  .timeline-main{padding-left:16px!important}
+  .timeline-main h3{font-size:28px!important}
+  .architecture-flow{display:grid!important;grid-template-columns:1fr!important}
+  .flow-connector{display:none!important}
+}
+
+/* The identity badge is decorative; never let it become content overlap. */
+@media(max-width:600px){
+  .morocco-badge{pointer-events:none!important}
+}
