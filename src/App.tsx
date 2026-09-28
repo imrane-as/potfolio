@@ -222,6 +222,7 @@ function App(){
     <div className="future-corner future-corner-tl" aria-hidden="true">MA / LU<br/><span>SYS-026</span></div>
     <div className="future-corner future-corner-br" aria-hidden="true">BUILD / SHIP / OPERATE</div>
     <main id="top">
+      <div className="zellige-field" aria-hidden="true"/>
       <section className="hero" onPointerMove={handlePointerMove} onPointerLeave={resetPointer}><div className="hero-grid"/><div className="hero-zellige" aria-hidden="true"><i/><i/><i/><i/><i/><i/><i/><i/></div><div className="hero-cursor-orb"/><div className="hero-grid-sheen"/><div className="hero-orbit orbit-a"/><div className="hero-orbit orbit-b"/>
         <div className="hero-copy"><div className="eyebrow reveal" data-reveal><span className="status-dot"/> {t.hero.eyebrow}</div><p className="hero-kicker reveal delay-1" data-reveal>{t.hero.kicker}</p><h1 className="hero-title reveal delay-2" data-reveal>IMRANE <span className="surname">ASRIR</span></h1><p className="hero-intro reveal delay-3" data-reveal>{t.hero.intro}</p>
           <div className="hero-actions reveal delay-4" data-reveal><a href="#work" className="button button-primary">{t.hero.work}<ArrowDownRight size={18}/></a><button onClick={downloadCV} className="button button-ghost"><Download size={17}/>{t.cv}</button></div>
