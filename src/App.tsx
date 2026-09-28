@@ -231,7 +231,7 @@ function App(){
         <div className="morocco-badge reveal delay-3" data-reveal><span className="morocco-star">✦</span><div><strong>MA → LU</strong><small>MOROCCAN ROOTS</small></div></div><div className="hero-meta"><span>METZ / FRANCE</span><span>LUXEMBOURG</span><span>{t.hero.meta}</span></div>
       </section>
 
-      <section className="proof-bar"><div className="proof-label">WORKED ACROSS</div>{exp.map(e=><div className="company-proof" key={e.company}><CompanyLogo url={e.logo}/><span>{e.company}</span></div>)}</section>
+      <section className="proof-bar"><div className="proof-label">WORKED ACROSS</div><div className="proof-marquee"><div className="proof-track">{[...exp,...exp].map((e,i)=><div className="company-proof" key={`${e.company}-${i}`}><CompanyLogo url={e.logo}/><span>{e.company}</span></div>)}</div></div></section>
 
       <section id="about" className="section story"><div className="section-index">{t.about.index}</div><div className="story-layout"><div className="section-heading reveal" data-reveal><p className="eyebrow">{t.about.eyebrow}</p><h2>{t.about.title}</h2></div><div className="story-copy reveal delay-1" data-reveal><p>{t.about.p1}</p><p>{t.about.p2}</p><div className="signature-line"><span>IMRANE ASRIR</span><span>{t.about.signature}</span></div></div></div>
         <div className="capability-grid">{capabilities.map(([label,detail,Icon],i)=><div className="capability reveal" data-reveal key={label as string} style={{transitionDelay:`${i*70}ms`}}><Icon size={20}/><span className="capability-number">0{i+1}</span><h3>{label}</h3><p>{detail}</p></div>)}</div>
