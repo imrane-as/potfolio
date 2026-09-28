@@ -1,34 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" preserveAspectRatio="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 220" preserveAspectRatio="none">
 <defs>
- <linearGradient id="city" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c95a62"/><stop offset="1" stop-color="#7d3547"/></linearGradient>
- <linearGradient id="haze" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff8ee" stop-opacity=".72"/><stop offset="1" stop-color="#fff8ee" stop-opacity="0"/></linearGradient>
+  <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fffaf2" stop-opacity="0"/>
+    <stop offset=".72" stop-color="#fffaf2" stop-opacity=".12"/>
+    <stop offset="1" stop-color="#fffaf2" stop-opacity=".72"/>
+  </linearGradient>
+  <linearGradient id="city" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#c85b63"/><stop offset="1" stop-color="#873b4b"/>
+  </linearGradient>
 </defs>
-<rect width="1200" height="360" fill="url(#haze)"/>
-<g opacity=".95">
- <path fill="#a84450" d="M0 320h42v-30h24v-16h20v28h23v-40h14v31h26v-23h22v30h24v-45h14v37h27v-24h19v21h26v-35h14v28h21v-20h23v31h20v-28h16v20h28v-44h14v34h22v-24h18v29h24v-20h18v17h26v-37h14v29h18v-20h18v26h25v-31h13v24h18v-18h18v29h25v-25h15v18h22v-34h13v27h19v-18h16v23h25v-29h15v25h18v-18h18v24h25v-28h14v22h20v-18h17v26h25v-24h15v18h20v-29h14v24h19v-18h19v29h26v-24h16v19h23v-31h14v27h20v-20h18v26h25v-23h18v20h25v-28h14v25h21v-20h17v25h25v-30h15v26h24v-18h17v26h25v-23h20v70H0z"/>
- <path fill="url(#city)" d="M0 343h58v-38h22v-24h18v25h16v-38h13v42h24v-23h22v29h18v-45h13v39h27v-29h18v23h25v-38h14v30h19v-21h21v35h20v-29h15v23h27v-42h13v34h20v-27h18v35h22v-24h18v20h25v-48h13v39h16v-27h16v20h21v-32h13v27h18v-21h19v36h22v-30h15v22h21v-38h13v32h19v-21h17v27h22v-31h13v25h19v-20h17v31h23v-27h14v20h22v-34h13v29h18v-22h17v27h23v-30h14v24h19v-19h17v29h23v-26h15v19h21v-33h14v28h18v-21h17v28h23v-25h15v20h22v-30h14v27h20v-19h17v29h25v-27h14v22h22v-34h13v29h19v-22h17v30h25v-26h16v21h22v-31h13v28h21v-21h18v27h25v-24h15v20h22v-29h14v27h23v-23h18v26h25v-30h15v26h23v-22h19v27h28v55H0z"/>
+<rect width="1200" height="220" fill="url(#fade)"/>
+<g fill="url(#city)" opacity=".72">
+  <path d="M0 185h36v-22h28v-13h21v21h25v-32h17v27h25v-18h22v24h28v-38h18v30h28v-21h20v18h28v-30h18v25h24v-18h25v25h24v-21h17v16h28v-34h17v28h23v-21h18v25h27v-18h19v15h27v-29h18v24h20v-18h18v24h27v-23h18v18h25v-16h18v22h27v-27h17v23h23v-19h18v24h27v-23h17v18h24v-25h17v21h22v-18h18v24h26v-20h18v17h23v-24h17v21h23v-17h18v22h27v-20h18v17h25v-24h17v21h23v-17h19v24h26v-22h18v18h24v-26h17v22h23v-18h18v23h27v-20h18v17h25v-24h17v21h23v-18h18v24h28v-20h18v16h24v-25h18v22h24v-18h18v23h27v-18h18v15h30v38H0z"/>
 </g>
-<!-- Moroccan skyline / minarets -->
-<g fill="#8b3f50">
- <path d="M670 318h27v-92h7v-20h6v-31h7v31h7v20h7v92z"/>
- <path d="M726 318h26v-112h7v-22h6v-36h7v36h7v22h7v112z"/>
- <path d="M784 318h24v-86h7v-18h6v-28h6v28h7v18h7v86z"/>
- <path d="M842 318h22v-70h6v-17h6v-24h6v24h6v17h7v70z"/>
+<g fill="#8d4050" opacity=".82">
+  <path d="M648 185h27v-62h7V99h6V70h7v29h7v24h7v62z"/>
+  <path d="M704 185h27v-78h7V83h6V50h7v33h7v24h7v78z"/>
+  <path d="M764 185h26v-58h7v-18h6V84h7v25h7v18h7v58z"/>
+  <path d="M820 185h24v-49h7v-15h6v-20h6v20h7v15h7v49z"/>
 </g>
 <g fill="#d6a72f">
- <path d="M716 172l3-7 3 7-3 5z"/><path d="M769 148l3-7 3 7-3 5z"/><path d="M818 186l3-7 3 7-3 5z"/>
+  <path d="M671 70l3-6 3 6-3 5z"/><path d="M728 50l3-6 3 6-3 5z"/><path d="M791 84l3-6 3 6-3 5z"/>
 </g>
-<!-- reference-style editorial caption -->
-<g fill="#a94a52" font-family="Arial, Helvetica, sans-serif" font-weight="800">
- <text x="22" y="248" font-size="24" letter-spacing="-.5">MOROCCO</text>
- <text x="22" y="274" font-size="24" letter-spacing="-.5">INDEPENDENCE</text>
- <text x="22" y="300" font-size="24" letter-spacing="-.5">DAY</text>
-</g>
-<g fill="#f4e9df" opacity=".75">
- <rect x="35" y="327" width="8" height="4"/><rect x="88" y="313" width="6" height="4"/>
- <rect x="150" y="332" width="8" height="4"/><rect x="252" y="319" width="7" height="4"/>
- <rect x="375" y="330" width="8" height="4"/><rect x="475" y="314" width="7" height="4"/>
- <rect x="560" y="335" width="8" height="4"/><rect x="910" y="325" width="7" height="4"/>
- <rect x="1080" y="316" width="8" height="4"/>
+<g fill="#a84c55" font-family="Arial, Helvetica, sans-serif" font-weight="800" opacity=".82">
+  <text x="24" y="45" font-size="22" letter-spacing="2">MOROCCO</text>
+  <text x="24" y="68" font-size="22" letter-spacing="1">INDEPENDENCE DAY</text>
 </g>
 </svg>
