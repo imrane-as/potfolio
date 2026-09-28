@@ -2947,3 +2947,8 @@ body{background:var(--fx-bg)!important;color:var(--fx-white)!important}
 .portrait-wrap .portrait-stamp small{
   white-space:nowrap!important;
 }
+
+
+/* CLEAN HERO — remove secondary floating labels that compete with the portrait */
+.portrait-stamp{display:none!important;}
+.future-lens{display:none!important;}
