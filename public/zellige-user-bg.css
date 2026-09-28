@@ -1,0 +1,29 @@
+
+/* USER ZELLIGE BACKGROUND — exact uploaded reference */
+.site-shell::before{
+  background-image:url("/potfolio/zellige-bg.webp")!important;
+  background-size:min(760px,62vw) auto!important;
+  background-position:left top!important;
+  background-repeat:repeat-y!important;
+  opacity:.11!important;
+  animation:zelligeSurface 52s linear infinite!important;
+}
+.hero{
+  background-image:
+    linear-gradient(180deg,rgba(255,255,255,.94),rgba(247,245,239,.985)),
+    url("/potfolio/zellige-bg.webp")!important;
+  background-position:center top,left top!important;
+  background-repeat:no-repeat,no-repeat!important;
+  background-size:auto,min(760px,62vw) auto!important;
+}
+.hero-zellige{display:none!important}
+@media(max-width:760px){
+  .site-shell::before{
+    background-size:520px auto!important;
+    opacity:.085!important;
+  }
+  .hero{
+    background-position:center top,left top!important;
+    background-size:auto,520px auto!important;
+  }
+}
