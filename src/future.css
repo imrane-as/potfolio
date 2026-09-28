@@ -2068,3 +2068,42 @@ body{
   .hero{background-size:460px auto!important}
   .site-shell::before{background-size:430px auto!important;opacity:.10!important}
 }
+
+
+/* ZELLIGE FINAL — visible across the canvas without obscuring content */
+.hero{
+  background-image:
+    linear-gradient(90deg,rgba(250,248,241,.72),rgba(250,248,241,.94)),
+    url("/potfolio/zellige-bg.webp") !important;
+  background-position:center top,left top !important;
+  background-repeat:no-repeat,no-repeat !important;
+  background-size:auto,620px auto !important;
+}
+.hero::before{background:transparent !important;}
+main > section:not(.contact):not(.proof-lab):not(.signal-section){
+  background-image:url("/potfolio/zellige-bg.webp");
+  background-repeat:repeat-y;
+  background-position:left top;
+  background-size:620px auto;
+  background-blend-mode:multiply;
+}
+.origin-section{
+  background-image:
+    linear-gradient(90deg,rgba(250,248,241,.30),rgba(250,248,241,.72)),
+    url("/potfolio/zellige-bg.webp") !important;
+  background-position:center,left top !important;
+  background-repeat:no-repeat,repeat-y !important;
+  background-size:auto,620px auto !important;
+  background-blend-mode:normal,multiply !important;
+}
+@media(max-width:760px){
+  .hero{
+    background-image:
+      linear-gradient(90deg,rgba(250,248,241,.76),rgba(250,248,241,.94)),
+      url("/potfolio/zellige-bg.webp") !important;
+    background-size:auto,430px auto !important;
+  }
+  main > section:not(.contact):not(.proof-lab):not(.signal-section){
+    background-size:430px auto;
+  }
+}
