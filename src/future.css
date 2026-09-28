@@ -2666,3 +2666,45 @@ body{background:var(--fx-bg)!important;color:var(--fx-white)!important}
 @media(max-width:600px){
   .portrait-stamp{right:-12px!important;bottom:14px!important}
 }
+
+
+/* PORTRAIT STAMP — rebuild as a clean contained system badge */
+.portrait-stamp{
+  right:14px!important;
+  bottom:14px!important;
+  gap:0!important;
+  padding:0!important;
+  z-index:8!important;
+  filter:drop-shadow(0 8px 14px #0007)!important;
+}
+.portrait-stamp span{
+  width:42px!important;
+  height:42px!important;
+  flex:0 0 42px!important;
+  border-radius:50%!important;
+  background:var(--fx-violet)!important;
+  color:#fff!important;
+  font:800 11px "Space Grotesk"!important;
+  transform:none!important;
+  border:2px solid #f4f0e7!important;
+  box-shadow:0 0 0 1px #ffffff25!important;
+}
+.portrait-stamp small{
+  display:block!important;
+  margin:0!important;
+  padding:8px 10px!important;
+  min-width:86px!important;
+  background:#f4f0e7!important;
+  color:#17202d!important;
+  border-left:0!important;
+  font:800 6px/1.2 "Space Grotesk"!important;
+  letter-spacing:.08em!important;
+  text-transform:uppercase!important;
+  border:1px solid #ffffffaa!important;
+  border-left:none!important;
+}
+@media(max-width:600px){
+  .portrait-stamp{right:10px!important;bottom:10px!important}
+  .portrait-stamp span{width:38px!important;height:38px!important;flex-basis:38px!important;font-size:10px!important}
+  .portrait-stamp small{min-width:72px!important;padding:7px 8px!important;font-size:5.5px!important}
+}
