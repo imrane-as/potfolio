@@ -2036,3 +2036,35 @@ body{
   .hero{background-size:430px auto!important}
   .hero::before{background:linear-gradient(90deg,rgba(247,245,239,.12) 0%,rgba(247,245,239,.35) 38%,rgba(247,245,239,.96) 78%,rgba(247,245,239,1) 100%)!important}
 }
+
+
+/* ZELLIGE VISIBILITY FIX — let the uploaded pattern actually render */
+.hero::before{
+  background:transparent!important;
+  opacity:1!important;
+}
+.hero{
+  background-image:url("/potfolio/zellige-bg.webp")!important;
+  background-position:left top!important;
+  background-repeat:no-repeat!important;
+  background-size:720px auto!important;
+}
+.site-shell::before{
+  z-index:1!important;
+  background-image:url("/potfolio/zellige-bg.webp")!important;
+  background-position:left top!important;
+  background-repeat:repeat-y!important;
+  background-size:560px auto!important;
+  opacity:.12!important;
+  mix-blend-mode:multiply!important;
+  pointer-events:none!important;
+}
+.nav,.noise,.scroll-progress{position:fixed;z-index:100!important}
+.noise{z-index:200!important}
+.scroll-progress{z-index:300!important}
+.hero > *{position:relative;z-index:2!important}
+.hero::after{z-index:3!important}
+@media(max-width:760px){
+  .hero{background-size:460px auto!important}
+  .site-shell::before{background-size:430px auto!important;opacity:.10!important}
+}
