@@ -1746,3 +1746,101 @@
   background-size:230px 230px!important;
   opacity:.20!important;
 }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO STRUCTURE FIX — decorations must never become grid columns
+   ═══════════════════════════════════════════════════════════════ */
+.hero-zellige,
+.hero-cursor-orb,
+.hero-grid-sheen,
+.hero-orbit,
+.hero::before,
+.hero::after{
+  position:absolute!important;
+}
+.hero-zellige{
+  pointer-events:none!important;
+  z-index:0!important;
+  width:52vw!important;
+  height:52vw!important;
+  right:-12vw!important;
+  top:12%!important;
+  opacity:.055!important;
+  background:url("/potfolio/zellige.svg") center/cover repeat!important;
+  animation:zelligeDrift 32s linear infinite!important;
+}
+.hero-copy{
+  grid-column:1!important;
+  grid-row:1!important;
+  align-self:center!important;
+}
+.portrait-wrap{
+  grid-column:2!important;
+  grid-row:1!important;
+  align-self:center!important;
+}
+
+/* Clean paper field + subtle zellige, with the Moroccan skyline reserved
+   for a narrow editorial band at the top. */
+.hero{
+  background-image:
+    linear-gradient(rgba(247,245,239,.975),rgba(247,245,239,.975)),
+    url("/potfolio/zellige.svg")!important;
+  background-position:center,center!important;
+  background-repeat:no-repeat,repeat!important;
+  background-size:auto,420px 420px!important;
+}
+.hero::after{
+  left:0!important;
+  right:0!important;
+  top:0!important;
+  bottom:auto!important;
+  width:100%!important;
+  height:190px!important;
+  background:url("/potfolio/morocco-skyline.svg") center top/100% 190px no-repeat!important;
+  opacity:.58!important;
+  mix-blend-mode:multiply!important;
+  z-index:0!important;
+  transform:none!important;
+  animation:skylineFloat 20s ease-in-out infinite alternate!important;
+}
+@media(min-width:1051px){
+  .hero-zellige{width:42vw!important;height:42vw!important;right:-8vw!important;top:15%!important}
+  .hero::after{height:205px!important;background-size:100% 205px!important;opacity:.52!important}
+  .hero{background-size:auto,500px 500px!important}
+}
+@media(max-width:1050px) and (min-width:761px){
+  .hero-copy{grid-column:1!important;grid-row:1!important}
+  .portrait-wrap{grid-column:1!important;grid-row:1!important}
+}
+@media(max-width:760px){
+  .hero{
+    display:block!important;
+    padding-top:105px!important;
+  }
+  .hero-copy,
+  .portrait-wrap{
+    display:block!important;
+    width:100%!important;
+  }
+  .portrait-wrap{margin-top:38px!important}
+  .hero-zellige{
+    width:90vw!important;
+    height:90vw!important;
+    right:-28vw!important;
+    top:20%!important;
+    opacity:.035!important;
+  }
+  .hero::after{
+    height:125px!important;
+    background-size:100% 125px!important;
+    opacity:.42!important;
+  }
+  .hero{
+    background-size:auto,290px 290px!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-zellige,.hero::after{animation:none!important}
+}
