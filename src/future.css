@@ -3140,3 +3140,56 @@ body{background:var(--fx-bg)!important;color:var(--fx-white)!important}
 @media(max-width:600px){
   .morocco-badge{pointer-events:none!important}
 }
+
+
+/* SURNAME FIX — keep ASRIR fully visible and give it a living gradient */
+.hero-title{
+  overflow:visible!important;
+}
+.hero-title .surname{
+  display:inline-block!important;
+  position:relative!important;
+  white-space:nowrap!important;
+  width:max-content!important;
+  max-width:none!important;
+  padding-right:.06em!important;
+  overflow:visible!important;
+  background-size:220% 100%!important;
+  animation:surnameFlow 6s ease-in-out infinite!important;
+  filter:drop-shadow(0 0 0 transparent);
+}
+.hero-title .surname::after{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;
+  right:.06em!important;
+  bottom:-8px!important;
+  width:auto!important;
+  height:2px!important;
+  background:linear-gradient(90deg,var(--fx-cyan),var(--fx-violet),var(--fx-lime),transparent)!important;
+  transform-origin:left center!important;
+  animation:surnameTrace 3.2s cubic-bezier(.65,0,.35,1) infinite!important;
+}
+@keyframes surnameFlow{
+  0%,100%{background-position:0% 50%;filter:drop-shadow(0 0 0 transparent)}
+  50%{background-position:100% 50%;filter:drop-shadow(0 0 18px #35e5d01c)}
+}
+@keyframes surnameTrace{
+  0%{transform:scaleX(0);opacity:.25}
+  35%,65%{transform:scaleX(1);opacity:1}
+  100%{transform:scaleX(0);opacity:.25}
+}
+@media(max-width:600px){
+  .hero-title .surname{
+    display:block!important;
+    width:max-content!important;
+    max-width:100%!important;
+    padding-right:.10em!important;
+  }
+  .hero-title{
+    padding-right:3px!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-title .surname,.hero-title .surname::after{animation:none!important}
+}
