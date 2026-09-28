@@ -2828,3 +2828,122 @@ body{background:var(--fx-bg)!important;color:var(--fx-white)!important}
     margin-top:58px!important;
   }
 }
+
+
+/* RESPONSIVE SYSTEM v2 — one visual language across laptop + mobile */
+@media (max-width:900px){
+  .hero{
+    grid-template-columns:1fr!important;
+    min-height:auto!important;
+    padding:110px 7vw 78px!important;
+  }
+  .hero-copy{
+    width:100%!important;
+    max-width:760px!important;
+    transform:none!important;
+  }
+  .morocco-badge{
+    top:92px!important;
+    right:7vw!important;
+    transform:scale(.78) rotate(-3deg)!important;
+    transform-origin:top right!important;
+  }
+  .hero .eyebrow{margin-top:46px!important}
+  .hero-kicker{margin-top:30px!important}
+  .hero-title{
+    font-size:clamp(64px,13vw,112px)!important;
+    line-height:.82!important;
+  }
+  .hero-intro{
+    max-width:650px!important;
+    font-size:17px!important;
+    margin:30px 0!important;
+  }
+  .hero-actions{
+    display:flex!important;
+    flex-wrap:wrap!important;
+  }
+  .hero-actions .button{
+    width:auto!important;
+    min-height:0!important;
+  }
+  .portrait-wrap{
+    width:min(72vw,430px)!important;
+    justify-self:center!important;
+    margin:52px auto 0!important;
+    transform:none!important;
+  }
+  .portrait-frame{padding:10px!important}
+  .portrait-stamp{
+    right:10px!important;
+    bottom:14px!important;
+    transform:none!important;
+  }
+  .hero-meta{display:none!important}
+}
+
+@media (max-width:600px){
+  .nav{padding:0 6vw!important}
+  .hero{
+    padding:92px 6vw 64px!important;
+  }
+  .morocco-badge{
+    top:12px!important;
+    right:6vw!important;
+    transform:scale(.60) rotate(-2deg)!important;
+  }
+  .hero .eyebrow{
+    margin-top:56px!important;
+    margin-bottom:22px!important;
+  }
+  .hero-kicker{
+    margin:0 0 22px!important;
+    font-size:10px!important;
+  }
+  .hero-title{
+    font-size:clamp(58px,18.5vw,92px)!important;
+    line-height:.80!important;
+    letter-spacing:-.085em!important;
+    margin-bottom:28px!important;
+  }
+  .hero-intro{
+    max-width:none!important;
+    font-size:16px!important;
+    line-height:1.6!important;
+    margin:0 0 28px!important;
+  }
+  .hero-actions{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:10px!important;
+  }
+  .hero-actions .button{
+    width:100%!important;
+    min-height:58px!important;
+    justify-content:center!important;
+  }
+  .portrait-wrap{
+    width:min(82vw,380px)!important;
+    margin:46px auto 0!important;
+  }
+  .portrait-frame{
+    padding:8px!important;
+    box-shadow:12px 14px 0 #02050a!important;
+  }
+  .portrait-stamp{
+    right:8px!important;
+    bottom:10px!important;
+    transform:scale(.90)!important;
+    transform-origin:bottom right!important;
+  }
+  .portrait-label.top{top:20px!important;left:20px!important}
+  .portrait-label.bottom{bottom:18px!important;right:18px!important}
+}
+
+/* Keep the portrait identity badge inside the card on every viewport */
+.portrait-wrap .portrait-stamp{
+  overflow:visible!important;
+}
+.portrait-wrap .portrait-stamp small{
+  white-space:nowrap!important;
+}
