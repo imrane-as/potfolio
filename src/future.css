@@ -2805,3 +2805,26 @@ body{background:var(--fx-bg)!important;color:var(--fx-white)!important}
     padding:8px 10px!important;
   }
 }
+
+
+/* MOBILE MOROCCO BADGE — clear the hero typography */
+@media(max-width:600px){
+  .morocco-badge{
+    top:10px!important;
+    right:14px!important;
+    left:auto!important;
+    transform:scale(.58) rotate(-2deg)!important;
+    transform-origin:top right!important;
+    z-index:20!important;
+    white-space:nowrap!important;
+  }
+  .morocco-badge .morocco-star{
+    width:34px!important;
+    height:34px!important;
+  }
+  .morocco-badge strong{font-size:9px!important}
+  .morocco-badge small{font-size:6px!important}
+  .hero .eyebrow{
+    margin-top:58px!important;
+  }
+}
