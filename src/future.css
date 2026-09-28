@@ -1995,3 +1995,44 @@
 @media(prefers-reduced-motion:reduce){
   .hero::after,.hero-zellige{animation:none!important}
 }
+
+
+/* ZELLIGE V2 — uploaded reference, intentionally visible */
+body{
+  background-color:#f7f5ef!important;
+  background-image:url("/potfolio/zellige-bg.webp")!important;
+  background-position:left top!important;
+  background-repeat:repeat-y!important;
+  background-size:560px auto!important;
+}
+.site-shell::before{
+  content:""!important;
+  position:fixed!important;
+  inset:0!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  background-image:url("/potfolio/zellige-bg.webp")!important;
+  background-position:left top!important;
+  background-repeat:repeat-y!important;
+  background-size:560px auto!important;
+  opacity:.28!important;
+  animation:zelligeSurface 55s linear infinite!important;
+}
+.site-shell > *{position:relative;z-index:1}
+.hero{
+  background-color:#f7f5ef!important;
+  background-image:url("/potfolio/zellige-bg.webp")!important;
+  background-position:left top!important;
+  background-repeat:no-repeat!important;
+  background-size:680px auto!important;
+}
+.hero::before{
+  background:linear-gradient(90deg,rgba(247,245,239,.08) 0%,rgba(247,245,239,.16) 25%,rgba(247,245,239,.72) 54%,rgba(247,245,239,.98) 78%,rgba(247,245,239,1) 100%)!important;
+}
+.hero-zellige{display:none!important}
+@media(max-width:760px){
+  body,.site-shell::before{background-size:430px auto!important}
+  .site-shell::before{opacity:.22!important}
+  .hero{background-size:430px auto!important}
+  .hero::before{background:linear-gradient(90deg,rgba(247,245,239,.12) 0%,rgba(247,245,239,.35) 38%,rgba(247,245,239,.96) 78%,rgba(247,245,239,1) 100%)!important}
+}
