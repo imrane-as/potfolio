@@ -1844,3 +1844,154 @@
 @media(prefers-reduced-motion:reduce){
   .hero-zellige,.hero::after{animation:none!important}
 }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO POLISH — stable editorial composition
+   ═══════════════════════════════════════════════════════════════ */
+.hero{
+  min-height:calc(100svh - 70px)!important;
+  height:auto!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.04fr) minmax(380px,.76fr)!important;
+  column-gap:5vw!important;
+  align-items:center!important;
+  padding:150px 7vw 76px!important;
+  overflow:hidden!important;
+  background-color:var(--paper)!important;
+  background-image:url("/potfolio/zellige.svg")!important;
+  background-position:center!important;
+  background-repeat:repeat!important;
+  background-size:360px 360px!important;
+}
+.hero::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.98) 0%,rgba(247,245,239,.94) 22%,rgba(247,245,239,.985) 100%)!important;
+}
+.hero::after{
+  content:""!important;
+  position:absolute!important;
+  z-index:1!important;
+  left:0!important;
+  right:0!important;
+  top:0!important;
+  bottom:auto!important;
+  width:100%!important;
+  height:178px!important;
+  background:url("/potfolio/morocco-skyline.svg") center top/100% 178px no-repeat!important;
+  opacity:.48!important;
+  mix-blend-mode:multiply!important;
+  pointer-events:none!important;
+  animation:skylineFloat 22s ease-in-out infinite alternate!important;
+}
+.hero > *{position:relative;z-index:2}
+.hero .hero-grid{z-index:1!important;opacity:.18!important}
+.hero-copy{
+  width:min(100%,700px)!important;
+  max-width:700px!important;
+  transform:none!important;
+  align-self:center!important;
+}
+.hero-kicker{margin-top:27px!important}
+.hero-title{
+  font-size:clamp(78px,8.4vw,142px)!important;
+  line-height:.82!important;
+  letter-spacing:-.085em!important;
+}
+.hero-intro{
+  max-width:590px!important;
+  margin:31px 0 27px!important;
+  font-size:17px!important;
+}
+.hero-actions{gap:10px!important}
+.portrait-wrap{
+  width:min(31vw,445px)!important;
+  justify-self:end!important;
+  align-self:center!important;
+  transform:rotate(2.5deg)!important;
+}
+.portrait-frame{box-shadow:18px 20px 0 var(--ink)!important}
+.hero-zellige{
+  z-index:1!important;
+  width:42vw!important;
+  height:42vw!important;
+  right:-14vw!important;
+  top:26%!important;
+  opacity:.018!important;
+  transform:rotate(18deg)!important;
+}
+.hero-orbit{z-index:1!important;opacity:.42!important}
+.orbit-a{width:38vw!important;height:38vw!important;right:-1vw!important;top:25%!important}
+.orbit-b{width:21vw!important;height:21vw!important;right:9vw!important;top:36%!important}
+.morocco-badge{
+  top:22px!important;
+  right:7vw!important;
+}
+.future-lens{
+  left:14vw!important;
+  right:auto!important;
+  bottom:64px!important;
+  width:310px!important;
+}
+.hero-meta{
+  left:7vw!important;
+  right:7vw!important;
+  bottom:22px!important;
+}
+@media(min-width:1400px){
+  .hero{padding-left:7.2vw!important;padding-right:7.2vw!important}
+  .hero-title{font-size:clamp(96px,8vw,150px)!important}
+}
+@media(max-width:1050px) and (min-width:761px){
+  .hero{
+    grid-template-columns:minmax(0,1fr) minmax(300px,.7fr)!important;
+    padding:132px 6vw 72px!important;
+  }
+  .hero-title{font-size:clamp(68px,9.5vw,110px)!important}
+  .portrait-wrap{width:min(34vw,380px)!important}
+}
+@media(max-width:760px){
+  .hero{
+    min-height:auto!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    padding:112px 6vw 56px!important;
+    gap:0!important;
+    background-size:260px 260px!important;
+  }
+  .hero::after{
+    height:112px!important;
+    background-size:auto 112px!important;
+    opacity:.34!important;
+  }
+  .hero-copy{order:1!important;width:100%!important}
+  .portrait-wrap{
+    order:2!important;
+    width:min(84vw,350px)!important;
+    margin:42px auto 0!important;
+    align-self:center!important;
+    transform:rotate(1.5deg)!important;
+  }
+  .hero-title{
+    font-size:clamp(64px,16.5vw,92px)!important;
+    line-height:.84!important;
+  }
+  .hero-kicker{margin-top:24px!important}
+  .hero-intro{font-size:14px!important;line-height:1.6!important;margin:25px 0!important;max-width:100%!important}
+  .hero-actions{width:100%!important}
+  .hero-actions .button{min-height:48px!important}
+  .hero-zellige{opacity:.012!important;width:85vw!important;height:85vw!important;right:-32vw!important;top:30%!important}
+  .hero-orbit,.hero-cursor-orb,.hero-grid-sheen{display:none!important}
+  .morocco-badge{top:18px!important;right:6vw!important;transform:scale(.84) rotate(-3deg)!important;transform-origin:top right!important}
+  .future-lens{position:relative!important;left:auto!important;bottom:auto!important;order:3!important;width:100%!important;margin:28px 0 0!important}
+  .hero-meta{position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;order:4!important;margin-top:28px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero::after,.hero-zellige{animation:none!important}
+}
