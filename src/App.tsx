@@ -84,7 +84,7 @@ const projects = {
 
 const logoFallbacks:Record<string,string> = {
   kubernetes:"https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/kubernetes/kubernetes-original.svg",
-  redhatopenshift:"https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/openshift/openshift-original.svg",
+  redhatopenshift:"https://cdn.simpleicons.org/redhatopenshift/EE0000",
   docker:"https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/docker/docker-original.svg",
   helm:"https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/helm/helm-original.svg",
   argo:"https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/argocd/argocd-original.svg",
@@ -93,7 +93,7 @@ const logoFallbacks:Record<string,string> = {
   ansible:"https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/ansible/ansible-original.svg",
   microsoftazure:"https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/azure/azure-original.svg",
   amazonaws:"https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
-  ibm:"https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/ibm/ibm-original.svg",
+  ibm:"https://cdn.simpleicons.org/ibm/FFFFFF",
   spring:"https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/spring/spring-original.svg",
   apachekafka:"https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/apachekafka/apachekafka-original.svg",
   githubactions:"https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/githubactions/githubactions-original.svg"
