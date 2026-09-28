@@ -2637,3 +2637,32 @@ body{background:var(--fx-bg)!important;color:var(--fx-white)!important}
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}
 }
+
+
+/* PORTRAIT POLISH — remove the oversized cyan extrusion */
+.portrait-frame{
+  box-shadow:16px 18px 0 #02050a!important;
+}
+.portrait-wrap:hover .portrait-frame{
+  box-shadow:20px 22px 0 #02050a!important;
+}
+.portrait-frame:before{
+  inset:-10px!important;
+  border:1px solid #35e5d020!important;
+  border-radius:inherit;
+}
+.portrait-label.bottom{
+  bottom:22px!important;
+  right:22px!important;
+}
+.portrait-stamp{
+  right:-20px!important;
+  bottom:18px!important;
+}
+.portrait-stamp span{
+  width:46px!important;
+  height:46px!important;
+}
+@media(max-width:600px){
+  .portrait-stamp{right:-12px!important;bottom:14px!important}
+}
