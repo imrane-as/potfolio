@@ -1700,3 +1700,49 @@
     max-width:310px !important;
   }
 }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   HEADER DECOR — reference-inspired Moroccan skyline
+   ═══════════════════════════════════════════════════════════════ */
+.hero{
+  background-image:
+    linear-gradient(rgba(247,245,239,.90),rgba(247,245,239,.94)),
+    url("/potfolio/zellige.svg")!important;
+  background-position:center,center top!important;
+  background-repeat:no-repeat,repeat!important;
+  background-size:auto,430px 430px!important;
+}
+.hero::after{
+  height:clamp(220px,24vw,330px)!important;
+  opacity:.48!important;
+  background:url("/potfolio/morocco-skyline.svg") center top/100% 100% no-repeat!important;
+  mix-blend-mode:multiply!important;
+  animation:skylineFloat 20s ease-in-out infinite alternate!important;
+}
+@media(min-width:1051px){
+  .hero::after{height:300px!important;opacity:.43!important}
+  .hero{background-size:auto,500px 500px!important}
+}
+@media(max-width:760px){
+  .hero::after{
+    height:145px!important;
+    opacity:.40!important;
+    background-size:auto 145px!important;
+  }
+  .hero{background-size:auto,290px 290px!important}
+}
+
+/* Full-page zellige should remain visible through every major section,
+   with stronger identity around the Moroccan origin section. */
+.site-shell::before{
+  background-image:url("/potfolio/zellige.svg")!important;
+  background-size:320px 320px!important;
+  opacity:.045!important;
+  animation:zelligeSurface 46s linear infinite!important;
+}
+.origin-mosaic::before{
+  background-image:url("/potfolio/zellige.svg")!important;
+  background-size:230px 230px!important;
+  opacity:.20!important;
+}
