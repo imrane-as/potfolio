@@ -3631,3 +3631,63 @@ body{background:var(--fx-bg)!important;color:var(--fx-white)!important}
 @media(prefers-reduced-motion:reduce){
   .flow-node::after,.flow-connector::after{animation:none!important}
 }
+
+
+/* EX280 CHALLENGE — playful top-of-portfolio signal */
+.cert-challenge{
+  position:relative!important;
+  z-index:120!important;
+  min-height:34px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:9px!important;
+  padding:7px 18px!important;
+  overflow:hidden!important;
+  background:#090d14!important;
+  border-bottom:1px solid #35e5d022!important;
+  color:#9aa8b9!important;
+  font:700 8px/1.3 "Space Grotesk",sans-serif!important;
+  letter-spacing:.13em!important;
+  text-transform:uppercase!important;
+}
+.cert-challenge::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  background:linear-gradient(90deg,transparent,#35e5d00a,transparent)!important;
+  transform:translateX(-100%)!important;
+  animation:challengeSweep 4s linear infinite!important;
+}
+.cert-challenge strong{position:relative!important;z-index:2!important;font-weight:700!important}
+.cert-challenge-pulse{
+  position:relative!important;
+  z-index:2!important;
+  width:6px!important;
+  height:6px!important;
+  flex:0 0 6px!important;
+  border-radius:50%!important;
+  background:#b9ff2c!important;
+  box-shadow:0 0 0 0 #b9ff2c66,0 0 12px #b9ff2c99!important;
+  animation:challengePulse 1.8s ease-out infinite!important;
+}
+@keyframes challengeSweep{
+  to{transform:translateX(100%)}
+}
+@keyframes challengePulse{
+  0%{box-shadow:0 0 0 0 #b9ff2c66,0 0 12px #b9ff2c99}
+  70%{box-shadow:0 0 0 7px #b9ff2c00,0 0 16px #b9ff2c99}
+  100%{box-shadow:0 0 0 0 #b9ff2c00,0 0 12px #b9ff2c99}
+}
+@media(max-width:600px){
+  .cert-challenge{
+    min-height:42px!important;
+    padding:7px 14px!important;
+    font-size:7px!important;
+    letter-spacing:.07em!important;
+    text-align:center!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .cert-challenge::before,.cert-challenge-pulse{animation:none!important}
+}
