@@ -37,7 +37,7 @@ const copy = {
     education:{index:"05 / FORMATION",eyebrow:"FONDATIONS",title:<>Fondamentaux logiciels.<br/><em>Culture infrastructure.</em></>},
     contact:{index:"06 / CONSTRUISONS",title:<>Le prochain système<br/><em>commence par une discussion.</em></>,text:"DevOps, API Management, plateformes cloud-native ou problème d'intégration complexe — parlons-en.",mail:"imr.asrir@gmail.com"},
     origin:{eyebrow:"RACINES / ORIGINE",title:<>Du Maroc.<br/><em>Pour le monde.</em></>,text:"Des racines marocaines, une expérience européenne, une culture d'ingénierie ouverte sur le monde."},
-    cv:"Télécharger le CV",language:"EN",online:"● en ligne",terminal:"imrane@platform:~",os:{open:"COMMANDES",title:"IMRANE OS",hint:"Naviguer dans le système",close:"Échap pour fermer",about:"À propos",experience:"Expérience",stack:"Stack technique",work:"Projets",contact:"Contact",proof:"Proof Lab",cv:"Télécharger le CV"}
+    cv:"Télécharger le CV",language:"EN",online:"● en ligne",terminal:"imrane@platform:~",challenge:"🏁 PREMIER QUI TERMINE L’EX280 EN 40 MIN — SCORE IMAGINAIRE : 0/100. La vitesse, c’est bien. La certification, c’est mieux.",os:{open:"COMMANDES",title:"IMRANE OS",hint:"Naviguer dans le système",close:"Échap pour fermer",about:"À propos",experience:"Expérience",stack:"Stack technique",work:"Projets",contact:"Contact",proof:"Proof Lab",cv:"Télécharger le CV"}
   }
 } as const;
 
