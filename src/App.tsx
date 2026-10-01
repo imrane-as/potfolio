@@ -23,7 +23,7 @@ const copy = {
     education:{index:"05 / EDUCATION",eyebrow:"FOUNDATION",title:<>Software foundations.<br/><em>Infrastructure mindset.</em></>},
     contact:{index:"06 / LET'S BUILD",title:<>The next system<br/><em>starts with a conversation.</em></>,text:"DevOps, API Management, cloud-native platforms or a difficult integration problem — let's talk.",mail:"imr.asrir@gmail.com"},
     origin:{eyebrow:"ROOTS / ORIGIN",title:<>From Morocco.<br/><em>Built for the world.</em></>,text:"Moroccan roots, European delivery, global engineering mindset."},
-    cv:"Download CV",language:"FR",online:"● online",terminal:"imrane@platform:~",os:{open:"OPEN COMMAND",title:"IMRANE OS",hint:"Navigate the system",close:"ESC to close",about:"About me",experience:"Experience",stack:"Tech stack",work:"Selected work",contact:"Contact",proof:"Proof Lab",cv:"Download CV"}
+    cv:"Download CV",language:"FR",online:"● online",terminal:"imrane@platform:~",challenge:"🏁 PREMIER QUI TERMINE L’EX280 EN 40 MIN — SCORE IMAGINAIRE : 0/100. La vitesse, c’est bien. La certification, c’est mieux.",os:{open:"OPEN COMMAND",title:"IMRANE OS",hint:"Navigate the system",close:"ESC to close",about:"About me",experience:"Experience",stack:"Tech stack",work:"Selected work",contact:"Contact",proof:"Proof Lab",cv:"Download CV"}
   },
   fr: {
     nav:{about:"À propos",experience:"Expérience",stack:"Stack",work:"Projets",contact:"Contact",talk:"Me contacter"},
@@ -198,7 +198,7 @@ function App(){
     doc.save("Imrane_Asrir_Detailed_CV_"+lang.toUpperCase()+".pdf");
   };
 
-  return <div ref={shellRef} className="site-shell" onPointerMove={handlePointerMove}><div className="pointer-glow"/><div className="scroll-progress" style={{width:`${scroll}%`}}/><div className="noise"/>
+  return <div ref={shellRef} className="site-shell" onPointerMove={handlePointerMove}><div className="pointer-glow"/><div className="cert-challenge" role="note"><span className="cert-challenge-pulse"/> <strong>{t.challenge}</strong></div><div className="scroll-progress" style={{width:`${scroll}%`}}/><div className="noise"/>
     <header className="nav"><a href="#top" className="brand">IA<span>/</span></a>
       <div className={`nav-links ${menuOpen?"open":""}`}>
         {([["about",t.nav.about],["experience",t.nav.experience],["stack",t.nav.stack],["work",t.nav.work],["contact",t.nav.contact]] as const).map(([id,label])=><a key={id} href={"#"+id} onClick={()=>setMenuOpen(false)}>{label}</a>)}
