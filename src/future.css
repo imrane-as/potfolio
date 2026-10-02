@@ -845,7 +845,7 @@
   z-index:0;
   inset:0;
   pointer-events:none;
-  background-image:url("/potfolio/zellige.svg");
+  background-image:url("/zellige.svg");
   background-size:360px 360px;
   background-repeat:repeat;
   opacity:.035;
@@ -868,7 +868,7 @@
 .hero{
   background-image:
     linear-gradient(rgba(247,245,239,.93),rgba(247,245,239,.93)),
-    url("/potfolio/zellige.svg")!important;
+    url("/zellige.svg")!important;
   background-size:auto,520px 520px!important;
   background-position:center,0 0!important;
   animation:heroZelligeSurface 34s linear infinite;
@@ -887,7 +887,7 @@
   content:"";
   position:absolute;
   inset:-30%;
-  background:url("/potfolio/zellige.svg") center/260px repeat;
+  background:url("/zellige.svg") center/260px repeat;
   opacity:.12;
   transform:rotate(-7deg);
   animation:originZellige 28s linear infinite;
@@ -1431,7 +1431,7 @@
 /* Full-page zellige: visible enough to read as identity, subtle enough
    to keep the engineering content dominant. */
 .site-shell::before{
-  background-image:url("/potfolio/zellige.svg")!important;
+  background-image:url("/zellige.svg")!important;
   background-size:300px 300px!important;
   opacity:.045!important;
   animation:zelligeSurface 48s linear infinite!important;
@@ -1444,8 +1444,8 @@
   overflow:hidden!important;
   background-image:
     linear-gradient(rgba(247,245,239,.86),rgba(247,245,239,.93)),
-    url("/potfolio/zellige-bg.webp"),
-    url("/potfolio/zellige.svg")!important;
+    url("/zellige-bg.webp"),
+    url("/zellige.svg")!important;
   background-position:center top, right top, center!important;
   background-repeat:no-repeat, no-repeat, repeat!important;
   background-size:auto, min(760px,62vw) auto, 420px 420px!important;
@@ -1458,7 +1458,7 @@
   right:0;
   top:0;
   height:clamp(210px,27vw,360px);
-  background:url("/potfolio/morocco-skyline.svg") center top/100% 100% no-repeat;
+  background:url("/morocco-skyline.svg") center top/100% 100% no-repeat;
   opacity:.34;
   pointer-events:none;
   mix-blend-mode:multiply;
@@ -1708,7 +1708,7 @@
 .hero{
   background-image:
     linear-gradient(rgba(247,245,239,.90),rgba(247,245,239,.94)),
-    url("/potfolio/zellige.svg")!important;
+    url("/zellige.svg")!important;
   background-position:center,center top!important;
   background-repeat:no-repeat,repeat!important;
   background-size:auto,430px 430px!important;
@@ -1716,7 +1716,7 @@
 .hero::after{
   height:clamp(220px,24vw,330px)!important;
   opacity:.48!important;
-  background:url("/potfolio/morocco-skyline.svg") center top/100% 100% no-repeat!important;
+  background:url("/morocco-skyline.svg") center top/100% 100% no-repeat!important;
   mix-blend-mode:multiply!important;
   animation:skylineFloat 20s ease-in-out infinite alternate!important;
 }
@@ -1736,13 +1736,13 @@
 /* Full-page zellige should remain visible through every major section,
    with stronger identity around the Moroccan origin section. */
 .site-shell::before{
-  background-image:url("/potfolio/zellige.svg")!important;
+  background-image:url("/zellige.svg")!important;
   background-size:320px 320px!important;
   opacity:.045!important;
   animation:zelligeSurface 46s linear infinite!important;
 }
 .origin-mosaic::before{
-  background-image:url("/potfolio/zellige.svg")!important;
+  background-image:url("/zellige.svg")!important;
   background-size:230px 230px!important;
   opacity:.20!important;
 }
@@ -1767,7 +1767,7 @@
   right:-12vw!important;
   top:12%!important;
   opacity:.055!important;
-  background:url("/potfolio/zellige.svg") center/cover repeat!important;
+  background:url("/zellige.svg") center/cover repeat!important;
   animation:zelligeDrift 32s linear infinite!important;
 }
 .hero-copy{
@@ -1786,7 +1786,7 @@
 .hero{
   background-image:
     linear-gradient(rgba(247,245,239,.975),rgba(247,245,239,.975)),
-    url("/potfolio/zellige.svg")!important;
+    url("/zellige.svg")!important;
   background-position:center,center!important;
   background-repeat:no-repeat,repeat!important;
   background-size:auto,420px 420px!important;
@@ -1798,7 +1798,7 @@
   bottom:auto!important;
   width:100%!important;
   height:190px!important;
-  background:url("/potfolio/morocco-skyline.svg") center top/100% 190px no-repeat!important;
+  background:url("/morocco-skyline.svg") center top/100% 190px no-repeat!important;
   opacity:.58!important;
   mix-blend-mode:multiply!important;
   z-index:0!important;
@@ -1859,7 +1859,7 @@
   padding:150px 7vw 76px!important;
   overflow:hidden!important;
   background-color:var(--paper)!important;
-  background-image:url("/potfolio/zellige.svg")!important;
+  background-image:url("/zellige.svg")!important;
   background-position:center!important;
   background-repeat:repeat!important;
   background-size:360px 360px!important;
@@ -1883,7 +1883,7 @@
   bottom:auto!important;
   width:100%!important;
   height:178px!important;
-  background:url("/potfolio/morocco-skyline.svg") center top/100% 178px no-repeat!important;
+  background:url("/morocco-skyline.svg") center top/100% 178px no-repeat!important;
   opacity:.48!important;
   mix-blend-mode:multiply!important;
   pointer-events:none!important;
@@ -2000,7 +2000,7 @@
 /* ZELLIGE V2 — uploaded reference, intentionally visible */
 body{
   background-color:#f7f5ef!important;
-  background-image:url("/potfolio/zellige-bg.webp")!important;
+  background-image:url("/zellige-bg.webp")!important;
   background-position:left top!important;
   background-repeat:repeat-y!important;
   background-size:560px auto!important;
@@ -2011,7 +2011,7 @@ body{
   inset:0!important;
   z-index:0!important;
   pointer-events:none!important;
-  background-image:url("/potfolio/zellige-bg.webp")!important;
+  background-image:url("/zellige-bg.webp")!important;
   background-position:left top!important;
   background-repeat:repeat-y!important;
   background-size:560px auto!important;
@@ -2021,7 +2021,7 @@ body{
 .site-shell > *{position:relative;z-index:1}
 .hero{
   background-color:#f7f5ef!important;
-  background-image:url("/potfolio/zellige-bg.webp")!important;
+  background-image:url("/zellige-bg.webp")!important;
   background-position:left top!important;
   background-repeat:no-repeat!important;
   background-size:680px auto!important;
@@ -2044,14 +2044,14 @@ body{
   opacity:1!important;
 }
 .hero{
-  background-image:url("/potfolio/zellige-bg.webp")!important;
+  background-image:url("/zellige-bg.webp")!important;
   background-position:left top!important;
   background-repeat:no-repeat!important;
   background-size:720px auto!important;
 }
 .site-shell::before{
   z-index:1!important;
-  background-image:url("/potfolio/zellige-bg.webp")!important;
+  background-image:url("/zellige-bg.webp")!important;
   background-position:left top!important;
   background-repeat:repeat-y!important;
   background-size:560px auto!important;
@@ -2074,14 +2074,14 @@ body{
 .hero{
   background-image:
     linear-gradient(90deg,rgba(250,248,241,.72),rgba(250,248,241,.94)),
-    url("/potfolio/zellige-bg.webp") !important;
+    url("/zellige-bg.webp") !important;
   background-position:center top,left top !important;
   background-repeat:no-repeat,no-repeat !important;
   background-size:auto,620px auto !important;
 }
 .hero::before{background:transparent !important;}
 main > section:not(.contact):not(.proof-lab):not(.signal-section){
-  background-image:url("/potfolio/zellige-bg.webp");
+  background-image:url("/zellige-bg.webp");
   background-repeat:repeat-y;
   background-position:left top;
   background-size:620px auto;
@@ -2090,7 +2090,7 @@ main > section:not(.contact):not(.proof-lab):not(.signal-section){
 .origin-section{
   background-image:
     linear-gradient(90deg,rgba(250,248,241,.30),rgba(250,248,241,.72)),
-    url("/potfolio/zellige-bg.webp") !important;
+    url("/zellige-bg.webp") !important;
   background-position:center,left top !important;
   background-repeat:no-repeat,repeat-y !important;
   background-size:auto,620px auto !important;
@@ -2100,7 +2100,7 @@ main > section:not(.contact):not(.proof-lab):not(.signal-section){
   .hero{
     background-image:
       linear-gradient(90deg,rgba(250,248,241,.76),rgba(250,248,241,.94)),
-      url("/potfolio/zellige-bg.webp") !important;
+      url("/zellige-bg.webp") !important;
     background-size:auto,430px auto !important;
   }
   main > section:not(.contact):not(.proof-lab):not(.signal-section){
@@ -2416,7 +2416,7 @@ body{background:var(--fx-bg)!important;color:var(--fx-white)!important}
   inset:0;
   background:
     linear-gradient(90deg,#f1ede2 0%,#f1ede2cc 32%,#f1ede200 62%),
-    url("/potfolio/zellige-bg.webp");
+    url("/zellige-bg.webp");
   background-position:center,left top;
   background-repeat:no-repeat,repeat-y;
   background-size:auto,650px auto;
