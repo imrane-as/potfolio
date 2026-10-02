@@ -3697,3 +3697,38 @@ body{background:var(--fx-bg)!important;color:var(--fx-white)!important}
 @media(prefers-reduced-motion:reduce){
   .hero-challenge::before{animation:none!important}
 }
+
+
+/* MOBILE HERO POLISH — tighter top rhythm + stronger Morocco marker */
+@media(max-width:600px){
+  .hero{
+    padding:30px 6vw 64px!important;
+  }
+  .hero .eyebrow{
+    margin-top:18px!important;
+  }
+  .morocco-badge{
+    top:18px!important;
+    right:6vw!important;
+    transform:scale(.92) rotate(-2deg)!important;
+    transform-origin:top right!important;
+    padding:11px 15px!important;
+    gap:11px!important;
+    box-shadow:6px 6px 0 var(--fx-cyan)!important;
+  }
+  .morocco-badge strong{
+    font-size:14px!important;
+    line-height:1!important;
+    letter-spacing:.10em!important;
+  }
+  .morocco-badge small{
+    margin-top:5px!important;
+    font-size:8px!important;
+    letter-spacing:.12em!important;
+  }
+  .morocco-star{
+    width:34px!important;
+    height:34px!important;
+    font-size:19px!important;
+  }
+}
