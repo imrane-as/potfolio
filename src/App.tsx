@@ -105,7 +105,7 @@ function Logo({slug,label}:{slug:string;label:string}){
 function CompanyLogo({url}:{url:string}){return <span className="company-logo"><img src={url} alt="" loading="lazy" onError={(e)=>{e.currentTarget.style.display="none"}}/></span>}
 
 function App(){
-  const [lang,setLang]=useState<Lang>("en"),[menuOpen,setMenuOpen]=useState(false),[scroll,setScroll]=useState(0),[commandOpen,setCommandOpen]=useState(false),[terminalOpen,setTerminalOpen]=useState(false),[terminalInput,setTerminalInput]=useState(""),[terminalHistory,setTerminalHistory]=useState<string[]>(["$ help","help · whoami · stack · architecture · morocco · clear"]),[archSelected,setArchSelected]=useState(0),[easterEgg,setEasterEgg]=useState(false);
+  const [lang,setLang]=useState<Lang>("en"),[menuOpen,setMenuOpen]=useState(false),[scroll,setScroll]=useState(0),[commandOpen,setCommandOpen]=useState(false),[terminalOpen,setTerminalOpen]=useState(false),[terminalInput,setTerminalInput]=useState(""),[terminalHistory,setTerminalHistory]=useState<string[]>(["$ help","help · whoami · stack · architecture · clear"]),[archSelected,setArchSelected]=useState(0),[easterEgg,setEasterEgg]=useState(false);
   const shellRef=useRef<HTMLDivElement>(null);
   const pointerFrame=useRef<number|null>(null);
   const handlePointerMove=(e:React.PointerEvent<HTMLElement>)=>{
@@ -135,11 +135,10 @@ function App(){
     if(!cmd)return;
     let out:string[]=[];
     if(cmd==="clear") out=[];
-    else if(cmd==="help") out=["help · whoami · stack · architecture · morocco · clear","Tip: try 'sudo imrane'"];
+    else if(cmd==="help") out=["help · whoami · stack · architecture · clear","Tip: try 'sudo imrane'"];
     else if(cmd==="whoami") out=["imrane@platform","DevOps & Application Integration Engineer","API Management · Kubernetes · OpenShift · GitOps"];
     else if(cmd==="stack") out=["Kubernetes · OpenShift · Docker · Helm","Argo CD · GitLab · Terraform · Ansible","IBM API Connect · DataPower · OAuth2 · TLS/mTLS"];
     else if(cmd==="architecture") out=["CODE → PIPELINE → PLATFORM → SECURITY → PRODUCTION","Click the architecture nodes below to inspect each layer."];
-    else if(cmd==="morocco") out=["MA → LU","Moroccan roots · European delivery · global engineering mindset"];
     else if(cmd==="sudo imrane"){setEasterEgg(true);out=["access granted ✦","welcome to the hidden layer."]; }
     else out=[`command not found: ${cmd}`,"type 'help' for available commands"];
     setTerminalHistory(cmd==="clear"?out:["$ "+raw,...out]);
@@ -219,7 +218,7 @@ function App(){
     </div>}
 
     <div className="future-progress" aria-hidden="true"><span style={{width: scroll+"%"}}/><i>{String(Math.round(scroll)).padStart(2,"0")}</i></div>
-    <div className="future-corner future-corner-tl" aria-hidden="true">MA / LU<br/><span>SYS-026</span></div>
+    <div className="future-corner future-corner-tl" aria-hidden="true">SYS-026</div>
     <div className="future-corner future-corner-br" aria-hidden="true">BUILD / SHIP / OPERATE</div>
     <main id="top">
       <div className="zellige-field" aria-hidden="true"/>
