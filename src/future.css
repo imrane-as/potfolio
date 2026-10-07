@@ -3732,3 +3732,7 @@ body{background:var(--fx-bg)!important;color:var(--fx-white)!important}
     font-size:19px!important;
   }
 }
+
+
+/* Remove the old Morocco origin badge from the hero. */
+.morocco-badge{display:none!important;}
