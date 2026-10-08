@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="44" fill="#05080d"/>
+  <text x="38" y="176" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="126" font-weight="900" letter-spacing="-16">IA</text>
+  <path d="M171 54L145 197" stroke="#2fe5d0" stroke-width="16" stroke-linecap="square"/>
+  <rect x="39" y="211" width="82" height="6" rx="3" fill="#ff4d3d"/>
+  <rect x="65" y="211" width="30" height="6" fill="#ffd83d"/>
+  <rect x="95" y="211" width="26" height="6" rx="3" fill="#6dff6a"/>
+</svg>
