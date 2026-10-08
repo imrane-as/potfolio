@@ -196,7 +196,7 @@ function App(){
     doc.save("Imrane_Asrir_Detailed_CV_"+lang.toUpperCase()+".pdf");
   };
 
-  return <div ref={shellRef} className="site-shell" onPointerMove={handlePointerMove}><div className="pointer-glow"/><div className="scroll-progress" style={{width:`${scroll}%`}}/><div className="noise"/>    <header className="nav"><a href="#top" className="brand">IA<span>/</span></a>
+  return <div ref={shellRef} className="site-shell" onPointerMove={handlePointerMove}><div className="pointer-glow"/><div className="scroll-progress" style={{width:`${scroll}%`}}/><div className="noise"/>    <header className="nav"><a href="#top" className="brand" aria-label="Imrane Asrir"><span className="brand-ia">IA</span><span className="brand-slash">/</span></a>
       <div className={`nav-links ${menuOpen?"open":""}`}>
         {([["about",t.nav.about],["experience",t.nav.experience],["stack",t.nav.stack],["work",t.nav.work],["contact",t.nav.contact]] as const).map(([id,label])=><a key={id} href={"#"+id} onClick={()=>setMenuOpen(false)}>{label}</a>)}
       </div>
