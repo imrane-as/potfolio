@@ -65,7 +65,7 @@ const experiences = {
     {period:"MARS 2025 — AUJOURD'HUI",company:"ITS4U Group",mark:"ITS4U",logo:"https://www.its4u-group.com/favicon.ico",role:"Ingénieur DevOps / API Management",context:"Conseil · Cloud computing · Transformation digitale",points:["Pilotage technique des pipelines CI/CD et automatisation des livraisons.","Déploiement et optimisation d'environnements Kubernetes.","Mise en place d'Infrastructure as Code et de patterns de déploiement réutilisables.","Coordination entre développement, cloud, sécurité et opérations.","Intégration applicative, API Management et support de production pour des clients d'entreprise."],stack:["Microsoft Azure","Kubernetes","Docker","Azure DevOps","GitLab","Argo CD","Terraform","Ansible"]},
     {period:"AVR 2025 — FÉVR 2026",company:"POST Luxembourg",mark:"POST",logo:"https://www.post.lu/favicon.ico",role:"Chef de Projet / Intégration Applicative",context:"Banque · Services financiers · Modernisation API",points:["Modernisation d'une plateforme d'API Management avec migration vers IBM API Connect v12 sur OpenShift.","Installation, configuration et administration d'IBM API Connect v12.","Déploiement et gestion des composants middleware sur OpenShift.","Migration des APIs existantes vers la nouvelle plateforme.","Configuration des gateways DataPower et sécurisation des flux TLS/mTLS.","Intégration et exposition des APIs avec les équipes applicatives.","Suivi des déploiements DEV, TEST et PROD et support de la plateforme.","Gestion des incidents, demandes de service et changements via ServiceNow."],stack:["IBM API Connect v12","DataPower","OpenShift","Kubernetes","TLS/mTLS","API Management","Git","ServiceNow"]},
     {period:"JANV 2024 — JUIN 2024",company:"Capgemini",mark:"CG",logo:logoAsset("capgemini.webp"),role:"Ingénieur DevOps / API Management",context:"Services numériques · Développement logiciel",points:["Développement d'une application web centralisée pour la gestion des contrats d'achat.","Conception et développement de fonctionnalités métier.","Gestion de la base SQL Server.","Coordination avec les utilisateurs métiers."],stack:[".NET","Entity Framework","Microsoft SQL Server"]},
-    {period:"2023",company:"ONE-BE",mark:"ONE",logo:"https://cdn.simpleicons.org/java",role:"Développeur Full Stack",context:"Secteur de l'énergie",points:["Développement full-stack sur les couches frontend et backend.","Contribution à l'intégration applicative et aux activités de livraison logicielle."],stack:["JavaScript","Java","API","Développement web"]}
+    {period:"2023",company:"ONE-BE",mark:"ONEE",logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/ONEE-logo.png",role:"Développeur Full Stack",context:"Secteur de l'énergie",points:["Développement full-stack sur les couches frontend et backend.","Contribution à l'intégration applicative et aux activités de livraison logicielle."],stack:["JavaScript","Java","API","Développement web"]}
   ]
 };
 
@@ -97,8 +97,7 @@ const logoFallbacks:Record<string,string> = {
   spring:"https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/spring/spring-original.svg",
   apachekafka:"https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/apachekafka/apachekafka-original.svg",
   githubactions:"https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/githubactions/githubactions-original.svg"
-};
-function Logo({slug,label}:{slug:string;label:string}){
+};function Logo({slug,label}:{slug:string;label:string}){
   const src = logoFallbacks[slug] ?? `https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/${slug}.svg`;
   return <img src={src} alt={label} loading="lazy" decoding="async" onError={(e)=>{e.currentTarget.style.display="none"}}/>;
 }
@@ -197,8 +196,7 @@ function App(){
     doc.save("Imrane_Asrir_Detailed_CV_"+lang.toUpperCase()+".pdf");
   };
 
-  return <div ref={shellRef} className="site-shell" onPointerMove={handlePointerMove}><div className="pointer-glow"/><div className="scroll-progress" style={{width:`${scroll}%`}}/><div className="noise"/>
-    <header className="nav"><a href="#top" className="brand">IA<span>/</span></a>
+  return <div ref={shellRef} className="site-shell" onPointerMove={handlePointerMove}><div className="pointer-glow"/><div className="scroll-progress" style={{width:`${scroll}%`}}/><div className="noise"/>    <header className="nav"><a href="#top" className="brand">IA<span>/</span></a>
       <div className={`nav-links ${menuOpen?"open":""}`}>
         {([["about",t.nav.about],["experience",t.nav.experience],["stack",t.nav.stack],["work",t.nav.work],["contact",t.nav.contact]] as const).map(([id,label])=><a key={id} href={"#"+id} onClick={()=>setMenuOpen(false)}>{label}</a>)}
       </div>
@@ -259,4 +257,3 @@ function App(){
   </div>
 }
 export default App;
-
