@@ -4165,3 +4165,28 @@ body, .site-shell {
   .hero-actions .button { padding: 10px 12px !important; font-size: 10px !important; }
   .hero-meta { display:none !important; }
 }
+
+
+/* Editorial hero: oversized name reveal, inspired by the reference site's scroll-led typography. */
+@keyframes imrane-name-reveal {
+  0% { clip-path: inset(0 100% 0 0); opacity: .45; transform: translateY(18px); }
+  100% { clip-path: inset(0 0 0 0); opacity: 1; transform: translateY(0); }
+}
+@keyframes imrane-portrait-rise {
+  0% { opacity: 0; transform: translateY(42px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.hero .hero-title {
+  animation: imrane-name-reveal 1.15s cubic-bezier(.22,.75,.25,1) .15s both;
+}
+.hero .portrait-wrap {
+  animation: imrane-portrait-rise 1s cubic-bezier(.22,.75,.25,1) .45s both;
+}
+.hero .hero-copy > :not(.hero-title) {
+  animation: imrane-portrait-rise .7s ease-out .75s both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero-title, .hero .portrait-wrap, .hero .hero-copy > :not(.hero-title) {
+    animation: none !important;
+  }
+}
