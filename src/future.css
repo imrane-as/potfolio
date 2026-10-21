@@ -4695,3 +4695,55 @@ body { font-family: Inter, "Helvetica Neue", Arial, sans-serif; -webkit-font-smo
  .contact-actions .button,.contact-actions .social-button { width:100%!important; justify-content:center!important; }
 }
 @media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto!important} *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important} }
+
+
+/* Visual QA follow-up — soften overly black blocks and keep portrait crisp */
+:root {
+  --future-ink: #20251d;
+  --redesign-deep: #252b23;
+}
+.proof-lab, .footer {
+  background: var(--redesign-deep) !important;
+}
+.terminal-window {
+  background: #292f27 !important;
+  border-color: rgba(245,242,235,.18) !important;
+  box-shadow: 8px 8px 0 rgba(32,37,29,.10) !important;
+}
+.terminal-top {
+  background: #30372d !important;
+  border-bottom-color: rgba(245,242,235,.14) !important;
+}
+.terminal-window, .terminal-window * {
+  text-shadow: none !important;
+}
+.button-primary, .nav-cta {
+  background: #252b23 !important;
+  border-color: #252b23 !important;
+}
+.button-primary:hover, .nav-cta:hover {
+  background: var(--future-teal) !important;
+  border-color: var(--future-teal) !important;
+}
+.portrait-wrap, .portrait-frame, .portrait {
+  image-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+.portrait-frame {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.portrait-frame .portrait {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center bottom !important;
+  filter: none !important;
+}
+@media (max-width:760px) {
+  .hero .portrait-wrap {
+    width: min(82vw, 390px) !important;
+    max-width: 390px !important;
+  }
+}
