@@ -4887,3 +4887,52 @@ body, .site-shell { color: #20251d !important; }
  .hero-challenge { padding:12px 14px!important; }
 }
 @media(prefers-reduced-motion:reduce) { .proof-track { animation:none!important; } }
+
+
+/* Screenshot-specific polish: header visibility, safe spacing and portrait rendering */
+.nav {
+  background: rgba(245,242,235,.97) !important;
+  color: #20251d !important;
+  border-bottom: 1px solid rgba(32,37,29,.16) !important;
+  box-shadow: 0 5px 18px rgba(32,37,29,.035) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  backdrop-filter: blur(14px) !important;
+}
+.brand, .brand:visited { color: #20251d !important; opacity: 1 !important; }
+.brand-ia { color: #20251d !important; -webkit-text-fill-color: #20251d !important; opacity: 1 !important; }
+.brand-slash { color: #78956a !important; -webkit-text-fill-color: #78956a !important; }
+.menu-button, .command-trigger, .lang-switch {
+  color: #20251d !important;
+  -webkit-text-fill-color: #20251d !important;
+}
+.menu-button { background: transparent !important; border-color: rgba(32,37,29,.2) !important; }
+.menu-button svg, .command-trigger svg { color: #20251d !important; stroke: currentColor !important; }
+.hero { padding-top: clamp(112px, 12vw, 160px) !important; }
+.hero-copy .eyebrow { position: relative !important; margin-top: 0 !important; z-index: 2 !important; }
+.hero-copy::before { top: -10px !important; }
+.hero-title { color: #20251d !important; text-shadow: none !important; }
+.hero-title::after { display: none !important; }
+.hero-title .surname::after { background: #78956a !important; }
+.portrait-frame { overflow: hidden !important; background: #f5f2eb !important; }
+.portrait-frame .portrait {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  image-rendering: auto !important;
+  filter: none !important;
+  transform: none !important;
+}
+.portrait-frame::after { pointer-events: none !important; }
+@media (max-width:760px) {
+  .nav { min-height: 78px !important; padding-top: 12px !important; padding-bottom: 12px !important; }
+  .brand-ia { font-size: 40px !important; letter-spacing: -.12em !important; }
+  .brand-slash { font-size: 44px !important; }
+  .menu-button { color: #20251d !important; border-radius: 10px !important; }
+  .hero { padding-top: 38px !important; }
+  .hero-copy .eyebrow { margin-bottom: 14px !important; line-height: 1.5 !important; }
+  .hero-copy::before { display: none !important; }
+  .hero-title { margin-top: 18px !important; }
+  .portrait-wrap { margin-top: 26px !important; }
+}
