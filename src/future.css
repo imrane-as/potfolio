@@ -3922,3 +3922,246 @@ body,.site-shell{background:var(--editorial-paper)!important;color:var(--editori
   .hero-intro{top:70%!important}
   .hero-actions{top:83%!important}
 }
+
+
+/* EDITORIAL REDESIGN — clear typography, white canvas, portrait-led hero */
+:root {
+  --fx-white: #171717 !important;
+  --fx-muted: #555 !important;
+  --fx-cyan: #6551a5 !important;
+  --fx-lime: #6551a5 !important;
+}
+html { scroll-behavior: smooth; }
+body, .site-shell {
+  background: #fff !important;
+  color: #171717 !important;
+}
+.site-shell { overflow: clip !important; }
+.noise, .pointer-glow, .hero-grid, .hero-zellige, .hero-cursor-orb,
+.hero-grid-sheen, .hero-orbit, .portrait-glow, .portrait-scan,
+.future-corner, .future-progress, .scroll-progress { display: none !important; }
+
+.nav {
+  position: absolute !important;
+  top: 0 !important; left: 0 !important; right: 0 !important;
+  z-index: 30 !important;
+  min-height: 78px !important;
+  padding: 0 5.5vw !important;
+  background: #fff !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+.brand { color: #171717 !important; }
+.brand:after { display:none !important; }
+.nav-links a, .nav-tools button, .nav-cta {
+  color: #252525 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+.nav-links a:after { background: #6551a5 !important; }
+.nav-cta, .cv-button, .command-trigger, .lang-switch {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.nav-cta { color: #6551a5 !important; }
+
+.hero {
+  position: relative !important;
+  display: block !important;
+  min-height: min(920px, 100svh) !important;
+  padding: 150px 5vw 80px !important;
+  background: #fff !important;
+  color: #171717 !important;
+  overflow: hidden !important;
+}
+.hero-copy { display: contents !important; }
+.hero .eyebrow {
+  position: absolute !important;
+  left: 6vw !important;
+  bottom: 120px !important;
+  z-index: 5 !important;
+  max-width: 300px !important;
+  color: #555 !important;
+  font-size: 10px !important;
+  letter-spacing: .14em !important;
+  opacity: 1 !important;
+}
+.hero-kicker, .hero-challenge { display: none !important; }
+.hero-title {
+  position: absolute !important;
+  top: 130px !important;
+  left: 1vw !important;
+  right: 1vw !important;
+  z-index: 1 !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  font-family: "Space Grotesk", "Arial Black", sans-serif !important;
+  font-size: clamp(76px, 15.1vw, 230px) !important;
+  line-height: .86 !important;
+  letter-spacing: -.095em !important;
+  font-weight: 800 !important;
+  color: #151515 !important;
+  opacity: 1 !important;
+}
+.hero-title .surname {
+  display: inline !important;
+  color: #151515 !important;
+  background: none !important;
+  -webkit-text-fill-color: #151515 !important;
+}
+.portrait-wrap {
+  position: absolute !important;
+  z-index: 3 !important;
+  top: 155px !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: min(43vw, 520px) !important;
+  height: auto !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+  opacity: 1 !important;
+}
+.portrait-frame {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: visible !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+.portrait {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center bottom !important;
+  border-radius: 0 !important;
+  filter: none !important;
+}
+.portrait-label, .portrait-stamp { display: none !important; }
+.hero-intro {
+  position: absolute !important;
+  left: 6vw !important;
+  bottom: 170px !important;
+  z-index: 5 !important;
+  width: min(310px, 28vw) !important;
+  margin: 0 !important;
+  color: #333 !important;
+  font-size: clamp(14px, 1.15vw, 17px) !important;
+  line-height: 1.65 !important;
+  opacity: 1 !important;
+}
+.hero-intro strong { color: #111 !important; font-weight: 700 !important; }
+.hero-actions {
+  position: absolute !important;
+  left: 6vw !important;
+  bottom: 70px !important;
+  z-index: 6 !important;
+  display: flex !important;
+  gap: 12px !important;
+  opacity: 1 !important;
+}
+.button-primary, .button-ghost {
+  background: #171717 !important;
+  color: #fff !important;
+  border: 1px solid #171717 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-size: 12px !important;
+}
+.button-ghost { background: #fff !important; color: #171717 !important; }
+.hero-meta {
+  position: absolute !important;
+  right: 5.5vw !important;
+  bottom: 35px !important;
+  z-index: 5 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 7px !important;
+  color: #555 !important;
+  font-size: 9px !important;
+  letter-spacing: .13em !important;
+}
+.section, .architecture, .contact, .education, .proof-lab {
+  background: #fff !important;
+  color: #171717 !important;
+}
+.section-heading h2, .architecture-intro h2, .contact h2,
+.proof-lab-head h2 { color: #171717 !important; }
+.section-heading h2 em, .architecture-intro h2 em,
+.contact h2 em, .proof-lab-head h2 em { color: #6551a5 !important; }
+.section p, .section li, .section-heading p, .architecture p,
+.contact-text, .proof-lab-head > p:last-child, .edu-item p,
+.timeline-main p, .project-card p { color: #4b4b4b !important; }
+.timeline-item, .edu-item, .capability, .project-card,
+.architecture-detail, .credential-node, .credential-core {
+  background: #fff !important;
+  color: #171717 !important;
+  border-color: #dedede !important;
+  box-shadow: none !important;
+}
+.timeline-main h3, .edu-item strong, .project-card h3,
+.capability h3, .flow-node strong { color: #171717 !important; }
+.timeline-date, .timeline-main span, .capability p,
+.project-card .project-description { color: #555 !important; }
+.contact { border-top: 1px solid #e5e5e5 !important; }
+.contact-grid { display:none !important; }
+.social-button { background:#fff !important; color:#222 !important; border-color:#ddd !important; }
+.footer { background:#fff !important; color:#555 !important; border-color:#eee !important; }
+
+@media (min-width: 901px) {
+  .hero-title { top: 145px !important; }
+}
+@media (max-width: 900px) {
+  .hero {
+    min-height: 830px !important;
+    padding: 120px 6vw 70px !important;
+  }
+  .hero-title {
+    top: 150px !important;
+    left: 0 !important; right: 0 !important;
+    font-size: clamp(58px, 13.5vw, 120px) !important;
+    letter-spacing: -.085em !important;
+  }
+  .portrait-wrap {
+    top: 190px !important;
+    width: min(74vw, 430px) !important;
+  }
+  .hero-intro { width: 42vw !important; bottom: 125px !important; }
+  .hero .eyebrow { bottom: 85px !important; }
+  .hero-actions { bottom: 35px !important; }
+  .hero-meta { bottom: 35px !important; }
+}
+@media (max-width: 600px) {
+  .nav { min-height: 65px !important; }
+  .nav-tools .lang-switch { display:none !important; }
+  .hero { min-height: 790px !important; padding: 100px 5vw 50px !important; }
+  .hero-title {
+    top: 135px !important;
+    font-size: clamp(44px, 13vw, 76px) !important;
+    white-space: normal !important;
+    line-height: .95 !important;
+  }
+  .hero-title .surname { display:block !important; }
+  .portrait-wrap { top: 205px !important; width: min(88vw, 390px) !important; }
+  .hero-intro {
+    left: 6vw !important; bottom: 108px !important;
+    width: 88vw !important; font-size: 13px !important;
+  }
+  .hero .eyebrow { left: 6vw !important; bottom: 70px !important; }
+  .hero-actions { left: 6vw !important; bottom: 20px !important; gap: 8px !important; }
+  .hero-actions .button { padding: 10px 12px !important; font-size: 10px !important; }
+  .hero-meta { display:none !important; }
+}
