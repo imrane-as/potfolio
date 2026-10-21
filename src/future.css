@@ -4936,3 +4936,51 @@ body, .site-shell { color: #20251d !important; }
   .hero-title { margin-top: 18px !important; }
   .portrait-wrap { margin-top: 26px !important; }
 }
+
+
+/* Mobile navigation: restore language switch and make every visible control obvious */
+@media (max-width: 600px) {
+  .nav-tools .lang-switch {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    min-width: 58px !important;
+    min-height: 40px !important;
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    background: #fffdf7 !important;
+    color: #20251d !important;
+    border: 1px solid rgba(32,37,29,.2) !important;
+    border-radius: 8px !important;
+  }
+  .nav-tools .lang-switch span,
+  .nav-tools .lang-switch svg { display: none !important; }
+  .nav-tools .command-trigger { display: none !important; }
+  .nav-tools .cv-button, .nav-tools .nav-cta { display: none !important; }
+  .nav-tools { display: flex !important; margin-left: auto !important; gap: 8px !important; }
+  .menu-button { display: inline-flex !important; align-items: center !important; justify-content: center !important; width: 42px !important; height: 42px !important; margin-left: 8px !important; flex-shrink: 0 !important; }
+  .nav-links.open {
+    display: flex !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    padding: 10px 20px 18px !important;
+    background: #f5f2eb !important;
+    border-bottom: 1px solid rgba(32,37,29,.16) !important;
+    box-shadow: 0 16px 24px rgba(32,37,29,.08) !important;
+    z-index: 1000 !important;
+  }
+  .nav-links.open a {
+    display: block !important;
+    padding: 14px 4px !important;
+    color: #20251d !important;
+    border-bottom: 1px solid rgba(32,37,29,.1) !important;
+    opacity: 1 !important;
+  }
+}
