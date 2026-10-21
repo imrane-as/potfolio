@@ -4298,3 +4298,123 @@ body, .site-shell {
   .portrait-wrap { width: min(78vw, 280px) !important; height: min(92vw, 340px) !important; }
   .hero-actions .button { flex: 1 1 auto; justify-content: center; }
 }
+
+
+/* Mobile hotfix: keep hero copy in normal flow; prevent CTA/title overlap on iOS Safari. */
+@media (max-width: 760px) {
+  .hero {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 20px !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 100px 6vw 36px !important;
+    overflow: visible !important;
+  }
+  .hero .hero-copy {
+    display: flex !important;
+    position: relative !important;
+    inset: auto !important;
+    flex: 0 0 auto !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: none !important;
+    gap: 14px !important;
+    z-index: 6 !important;
+  }
+  .hero .hero-copy > .eyebrow,
+  .hero .hero-copy > .hero-title,
+  .hero .hero-copy > .hero-intro,
+  .hero .hero-copy > .hero-actions {
+    position: relative !important;
+    inset: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+  .hero .hero-copy > .eyebrow {
+    order: 0 !important;
+    font-size: 10px !important;
+    line-height: 1.5 !important;
+    letter-spacing: .12em !important;
+  }
+  .hero .hero-copy > .hero-title {
+    order: 1 !important;
+    text-align: left !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    font-size: clamp(42px, 12.5vw, 76px) !important;
+    line-height: .92 !important;
+    letter-spacing: -.075em !important;
+  }
+  .hero .hero-copy > .hero-title .surname { display: block !important; }
+  .hero .hero-copy > .hero-intro {
+    order: 2 !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    color: #333 !important;
+  }
+  .hero .hero-copy > .hero-actions {
+    order: 3 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    margin-top: 4px !important;
+  }
+  .hero .hero-actions .button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-height: 48px !important;
+    box-sizing: border-box !important;
+    padding: 12px 14px !important;
+    font-size: 11px !important;
+    white-space: normal !important;
+  }
+  .hero .portrait-wrap {
+    position: relative !important;
+    inset: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    order: 2 !important;
+    flex: 0 0 auto !important;
+    align-self: center !important;
+    width: min(76vw, 310px) !important;
+    height: min(94vw, 370px) !important;
+    margin: 0 auto !important;
+  }
+  .hero .portrait-frame {
+    overflow: hidden !important;
+    border: 0 !important;
+    border-radius: 18px !important;
+    box-shadow: 6px 6px 0 #171717 !important;
+  }
+  .hero .portrait-frame .portrait {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+  }
+  .hero .hero-meta,
+  .hero .hero-kicker,
+  .hero .hero-challenge { display: none !important; }
+}
+@media (max-width: 420px) {
+  .hero { padding-top: 88px !important; }
+  .hero .hero-copy { gap: 12px !important; }
+  .hero .hero-copy > .hero-title { font-size: clamp(39px, 11.8vw, 52px) !important; }
+  .hero .portrait-wrap { width: min(78vw, 280px) !important; height: min(92vw, 340px) !important; }
+}
