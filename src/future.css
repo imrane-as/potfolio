@@ -4418,3 +4418,56 @@ body, .site-shell {
   .hero .hero-copy > .hero-title { font-size: clamp(39px, 11.8vw, 52px) !important; }
   .hero .portrait-wrap { width: min(78vw, 280px) !important; height: min(92vw, 340px) !important; }
 }
+
+
+/* Final portrait treatment: clean cutout, no card, border, frame or drop-shadow. */
+.portrait-wrap {
+  width: min(43vw, 560px) !important;
+  pointer-events: none;
+}
+.portrait-frame,
+.hero .portrait-frame {
+  overflow: visible !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+.portrait-frame .portrait,
+.hero .portrait-frame .portrait {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center bottom !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  filter: none !important;
+}
+.portrait-label, .portrait-stamp, .portrait-glow, .portrait-scan {
+  display: none !important;
+}
+@media (max-width: 760px) {
+  .hero .portrait-wrap {
+    width: min(82vw, 360px) !important;
+    height: auto !important;
+    aspect-ratio: 1054 / 1475 !important;
+    margin: 0 auto !important;
+  }
+  .hero .portrait-frame {
+    width: 100% !important;
+    height: 100% !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+  .hero .portrait-frame .portrait {
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+  }
+}
