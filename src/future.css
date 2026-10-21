@@ -4747,3 +4747,110 @@ body { font-family: Inter, "Helvetica Neue", Arial, sans-serif; -webkit-font-smo
     max-width: 390px !important;
   }
 }
+
+
+/* MOBILE LEGIBILITY & SPACING FIX — screenshot review */
+:root {
+  --future-ink: #20251d;
+  --redesign-muted: #5f625a;
+}
+body, .site-shell { color: #20251d !important; }
+.eyebrow, .section-index, .timeline-date, .tool-logo span,
+.capability p, .capability h3, .stack-copy > p:not(.eyebrow),
+.project-content > p:not(.eyebrow), .timeline-context,
+.timeline-main > p, .edu-item p {
+  color: #55594f !important;
+}
+.tool-logo, .capability, .project-card, .flow-node {
+  color: #20251d !important;
+}
+.tool-logo span, .capability h3, .flow-node strong,
+.flow-node > span, .project-content h3 {
+  opacity: 1 !important;
+  visibility: visible !important;
+  text-shadow: none !important;
+}
+.tool-logo {
+  background: #fffdf7 !important;
+  border-color: rgba(32,37,29,.20) !important;
+}
+.capability {
+  background: #fbf9f2 !important;
+  border-color: rgba(32,37,29,.17) !important;
+}
+.flow-node {
+  background: #fbf9f2 !important;
+  border: 1px solid rgba(32,37,29,.18) !important;
+  box-shadow: none !important;
+}
+.flow-node strong { color: #20251d !important; }
+.flow-node > span { color: #5b5f55 !important; }
+.flow-node .flow-icon { background: #eaf0df !important; color: #3f6424 !important; }
+.project-content .eyebrow {
+  display: block !important;
+  position: static !important;
+  margin: 0 0 10px !important;
+  line-height: 1.4 !important;
+  letter-spacing: .14em !important;
+}
+.project-content h3 {
+  margin: 0 0 14px !important;
+  line-height: 1.08 !important;
+}
+.section-heading .eyebrow,
+.stack-copy .eyebrow,
+.signal-copy .eyebrow,
+.architecture-intro .eyebrow,
+.work-heading .eyebrow,
+.proof-lab-head .eyebrow {
+  position: static !important;
+  display: block !important;
+  margin: 0 0 16px !important;
+  line-height: 1.5 !important;
+}
+.section-heading h2, .stack-copy h2, .signal-copy h2,
+.origin-copy h2, .architecture-intro h2, .contact h2,
+.proof-lab-head h2 {
+  position: relative !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  line-height: 1.02 !important;
+}
+.proof-lab, .footer {
+  background: #252b23 !important;
+}
+.proof-lab .eyebrow, .proof-lab p, .proof-lab small,
+.proof-lab .credential-node, .proof-lab .credential-node strong,
+.proof-lab .credential-node small {
+  color: #f5f2eb !important;
+}
+.terminal-window {
+  background: #252b23 !important;
+  color: #f5f2eb !important;
+}
+.terminal-window .terminal-output { color: #cbd5c0 !important; }
+@media (max-width:760px) {
+  .hero { overflow: hidden !important; }
+  .hero-title { margin-bottom: 20px !important; }
+  .hero .portrait-wrap { margin-top: 22px !important; }
+  .section-heading h2, .stack-copy h2, .signal-copy h2,
+  .origin-copy h2, .architecture-intro h2, .contact h2,
+  .proof-lab-head h2 { font-size: clamp(34px, 9vw, 52px) !important; }
+  .section-heading .eyebrow, .stack-copy .eyebrow,
+  .signal-copy .eyebrow, .architecture-intro .eyebrow,
+  .work-heading .eyebrow, .proof-lab-head .eyebrow {
+    margin-bottom: 14px !important;
+  }
+  .tool-logo { min-height: 104px !important; padding: 18px 12px !important; }
+  .tool-logo span { font-size: 13px !important; font-weight: 700 !important; }
+  .architecture-flow { gap: 12px !important; }
+  .flow-node { min-height: 155px !important; padding: 18px !important; }
+  .flow-node strong { font-size: 14px !important; }
+  .flow-node > span { font-size: 12px !important; line-height: 1.45 !important; }
+  .project-card { display: grid !important; grid-template-columns: 32px minmax(0,1fr) 34px !important; gap: 12px !important; }
+  .project-content { min-width: 0 !important; }
+  .project-content h3 { font-size: clamp(24px, 6vw, 34px) !important; overflow-wrap: anywhere; }
+  .project-content > p:not(.eyebrow) { font-size: 15px !important; line-height: 1.65 !important; }
+  .capability p { color: #55594f !important; }
+  .tags span { color: #45483f !important; }
+}
