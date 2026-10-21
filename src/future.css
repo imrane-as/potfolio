@@ -4854,3 +4854,122 @@ body, .site-shell { color: #20251d !important; }
   .capability p { color: #55594f !important; }
   .tags span { color: #45483f !important; }
 }
+
+
+/* GLOBAL COLOR SYSTEM — one restrained mineral palette */
+:root {
+  color-scheme: light;
+  --ink: #20251d;
+  --muted: #666b60;
+  --paper: #f5f3ec;
+  --white: #fffdf7;
+  --coral: #a7b978;
+  --yellow: #d9c68b;
+  --teal: #78956a;
+  --purple: #78956a;
+  --blue: #78956a;
+  --pink: #b6c68c;
+  --ma-red: #b7a27a;
+  --ma-green: #536b45;
+  --zellige: #d9c68b;
+  --future-purple: #78956a;
+  --future-teal: #78956a;
+  --future-red: #b7a27a;
+  --future-green: #536b45;
+  --future-gold: #d9c68b;
+  --future-ink: #20251d;
+  --redesign-paper: #f5f3ec;
+  --redesign-ink: #20251d;
+  --redesign-deep: #2c3328;
+  --accent: #78956a;
+}
+html, body, .site-shell {
+  background: #f5f3ec !important;
+  color: #20251d !important;
+}
+body { accent-color: #78956a; }
+::selection { background: #dce7c9 !important; color: #20251d !important; }
+a:hover, .nav-links a:hover, .brand span { color: #536b45 !important; }
+.scroll-progress {
+  background: linear-gradient(90deg,#536b45 0%,#78956a 55%,#d9c68b 100%) !important;
+  box-shadow: none !important;
+}
+.brand:after, .nav-links a:after {
+  background: linear-gradient(90deg,#536b45,#78956a,#d9c68b) !important;
+}
+.button-primary, .nav-cta, .hero .button-primary, .cv-button:hover {
+  background: #2c3328 !important;
+  border-color: #2c3328 !important;
+  color: #fffdf7 !important;
+}
+.button-primary:hover, .nav-cta:hover {
+  background: #536b45 !important;
+  border-color: #536b45 !important;
+}
+.button-secondary, .cv-button, .lang-switch {
+  color: #20251d !important;
+  border-color: rgba(32,37,29,.22) !important;
+  background: rgba(255,253,247,.72) !important;
+}
+button, .button, .tag, .chip, .skill-tag, .tags span {
+  --purple: #78956a;
+  --teal: #78956a;
+  --coral: #a7b978;
+}
+.tool-logo, .capability, .project-card, .skill-card, .stack-card,
+.flow-node, .timeline-card, .experience-card {
+  background-color: #fbf9f2 !important;
+  border-color: rgba(32,37,29,.15) !important;
+  box-shadow: none;
+}
+.tool-logo span, .capability h3, .project-content h3,
+.stack-card h3, .skill-card h3, .flow-node strong {
+  color: #20251d !important;
+}
+.tool-logo span, .capability p, .project-content p,
+.stack-card p, .skill-card p, .flow-node > span,
+.timeline-card p, .experience-card p {
+  color: #666b60 !important;
+}
+.tags span, .tag, .chip, .skill-tag {
+  background: #eeeee3 !important;
+  color: #47583d !important;
+  border-color: #d8dccb !important;
+}
+.project-card:hover, .tool-logo:hover, .capability:hover, .skill-card:hover {
+  border-color: #78956a !important;
+  box-shadow: 0 12px 28px rgba(32,37,29,.07) !important;
+}
+.project-card .project-number, .section-index, .timeline-date,
+.project-content .eyebrow, .section-heading .eyebrow {
+  color: #6c8059 !important;
+}
+.project-card:before, .capability:before, .tool-logo:before {
+  background: #78956a !important;
+}
+.architecture-flow, .flow-map { color: #20251d !important; }
+.flow-node .flow-icon, .stack-icon, .tool-icon {
+  background: #eaf0df !important;
+  color: #536b45 !important;
+  border-color: #d8e2c8 !important;
+}
+.proof-lab, .footer, .terminal-window {
+  background: #2c3328 !important;
+  color: #f5f3ec !important;
+  border-color: rgba(245,243,236,.14) !important;
+}
+.proof-lab .eyebrow, .proof-lab p, .proof-lab small,
+.proof-lab .credential-node, .proof-lab .credential-node strong,
+.proof-lab .credential-node small, .footer, .footer a {
+  color: #e9ecdf !important;
+}
+.terminal-top { background: #384131 !important; }
+.terminal-window .terminal-output { color: #d6e1c8 !important; }
+.footer a:hover { color: #d9c68b !important; }
+.hero .portrait-frame, .hero .portrait-wrap {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
