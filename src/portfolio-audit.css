@@ -667,3 +667,52 @@
   .hero .hero-actions .button { flex: 1 1 0 !important; }
   .hero .hero-meta { display: none !important; }
 }
+
+/* Mobile hero: account for the fixed header and keep the portrait clear of the CTAs. */
+@media (max-width: 600px) {
+  .site-shell main .hero {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 92px 0 28px !important;
+    gap: 0 !important;
+  }
+  .site-shell main .hero .hero-copy {
+    gap: 10px !important;
+    padding: 0 22px !important;
+  }
+  .site-shell main .hero .hero-copy > .eyebrow {
+    display: block !important;
+    margin: 0 auto 4px !important;
+    font-size: 8px !important;
+    line-height: 1.5 !important;
+  }
+  .site-shell main .hero .hero-title {
+    margin: 0 !important;
+    font-size: clamp(42px, 12.5vw, 54px) !important;
+    line-height: .9 !important;
+  }
+  .site-shell main .hero .hero-intro {
+    margin: 4px auto 8px !important;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+  }
+  .site-shell main .hero .hero-actions {
+    gap: 8px !important;
+    margin-top: 0 !important;
+  }
+  .site-shell main .hero .hero-actions .button {
+    min-height: 48px !important;
+    padding: 10px 12px !important;
+    font-size: 10px !important;
+  }
+  .site-shell main .hero .portrait-wrap {
+    width: min(76vw, 310px) !important;
+    margin: 24px auto 0 !important;
+  }
+  .site-shell main .hero .hero-meta { display: none !important; }
+}
+@media (max-width: 390px) {
+  .site-shell main .hero { padding-top: 86px !important; }
+  .site-shell main .hero .hero-copy { padding: 0 18px !important; }
+  .site-shell main .hero .portrait-wrap { width: min(78vw, 280px) !important; }
+}
