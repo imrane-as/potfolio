@@ -5428,3 +5428,75 @@ body, .site-shell { background: #f5f2eb !important; color: #20251d; }
   .hero .hero-actions { bottom: 25px !important; gap: 7px !important; }
   .hero .hero-actions .button { font-size: 8px !important; }
 }
+
+
+/* HERO TEXT FIX — keep all supporting copy readable and buttons comfortably sized */
+.hero .hero-intro {
+  left: clamp(28px, 3.5vw, 64px) !important;
+  bottom: 13% !important;
+  width: clamp(260px, 25vw, 370px) !important;
+  max-width: 370px !important;
+  font-size: clamp(15px, 1.15vw, 18px) !important;
+  line-height: 1.7 !important;
+  letter-spacing: -.01em !important;
+  text-wrap: pretty !important;
+}
+.hero .hero-intro p { margin: 0 0 .65em !important; }
+.hero .hero-intro strong { font-weight: 750 !important; }
+.hero .hero-actions {
+  right: clamp(28px, 4vw, 76px) !important;
+  bottom: 13% !important;
+  width: clamp(220px, 18vw, 285px) !important;
+  gap: 12px !important;
+}
+.hero .hero-actions .button {
+  min-height: 48px !important;
+  padding: 13px 16px !important;
+  white-space: normal !important;
+  line-height: 1.35 !important;
+  font-size: 10px !important;
+  letter-spacing: .04em !important;
+}
+.hero .hero-meta {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+@media (max-width: 900px) {
+  .hero .hero-intro {
+    left: 24px !important;
+    right: 24px !important;
+    bottom: 125px !important;
+    width: auto !important;
+    max-width: 560px !important;
+    font-size: clamp(15px, 2vw, 17px) !important;
+    line-height: 1.6 !important;
+  }
+  .hero .hero-actions {
+    left: 24px !important;
+    right: 24px !important;
+    bottom: 32px !important;
+    width: auto !important;
+    gap: 10px !important;
+  }
+  .hero .hero-actions .button {
+    min-height: 46px !important;
+    font-size: 10px !important;
+    padding: 12px 10px !important;
+  }
+}
+@media (max-width: 480px) {
+  .hero .hero-intro {
+    bottom: 122px !important;
+    left: 20px !important;
+    right: 20px !important;
+    font-size: 14px !important;
+  }
+  .hero .hero-actions {
+    left: 20px !important;
+    right: 20px !important;
+    bottom: 24px !important;
+    flex-direction: column !important;
+  }
+  .hero .hero-actions .button { width: 100% !important; }
+}
