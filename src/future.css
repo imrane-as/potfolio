@@ -5552,3 +5552,168 @@ body, .site-shell { background: #f5f2eb !important; color: #20251d; }
   .hero .hero-actions { bottom: 7% !important; }
   .hero .hero-meta { bottom: 3% !important; gap: 6px !important; }
 }
+
+
+/* CLEAN RESPONSIVE HERO OVERRIDES — replace conflicting positioning with stable zones */
+.hero { isolation: isolate; }
+.hero .hero-copy { position: static !important; }
+.hero .hero-title {
+  z-index: 3 !important;
+  top: 13% !important;
+  left: 50% !important;
+  width: min(88vw, 1500px) !important;
+  transform: translateX(-50%) !important;
+  text-align: center !important;
+  line-height: .82 !important;
+  white-space: nowrap !important;
+  letter-spacing: -.075em !important;
+  font-size: clamp(76px, 13.5vw, 238px) !important;
+}
+.hero .hero-title .surname { display: inline !important; }
+.hero .hero-intro {
+  position: absolute !important;
+  z-index: 6 !important;
+  top: auto !important;
+  left: clamp(32px, 4vw, 76px) !important;
+  right: auto !important;
+  bottom: 17% !important;
+  width: min(29vw, 440px) !important;
+  max-width: 440px !important;
+  margin: 0 !important;
+  transform: none !important;
+  text-align: left !important;
+  font-size: clamp(17px, 1.25vw, 21px) !important;
+  line-height: 1.65 !important;
+  color: #34372f !important;
+}
+.hero .hero-actions {
+  position: absolute !important;
+  z-index: 7 !important;
+  top: auto !important;
+  left: clamp(32px, 4vw, 76px) !important;
+  right: auto !important;
+  bottom: 7% !important;
+  width: min(32vw, 500px) !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 10px !important;
+  transform: none !important;
+}
+.hero .hero-actions .button {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  min-height: 48px !important;
+  padding: 12px 14px !important;
+  font-size: 10px !important;
+  line-height: 1.35 !important;
+  white-space: normal !important;
+  justify-content: center !important;
+}
+.hero .portrait-wrap {
+  z-index: 4 !important;
+}
+.hero .hero-meta {
+  z-index: 6 !important;
+  left: auto !important;
+  right: clamp(28px, 4vw, 76px) !important;
+  bottom: 5% !important;
+  width: 230px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 8px !important;
+  text-align: right !important;
+}
+.hero .hero-meta span { text-align: right !important; }
+
+/* The company strip must stay below the hero and never cover the portrait or copy. */
+.proof-bar { position: relative !important; z-index: 8 !important; }
+.proof-marquee { min-width: 0 !important; overflow: hidden !important; }
+.proof-track { width: max-content !important; }
+
+/* Tablet and phone: put content back into a readable vertical composition. */
+@media (max-width: 900px) {
+  .hero {
+    height: auto !important;
+    min-height: 980px !important;
+    padding: 0 22px 26px !important;
+  }
+  .hero .hero-title {
+    top: 145px !important;
+    left: 50% !important;
+    width: calc(100vw - 24px) !important;
+    white-space: normal !important;
+    font-size: clamp(56px, 11.8vw, 108px) !important;
+    line-height: .86 !important;
+    text-align: center !important;
+  }
+  .hero .hero-title .surname { display: block !important; }
+  .hero .portrait-wrap {
+    top: 260px !important;
+    bottom: 250px !important;
+    left: 50% !important;
+    width: min(68vw, 390px) !important;
+    transform: translateX(-50%) !important;
+  }
+  .hero .hero-intro {
+    left: 24px !important;
+    right: 24px !important;
+    top: auto !important;
+    bottom: 120px !important;
+    width: auto !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    font-size: clamp(15px, 2.1vw, 18px) !important;
+    line-height: 1.55 !important;
+  }
+  .hero .hero-actions {
+    left: 24px !important;
+    right: 24px !important;
+    bottom: 24px !important;
+    width: auto !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+  }
+  .hero .hero-actions .button {
+    min-height: 48px !important;
+    font-size: 10px !important;
+    padding: 10px 8px !important;
+  }
+  .hero .hero-meta { display: none !important; }
+}
+@media (max-width: 480px) {
+  .hero { min-height: 900px !important; }
+  .hero .eyebrow {
+    top: 92px !important;
+    left: 22px !important;
+    right: 22px !important;
+    text-align: center !important;
+    line-height: 1.5 !important;
+  }
+  .hero .hero-title {
+    top: 150px !important;
+    font-size: clamp(48px, 12vw, 60px) !important;
+    letter-spacing: -.06em !important;
+  }
+  .hero .portrait-wrap {
+    top: 250px !important;
+    bottom: 245px !important;
+    width: min(82vw, 330px) !important;
+  }
+  .hero .hero-intro {
+    bottom: 122px !important;
+    left: 20px !important;
+    right: 20px !important;
+    font-size: 14px !important;
+  }
+  .hero .hero-actions {
+    left: 20px !important;
+    right: 20px !important;
+    bottom: 20px !important;
+    flex-direction: column !important;
+    gap: 7px !important;
+  }
+  .hero .hero-actions .button { width: 100% !important; min-height: 42px !important; }
+}
