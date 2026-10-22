@@ -504,3 +504,166 @@
   padding: 0 !important;
   line-height: 1.02 !important;
 }
+
+/* Hero composition inspired by the supplied reference: oversized name,
+   centered cutout portrait and supporting copy on both sides. */
+.hero {
+  position: relative !important;
+  display: block !important;
+  min-height: min(980px, 100svh) !important;
+  height: max(720px, 100svh) !important;
+  padding: 0 4vw 42px !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  color: #151515 !important;
+}
+.hero::before, .hero::after { opacity: .08 !important; }
+.hero .hero-copy {
+  position: static !important;
+  width: 100% !important;
+  max-width: none !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+.hero .hero-copy > .eyebrow,
+.hero .hero-kicker,
+.hero .hero-challenge { display: none !important; }
+.hero .hero-title {
+  position: absolute !important;
+  z-index: 2 !important;
+  top: clamp(78px, 10vh, 118px) !important;
+  left: 50% !important;
+  width: 96vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  transform: translateX(-50%) !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+  font-family: Impact, "Arial Narrow", sans-serif !important;
+  font-size: clamp(74px, 15.8vw, 230px) !important;
+  font-weight: 900 !important;
+  line-height: .82 !important;
+  letter-spacing: -.055em !important;
+  color: #111 !important;
+  animation: none !important;
+  clip-path: none !important;
+  opacity: 1 !important;
+}
+.hero .hero-title > span:first-of-type,
+.hero .hero-title > .surname {
+  display: inline-block !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #111 !important;
+  -webkit-text-fill-color: #111 !important;
+  white-space: nowrap !important;
+  animation: none !important;
+}
+.hero .hero-title > .surname { margin-left: .16em !important; }
+.hero .hero-intro {
+  position: absolute !important;
+  z-index: 4 !important;
+  left: 4vw !important;
+  right: auto !important;
+  top: 62% !important;
+  bottom: auto !important;
+  width: min(30vw, 410px) !important;
+  max-width: 410px !important;
+  margin: 0 !important;
+  text-align: left !important;
+  color: #252525 !important;
+  font-size: clamp(15px, 1.2vw, 18px) !important;
+  line-height: 1.55 !important;
+}
+.hero .hero-actions {
+  position: absolute !important;
+  z-index: 5 !important;
+  left: 4vw !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: 8% !important;
+  width: min(32vw, 440px) !important;
+  justify-content: flex-start !important;
+  margin: 0 !important;
+}
+.hero .portrait-wrap {
+  position: absolute !important;
+  z-index: 3 !important;
+  top: 24% !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  right: auto !important;
+  width: min(42vw, 610px) !important;
+  height: auto !important;
+  margin: 0 !important;
+  transform: translateX(-50%) !important;
+}
+.hero .portrait-frame { height: 100% !important; overflow: visible !important; }
+.hero .portrait-frame .portrait {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center bottom !important;
+}
+.hero .hero-meta {
+  position: absolute !important;
+  z-index: 4 !important;
+  top: 62% !important;
+  right: 4vw !important;
+  left: auto !important;
+  bottom: auto !important;
+  width: min(24vw, 330px) !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 10px !important;
+  color: #8060a0 !important;
+  text-align: right !important;
+}
+@media (max-width: 760px) {
+  .hero {
+    min-height: 780px !important;
+    height: auto !important;
+    padding: 0 20px 32px !important;
+    overflow: hidden !important;
+  }
+  .hero .hero-title {
+    top: 100px !important;
+    width: 100% !important;
+    white-space: normal !important;
+    font-size: clamp(48px, 13vw, 100px) !important;
+    line-height: .88 !important;
+  }
+  .hero .hero-title > span:first-of-type,
+  .hero .hero-title > .surname { display: block !important; }
+  .hero .hero-title > .surname { margin: 0 !important; }
+  .hero .portrait-wrap {
+    top: 230px !important;
+    bottom: 250px !important;
+    width: min(72vw, 390px) !important;
+  }
+  .hero .hero-intro {
+    top: auto !important;
+    bottom: 128px !important;
+    left: 20px !important;
+    right: 20px !important;
+    width: auto !important;
+    max-width: 560px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+  .hero .hero-actions {
+    left: 20px !important;
+    right: 20px !important;
+    bottom: 24px !important;
+    width: auto !important;
+    flex-direction: row !important;
+  }
+  .hero .hero-actions .button { flex: 1 1 0 !important; }
+  .hero .hero-meta { display: none !important; }
+}
