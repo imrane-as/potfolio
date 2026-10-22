@@ -5500,3 +5500,55 @@ body, .site-shell { background: #f5f2eb !important; color: #20251d; }
   }
   .hero .hero-actions .button { width: 100% !important; }
 }
+
+
+/* FINAL HERO COPY ALIGNMENT — readable copy, aligned CTA, metadata off the portrait */
+@media (min-width: 901px) {
+  .hero .hero-intro {
+    left: clamp(40px, 3.4vw, 68px) !important;
+    bottom: 18% !important;
+    width: clamp(360px, 28vw, 480px) !important;
+    max-width: 480px !important;
+    margin: 0 !important;
+    text-align: left !important;
+    font-size: clamp(18px, 1.18vw, 22px) !important;
+    line-height: 1.65 !important;
+    color: #34372f !important;
+  }
+  .hero .hero-actions {
+    left: clamp(40px, 5vw, 96px) !important;
+    right: auto !important;
+    bottom: 10.5% !important;
+    width: clamp(420px, 31vw, 560px) !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+  .hero .hero-actions .button {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    min-height: 52px !important;
+    padding: 14px 16px !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+  }
+  .hero .hero-meta {
+    left: auto !important;
+    right: clamp(32px, 5vw, 90px) !important;
+    bottom: 5% !important;
+    width: 240px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 10px !important;
+    text-align: right !important;
+  }
+  .hero .hero-meta span { text-align: right !important; }
+}
+@media (min-width: 901px) and (max-height: 760px) {
+  .hero .hero-intro { bottom: 16% !important; }
+  .hero .hero-actions { bottom: 7% !important; }
+  .hero .hero-meta { bottom: 3% !important; gap: 6px !important; }
+}
