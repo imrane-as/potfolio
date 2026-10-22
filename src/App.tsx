@@ -23,7 +23,7 @@ const copy = {
     education:{index:"05 / EDUCATION",eyebrow:"FOUNDATION",title:<>Software foundations.<br/><em>Infrastructure mindset.</em></>},
     contact:{index:"06 / LET'S BUILD",title:<>The next system<br/><em>starts with a conversation.</em></>,text:"DevOps, API Management, cloud-native platforms or a difficult integration problem — let's talk.",mail:"imr.asrir@gmail.com"},
     origin:{eyebrow:"ROOTS / ORIGIN",title:<>From Morocco.<br/><em>Built for the world.</em></>,text:"Moroccan roots, European delivery, global engineering mindset."},
-    cv:"Download CV",language:"FR",online:"● online",terminal:"imrane@platform:~",challenge:"🏁 PREMIER QUI TERMINE L’EX280 EN 40 MIN — SCORE IMAGINAIRE : 0/100. La vitesse, c’est bien. La certification, c’est mieux.",os:{open:"OPEN COMMAND",title:"IMRANE OS",hint:"Navigate the system",close:"ESC to close",about:"About me",experience:"Experience",stack:"Tech stack",work:"Selected work",contact:"Contact",proof:"Proof Lab",cv:"Download CV"}
+    cv:"Download CV",language:"FR",online:"● online",terminal:"imrane@platform:~",challenge:"A practical platform engineering portfolio — projects, architecture and delivery.",os:{open:"OPEN COMMAND",title:"IMRANE OS",hint:"Navigate the system",close:"ESC to close",about:"About me",experience:"Experience",stack:"Tech stack",work:"Selected work",contact:"Contact",proof:"Proof Lab",cv:"Download CV"}
   },
   fr: {
     nav:{about:"À propos",experience:"Expérience",stack:"Stack",work:"Projets",contact:"Contact",talk:"Me contacter"},
@@ -37,7 +37,7 @@ const copy = {
     education:{index:"05 / FORMATION",eyebrow:"FONDATIONS",title:<>Fondamentaux logiciels.<br/><em>Culture infrastructure.</em></>},
     contact:{index:"06 / CONSTRUISONS",title:<>Le prochain système<br/><em>commence par une discussion.</em></>,text:"DevOps, API Management, plateformes cloud-native ou problème d'intégration complexe — parlons-en.",mail:"imr.asrir@gmail.com"},
     origin:{eyebrow:"RACINES / ORIGINE",title:<>Du Maroc.<br/><em>Pour le monde.</em></>,text:"Des racines marocaines, une expérience européenne, une culture d'ingénierie ouverte sur le monde."},
-    cv:"Télécharger le CV",language:"EN",online:"● en ligne",terminal:"imrane@platform:~",challenge:"🏁 PREMIER QUI TERMINE L’EX280 EN 40 MIN — SCORE IMAGINAIRE : 0/100. La vitesse, c’est bien. La certification, c’est mieux.",os:{open:"COMMANDES",title:"IMRANE OS",hint:"Naviguer dans le système",close:"Échap pour fermer",about:"À propos",experience:"Expérience",stack:"Stack technique",work:"Projets",contact:"Contact",proof:"Proof Lab",cv:"Télécharger le CV"}
+    cv:"Télécharger le CV",language:"EN",online:"● en ligne",terminal:"imrane@platform:~",challenge:"Un portfolio d’ingénierie plateforme : projets, architecture et mise en production.",os:{open:"COMMANDES",title:"IMRANE OS",hint:"Naviguer dans le système",close:"Échap pour fermer",about:"À propos",experience:"Expérience",stack:"Stack technique",work:"Projets",contact:"Contact",proof:"Proof Lab",cv:"Télécharger le CV"}
   }
 } as const;
 
@@ -200,8 +200,8 @@ function App(){
       <div className={`nav-links ${menuOpen?"open":""}`}>
         {([["about",t.nav.about],["experience",t.nav.experience],["stack",t.nav.stack],["work",t.nav.work],["contact",t.nav.contact]] as const).map(([id,label])=><a key={id} href={"#"+id} onClick={()=>setMenuOpen(false)}>{label}</a>)}
       </div>
-      <div className="nav-tools"><button className="lang-switch" onClick={()=>setLang(lang==="en"?"fr":"en")}><Languages size={14}/>{lang.toUpperCase()} <span>→ {t.language}</span></button><button className="command-trigger" onClick={()=>setCommandOpen(true)} aria-label={t.os.open}><Command size={13}/><span>⌘K</span></button><button className="cv-button" onClick={downloadCV}><Download size={14}/>{t.cv}</button><a className="nav-cta" href="#contact">{t.nav.talk} <ArrowUpRight size={15}/></a></div>
-      <button className="menu-button" onClick={()=>setMenuOpen(!menuOpen)} aria-label="Toggle menu">{menuOpen?<X size={21}/>:<Menu size={21}/>}</button>
+      <div className="nav-tools"><button className="lang-switch" type="button" aria-label={lang==="en"?"Switch language to French":"Passer le site en anglais"} onClick={()=>setLang(lang==="en"?"fr":"en")}><Languages size={14}/>{lang.toUpperCase()} <span>→ {t.language}</span></button><button className="command-trigger" onClick={()=>setCommandOpen(true)} aria-label={t.os.open}><Command size={13}/><span>⌘K</span></button><button className="cv-button" onClick={downloadCV}><Download size={14}/>{t.cv}</button><a className="nav-cta" href="#contact">{t.nav.talk} <ArrowUpRight size={15}/></a></div>
+      <button className="menu-button" type="button" aria-expanded={menuOpen} aria-controls="primary-navigation" onClick={()=>setMenuOpen(!menuOpen)} aria-label={menuOpen?"Close navigation menu":"Open navigation menu"}>{menuOpen?<X size={21}/>:<Menu size={21}/>}</button>
     </header>
     {commandOpen&&<div className="command-overlay" onMouseDown={()=>setCommandOpen(false)}>
       <div className="command-palette" role="dialog" aria-modal="true" aria-label={t.os.title} onMouseDown={e=>e.stopPropagation()}>
@@ -224,7 +224,7 @@ function App(){
         <div className="hero-copy"><div className="eyebrow reveal" data-reveal><span className="status-dot"/> {t.hero.eyebrow}</div><p className="hero-kicker reveal delay-1" data-reveal>{t.hero.kicker}</p><div className="hero-challenge reveal delay-1" data-reveal><span>EX280 / 40 MIN</span><strong>Le premier qui termine gagne… absolument rien.</strong><small>Score imaginaire : 0/100</small></div><h1 className="hero-title reveal delay-2" data-reveal>IMRANE <span className="surname">ASRIR</span></h1><p className="hero-intro reveal delay-3" data-reveal>{t.hero.intro}</p>
           <div className="hero-actions reveal delay-4" data-reveal><a href="#work" className="button button-primary">{t.hero.work}<ArrowDownRight size={18}/></a><button onClick={downloadCV} className="button button-ghost"><Download size={17}/>{t.cv}</button></div>
         </div>
-        <div className="portrait-wrap reveal delay-2" data-reveal><div className="portrait-frame"><div className="portrait-label top">ENGINEER / 2026</div><img src="/imrane-portrait.webp" alt="Imrane Asrir — professional portrait" className="portrait" width="900" height="900" fetchPriority="high" decoding="async"/><div className="portrait-glow"/><div className="portrait-scan"/><div className="portrait-label bottom">BUILD · SHIP · OPERATE</div></div></div>
+        <div className="portrait-wrap reveal delay-2" data-reveal><div className="portrait-frame"><div className="portrait-label top">ENGINEER / 2026</div><img src="/imrane-portrait.webp" alt="Imrane Asrir — professional portrait" className="portrait" width="1054" height="1475" fetchPriority="high" decoding="async"/><div className="portrait-glow"/><div className="portrait-scan"/><div className="portrait-label bottom">BUILD · SHIP · OPERATE</div></div></div>
         <div className="hero-meta"><span>METZ / FRANCE</span><span>LUXEMBOURG</span><span>{t.hero.meta}</span></div>
       </section>
 
